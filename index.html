@@ -10,12 +10,12 @@
         /* Fondo con la imagen de wallpaper */
         body {
             background-image: url('https://wallpapercave.com/wp/wp6238995.jpg'); /* Reemplaza esto con la URL de tu imagen */
-            background-size: cover; /* La imagen se ajustará para cubrir toda la pantalla */
-            background-position: center center; /* Centra la imagen en la pantalla */
-            background-attachment: fixed; /* Hace que el fondo no se mueva al hacer scroll */
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
             font-family: 'Poppins', sans-serif;
             padding: 30px;
-            color: #ffffff; /* Ajusta el color del texto para que sea visible sobre el fondo */
+            color: #ffffff;
         }
         h1 {
             color: #ebecf3;
@@ -23,7 +23,6 @@
             font-weight: 600;
             text-align: center;
             margin-bottom: 40px;
-            font-size: bold;
         }
         h3 {
             color: #eaedee;
@@ -34,7 +33,7 @@
         .list-group {
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente para las listas */
+            background-color: rgba(0, 0, 0, 0.6);
         }
         .list-group-item {
             background-color: #ffffff;
@@ -56,18 +55,38 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        .tab-content {
-            margin-top: 30px;
+        /* Nuevos estilos para los cuadros de menú */
+        .menu-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
         }
-        /* Nueva regla para eliminar el color azul de los enlaces */
+        .menu-button {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 150px;
+        }
+        .menu-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
         .nav-link {
-            color: #fff; /* Establece el color blanco para los enlaces */
+            color: #fff;
+            padding: 10px 20px;
+            background-color: #000;
+            border-radius: 8px;
+            text-align: center;
         }
         .nav-link.active {
-            color: #fff; /* Mantiene el color blanco para el enlace activo */
+            background-color: #007bff;
         }
         .nav-link:hover {
-            color: #ddd; /* Cambia el color al pasar el ratón sobre el enlace */
+            background-color: #5c6bc0;
         }
         @media (max-width: 767.98px) {
             h1 {
@@ -80,6 +99,13 @@
                 font-size: 16px;
                 padding: 12px 15px;
             }
+            .menu-buttons {
+                flex-direction: column;
+            }
+            .menu-button {
+                margin-bottom: 15px;
+                width: auto;
+            }
         }
     </style>
 </head>
@@ -87,29 +113,18 @@
     <div class="container">
         <h1>Warhol Café Bar</h1>
         
-        <!-- Menú de navegación -->
-        <ul class="nav nav-tabs" id="menuTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="bebidas-calientes-tab" data-toggle="tab" href="#bebidas-calientes" role="tab" aria-controls="bebidas-calientes" aria-selected="true">Bebidas Calientes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="cervezas-tab" data-toggle="tab" href="#cervezas" role="tab" aria-controls="cervezas" aria-selected="false">Cervezas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="jarra-cervezas-tab" data-toggle="tab" href="#jarra-cervezas" role="tab" aria-controls="jarra-cervezas" aria-selected="false">Jarra de Cervezas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="licores-tab" data-toggle="tab" href="#licores" role="tab" aria-controls="licores" aria-selected="false">Licores</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="bebidas-frias-tab" data-toggle="tab" href="#bebidas-frias" role="tab" aria-controls="bebidas-frias" aria-selected="false">Bebidas Frías</a>
-            </li>
-        </ul>
+        <!-- Botones de menú -->
+        <div class="menu-buttons">
+            <div class="menu-button" data-toggle="tab" href="#bebidas-calientes">Bebidas Calientes</div>
+            <div class="menu-button" data-toggle="tab" href="#cervezas">Cervezas</div>
+            <div class="menu-button" data-toggle="tab" href="#jarra-cervezas">Jarra de Cervezas</div>
+            <div class="menu-button" data-toggle="tab" href="#licores">Licores</div>
+            <div class="menu-button" data-toggle="tab" href="#bebidas-frias">Bebidas Frías</div>
+        </div>
         
         <!-- Contenido de las pestañas -->
         <div class="tab-content" id="menuTabContent">
-            <!-- Bebidas Calientes -->
-            <div class="tab-pane fade show active" id="bebidas-calientes" role="tabpanel" aria-labelledby="bebidas-calientes-tab">
+            <div class="tab-pane fade show active" id="bebidas-calientes" role="tabpanel">
                 <h3>Bebidas Calientes</h3>
                 <ul class="list-group">
                     <li class="list-group-item">Expresso - $4000</li>
@@ -117,33 +132,17 @@
                     <li class="list-group-item">Capuchino - $8000</li>
                     <li class="list-group-item">Milo caliente grande - $11000</li>
                     <li class="list-group-item">Milo caliente pequeño - $10000</li>
-                    <li class="list-group-item">Chocolate con queso - $12000</li>
-                    <li class="list-group-item">Canelazo (canela, maracuyá, panela, especias) - $10000</li>
-                    <li class="list-group-item">Aromática con frutas - $9000</li>
-                    <li class="list-group-item">Carajillo - $10000</li>
-                    <li class="list-group-item">Tinto de verano (vino tinto, Sprite, limón) - $15000</li>
-                    <li class="list-group-item">Capuchino con licor (ron, whiskey, aguardiente) - $15000</li>
-                    <li class="list-group-item">Maicena de vainilla/milo/chocolate/arequipe/café - $10000</li>
-                    <li class="list-group-item">Tchai (jengibre, especias, cardamomo, leche) - $10000</li>
                 </ul>
             </div>
-            <!-- Cervezas -->
-            <div class="tab-pane fade" id="cervezas" role="tabpanel" aria-labelledby="cervezas-tab">
+            <div class="tab-pane fade" id="cervezas" role="tabpanel">
                 <h3>Cervezas</h3>
                 <ul class="list-group">
                     <li class="list-group-item">Cerveza Águila Cero - $3500</li>
                     <li class="list-group-item">Cerveza Águila Light - $5000</li>
                     <li class="list-group-item">Cerveza Poker - $5000</li>
-                    <li class="list-group-item">Cerveza Águila Original - $5000</li>
-                    <li class="list-group-item">Cerveza Heineken - $10000</li>
-                    <li class="list-group-item">Cerveza Stella Artois - $10000</li>
-                    <li class="list-group-item">Cerveza 3 Cordilleras - $10000</li>
-                    <li class="list-group-item">Cerveza Club Colombia - $7000</li>
-                    <li class="list-group-item">Cerveza BBC - $9000</li>
                 </ul>
             </div>
-            <!-- Jarra de Cervezas -->
-            <div class="tab-pane fade" id="jarra-cervezas" role="tabpanel" aria-labelledby="jarra-cervezas-tab">
+            <div class="tab-pane fade" id="jarra-cervezas" role="tabpanel">
                 <h3>Jarra de Cervezas</h3>
                 <ul class="list-group">
                     <li class="list-group-item">Club Colombia - $20000</li>
@@ -151,55 +150,23 @@
                     <li class="list-group-item">Poker - $17000</li>
                 </ul>
             </div>
-            <!-- Licores -->
-            <div class="tab-pane fade" id="licores" role="tabpanel" aria-labelledby="licores-tab">
+            <div class="tab-pane fade" id="licores" role="tabpanel">
                 <h3>Licores</h3>
                 <ul class="list-group">
                     <li class="list-group-item">Aguardiente Amarillo 1/2 - $45000</li>
                     <li class="list-group-item">Aguardiente Amarillo Botella - $80000</li>
-                    <li class="list-group-item">Ron Viejo de Caldas 1/2 - $55000</li>
-                    <li class="list-group-item">Botella Ron Viejo de Caldas - $80000</li>
-                    <li class="list-group-item">Aguardiente Tapa Azul 1/2 - $45000</li>
-                    <li class="list-group-item">Aguardiente Botella - $80000</li>
-                    <li class="list-group-item">Aguardiente Tapa Roja 1/2 - $45000</li>
-                    <li class="list-group-item">Aguardiente Botella - $80000</li>
                 </ul>
             </div>
-            <!-- Bebidas Frías -->
-            <div class="tab-pane fade" id="bebidas-frias" role="tabpanel" aria-labelledby="bebidas-frias-tab">
+            <div class="tab-pane fade" id="bebidas-frias" role="tabpanel">
                 <h3>Bebidas Frías</h3>
                 <ul class="list-group">
                     <li class="list-group-item">Soda saborizada Blue Berry - $12000</li>
                     <li class="list-group-item">Soda saborizada Frutos Rojos - $12000</li>
-                    <li class="list-group-item">Soda saborizada Frutos Amarillos - $12000</li>
-                    <li class="list-group-item">Jugo de Mora en Agua - $9000</li>
-                    <li class="list-group-item">Jugo de Mora en Leche - $11000</li>
-                    <li class="list-group-item">Milo Frío Grande - $12000</li>
-                    <li class="list-group-item">Milo Frío Pequeño - $10000</li>
-                    <li class="list-group-item">Granizado de Café Grande - $12500</li>
-                    <li class="list-group-item">Granizado de Café Pequeño - $10000</li>
-                    <li class="list-group-item">Limonada de Coco Grande - $12000</li>
-                    <li class="list-group-item">Limonada de Coco Pequeña - $10000</li>
-                    <li class="list-group-item">Limonada de Cereza Grande - $12000</li>
-                    <li class="list-group-item">Limonada de Cereza Pequeña - $10000</li>
-                    <li class="list-group-item">Limonada de Mango Biche Grande - $12000</li>
-                    <li class="list-group-item">Limonada de Mango Biche Pequeña - $10000</li>
-                    <li class="list-group-item">Limonada de Vino Tinto - $16000</li>
-                    <li class="list-group-item">Tamarindo Michelado - $8000</li>
-                    <li class="list-group-item">Botella de Agua - $4000</li>
-                    <li class="list-group-item">Botella de Agua Manantial - $7000</li>
-                    <li class="list-group-item">Malteada (Oreo, Maracuyá, Milo, Café) - $16000</li>
-                    <li class="list-group-item">Malteada Pequeña - $10000</li>
-                    <li class="list-group-item">Limonada de Frutos Rojos - $10000</li>
-                    <li class="list-group-item">Limonada de Frutos Amarillos - $10000</li>
-                    <li class="list-group-item">Affogato (Expreso, Helado de Vainilla) - $15000</li>
-                    <li class="list-group-item">Jugos Hit - $4300</li>
-                    <li class="list-group-item">Coca Cola - $4500</li>
                 </ul>
             </div>
         </div>
     </div>
-    
+
     <!-- Scripts de Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
