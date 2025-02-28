@@ -9,37 +9,45 @@
     <style>
         /* Fondo con la imagen de wallpaper */
         body {
-            background-image: url('https://wallpapercave.com/wp/wp6238995.jpg'); /* Reemplaza esto con la URL de tu imagen */
+            background-image: url('https://wallpapercave.com/wp/wp6238995.jpg'); 
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
             font-family: 'Poppins', sans-serif;
             padding: 30px;
             color: #ffffff;
+            margin: 0;
+            transition: background-color 0.3s;
         }
+
         .list-group-item:hover {
-    color: #0e0303; /* Puedes ajustar este color si lo prefieres */
-    background-color: #f8c8d3; /* Rosado claro */
-}
+            color: #0e0303; 
+            background-color: #f8c8d3; /* Rosado claro */
+        }
 
         h1 {
             color: #ebecf3;
-            font-size: 36px;
+            font-size: 42px;
             font-weight: 600;
             text-align: center;
             margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
+
         h3 {
             color: #eaedee;
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 500;
             margin-bottom: 20px;
         }
+
         .list-group {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
             background-color: rgba(0, 0, 0, 0.6);
         }
+
         .list-group-item {
             background-color: #ffffff;
             border: 1px solid #e6e9ec;
@@ -49,23 +57,31 @@
             margin-bottom: 12px;
             font-size: 18px;
             transition: background-color 0.3s, color 0.3s;
+            text-transform: capitalize;
         }
+
         .list-group-item:hover {
             color: #0e0303;
+            background-color: #f8c8d3;
         }
+
         .list-group-item:last-child {
             margin-bottom: 0;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
         }
-        /* Nuevos estilos para los cuadros de menú */
+
+        /* Nuevos estilos para los botones de menú */
         .menu-buttons {
             display: flex;
             justify-content: space-around;
             margin-bottom: 30px;
+            flex-wrap: wrap;
         }
+
         .menu-button {
             background-color: rgba(0, 0, 0, 0.6);
             color: #fff;
@@ -76,40 +92,67 @@
             cursor: pointer;
             transition: background-color 0.3s;
             width: 150px;
+            margin-bottom: 15px;
         }
+
         .menu-button:hover {
             background-color: rgba(0, 0, 0, 0.8);
+            transform: translateY(-5px);
         }
+
         .nav-link {
             color: #fff;
             padding: 10px 20px;
             background-color: #000;
             border-radius: 8px;
             text-align: center;
+            transition: background-color 0.3s, transform 0.3s;
         }
+
         .nav-link.active {
             background-color: #007bff;
         }
+
         .nav-link:hover {
             background-color: #5c6bc0;
+            transform: scale(1.1);
         }
+
         @media (max-width: 767.98px) {
             h1 {
                 font-size: 28px;
             }
+
             h3 {
                 font-size: 20px;
             }
+
             .list-group-item {
                 font-size: 16px;
                 padding: 12px 15px;
             }
+
             .menu-buttons {
                 flex-direction: column;
             }
+
             .menu-button {
-                margin-bottom: 15px;
                 width: auto;
+            }
+        }
+
+        /* Efectos para las pestañas */
+        .tab-content {
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
             }
         }
     </style>
@@ -117,7 +160,7 @@
 <body>
     <div class="container">
         <h1>Warhol Café Bar</h1>
-        
+
         <!-- Pestañas de menú -->
         <ul class="nav nav-pills menu-buttons">
             <li class="nav-item">
@@ -127,7 +170,7 @@
                 <a class="nav-link" id="cervezas-tab" data-toggle="pill" href="#cervezas">Cervezas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="cocteles-tab" data-toggle="pill" href="#cocteles">Cocteles</a>
+                <a class="nav-link" id="cocteles-tab" data-toggle="pill" href="#cocteles">Cócteles</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="licores-tab" data-toggle="pill" href="#licores">Licores</a>
@@ -139,7 +182,7 @@
                 <a class="nav-link" id="tortas-tab" data-toggle="pill" href="#tortas">Tortas</a>
             </li>
         </ul>
-        
+
         <!-- Contenido de las pestañas -->
         <div class="tab-content" id="menuTabContent">
             <div class="tab-pane fade show active" id="bebidas-calientes" role="tabpanel">
@@ -148,18 +191,18 @@
                     <li class="list-group-item">Expresso - $4000</li>
                     <li class="list-group-item">Americano - $6000</li>
                     <li class="list-group-item">Capuchino - $8000</li>
-                    <li class="list-group-item">Capuchino con Crema de  whisky BAILEYS - $15000</li>
+                    <li class="list-group-item">Capuchino con Crema de whisky BAILEYS - $15000</li>
                     <li class="list-group-item">Milo caliente - $11000</li>
                     <li class="list-group-item">Chocolate con Queso - $12000</li>
                     <li class="list-group-item">Chocolate con Masmelo - $8000</li>
-                    <li class="list-group-item">Canelazo (Cafe,Maracuya,Panela,Especies)- $11000</li>
-                    <li class="list-group-item">Aromatica con frutas-9000$</li>
-                    <li class="list-group-item">Carajillo-10000$</li>
-                    <li class="list-group-item">Tinto de Verano-(Vino tinto-Sprite, Limon)- 15000$</li>
-                    <li class="list-group-item">Capuchino con licor(Ron,WHiskey,Aguardiente)- 15000$</li>
-                    <li class="list-group-item">Maicena De Vainilla(Milo,chocolate,Te,Arequipe)- 10000$</li>
-                     <li class="list-group-item">Vino caliente(Canela,clavos de olor, Anis estrellado, jugo de naranja, azucar)- 15000$</li>
-                    <li class="list-group-item">Tchai(Jengibre,especias).10000$</li>
+                    <li class="list-group-item">Canelazo (Cafe, Maracuya, Panela, Especies) - $11000</li>
+                    <li class="list-group-item">Aromática con frutas - $9000</li>
+                    <li class="list-group-item">Carajillo - $10000</li>
+                    <li class="list-group-item">Tinto de Verano (Vino tinto-Sprite, Limon) - $15000</li>
+                    <li class="list-group-item">Capuchino con licor (Ron, Whiskey, Aguardiente) - $15000</li>
+                    <li class="list-group-item">Maicena de Vainilla (Milo, chocolate, Té, Arequipe) - $10000</li>
+                    <li class="list-group-item">Vino caliente (Canela, clavos de olor, Anís estrellado, jugo de naranja, azúcar) - $15000</li>
+                    <li class="list-group-item">Tchai (Jengibre, especias) - $10000</li>
                 </ul>
             </div>
             <div class="tab-pane fade" id="cocteles" role="tabpanel">
@@ -178,67 +221,68 @@
             <div class="tab-pane fade" id="cervezas" role="tabpanel">
                 <h3>Cervezas</h3>
                 <ul class="list-group">
-                    <li class="list-group-item">Jarra De Cerveza CLub Colombia $ 25000</li>
-                    <li class="list-group-item">Jarra De Cerveza Poker 20000$</li>
-                    <li class="list-group-item">Jarra De Cerveza Aguila Original 20000$</li>
+                    <li class="list-group-item">Jarra De Cerveza CLub Colombia - $25000</li>
+                    <li class="list-group-item">Jarra De Cerveza Poker - $20000</li>
+                    <li class="list-group-item">Jarra De Cerveza Aguila Original - $20000</li>
                     <li class="list-group-item">Cerveza Águila Light - $5000</li>
                     <li class="list-group-item">Cerveza Poker - $5000</li>
                     <li class="list-group-item">Cerveza Águila Original - $5000</li>
-                    <li class="list-group-item">Cerveza Heinekeen-$10000</li>
+                    <li class="list-group-item">Cerveza Heineken - $10000</li>
                     <li class="list-group-item">Cerveza Stella Artois - $10000</li>
                     <li class="list-group-item">Cerveza 3 Cordilleras - $10000</li>
-                    <li class="list-group-item">Cerveza club colombia - $7000</li>
+                    <li class="list-group-item">Cerveza Club Colombia - $7000</li>
                 </ul>
             </div>
+
             <div class="tab-pane fade" id="licores" role="tabpanel">
                 <h3>Licores</h3>
                 <ul class="list-group">
                     <li class="list-group-item">Aguardiente Amarillo 1/2 - $45000</li>
                     <li class="list-group-item">Aguardiente Amarillo Botella - $80000</li>
                     <li class="list-group-item">Whisky JACK DANIELS Tennessee Honey - $100000</li>
-                    <li class="list-group-item">ROn Juan De La Cruz 1/2 - $65000</li>
-                    <li class="list-group-item">ROn Tradicional Viejo de Caldas 1/2 - $50000</li>
+                    <li class="list-group-item">Ron Juan De La Cruz 1/2 - $65000</li>
+                    <li class="list-group-item">Ron Tradicional Viejo de Caldas 1/2 - $50000</li>
                     <li class="list-group-item">Trago Corto de Ron - $3000</li>
                     <li class="list-group-item">Trago Corto de Aguardiente tapa azul - $3000</li>
-                    <li class="list-group-item">Trago Corto de  Jägermeister- $4500</li>
-                    <li class="list-group-item">Trago Corto de  JackDaniels- $5500</li>
-                    <li class="list-group-item">Trago Corto de  ginebra Gordon's London Dry- $7500</li>
-                    <li class="list-group-item">Trago Corto de  Falcony $4500</li>
-                    <li class="list-group-item">Trago Corto de Tequila jimador Blanco $6000</li>
-                    <li class="list-group-item">Trago Corto de Tequila Olmeco $4500</li>
-                    <li class="list-group-item">Trago Corto de Vodka $5000</li>
-
-                    
+                    <li class="list-group-item">Trago Corto de Jägermeister - $4500</li>
+                    <li class="list-group-item">Trago Corto de Jack Daniels - $5500</li>
+                    <li class="list-group-item">Trago Corto de Ginebra Gordon's London Dry - $7500</li>
+                    <li class="list-group-item">Trago Corto de Falcony - $4500</li>
+                    <li class="list-group-item">Trago Corto de Tequila Jimador Blanco - $6000</li>
+                    <li class="list-group-item">Trago Corto de Tequila Olmeco - $4500</li>
+                    <li class="list-group-item">Trago Corto de Vodka - $5000</li>
                 </ul>
             </div>
+
             <div class="tab-pane fade" id="bebidas-frias" role="tabpanel">
                 <h3>Bebidas Frías</h3>
                 <ul class="list-group">
                     <li class="list-group-item">Soda saborizada Blue Berry - $12000</li>
                     <li class="list-group-item">Soda saborizada Frutos Rojos - $12000</li>
                     <li class="list-group-item">Soda saborizada Frutos Amarillos - $12000</li>
-                    <li class="list-group-item">Jugo de Mora En Agua  - $9000</li>
-                    <li class="list-group-item">Jugo de Mora En Leche - $12000</li>
-                    <li class="list-group-item">Milo frio  - $12000</li>
-                    <li class="list-group-item">Granizado de cafe  - $12000</li>
-                    <li class="list-group-item">Limonada de coco  - $12000</li>
-                    <li class="list-group-item">Limonada de cereza  - $12000</li>
-                    <li class="list-group-item">Limonada de Mango Biche  - $12000</li>
-                    <li class="list-group-item">Limonada de Vino Tinto   - $16000</li>
-                    <li class="list-group-item">Malteada de Oreo   - $16000</li>
-                    <li class="list-group-item">Limonada de frutos rojos   - $10000</li>
-                    <li class="list-group-item">Limonada de frutos Amarillos   - $10000</li>
-                    <li class="list-group-item">Jugos Hit   - $4300</li>
-                    <li class="list-group-item">Cocacola   - $4500</li>
-                    <li class="list-group-item">Botella de Agua   - $4000</li>
-                    <li class="list-group-item">Botella de Agua con Gas   - $4500</li>
+                    <li class="list-group-item">Jugo de Mora en Agua - $9000</li>
+                    <li class="list-group-item">Jugo de Mora en Leche - $12000</li>
+                    <li class="list-group-item">Milo Frío - $12000</li>
+                    <li class="list-group-item">Granizado de Café - $12000</li>
+                    <li class="list-group-item">Limonada de Coco - $12000</li>
+                    <li class="list-group-item">Limonada de Cereza - $12000</li>
+                    <li class="list-group-item">Limonada de Mango Biche - $12000</li>
+                    <li class="list-group-item">Limonada de Vino Tinto - $16000</li>
+                    <li class="list-group-item">Malteada de Oreo - $16000</li>
+                    <li class="list-group-item">Limonada de Frutos Rojos - $10000</li>
+                    <li class="list-group-item">Limonada de Frutos Amarillos - $10000</li>
+                    <li class="list-group-item">Jugos Hit - $4300</li>
+                    <li class="list-group-item">Coca Cola - $4500</li>
+                    <li class="list-group-item">Botella de Agua - $4000</li>
+                    <li class="list-group-item">Botella de Agua con Gas - $4500</li>
                 </ul>
             </div>
+
             <!-- Nueva sección para Tortas -->
             <div class="tab-pane fade" id="tortas" role="tabpanel">
                 <h3>Tortas</h3>
                 <ul class="list-group">
-                    <li class="list-group-item">Torta de chocolate y cafe  - $7000</li>
+                    <li class="list-group-item">Torta de Chocolate y Café - $7000</li>
                 </ul>
             </div>
         </div>
