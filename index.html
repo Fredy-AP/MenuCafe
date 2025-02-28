@@ -113,14 +113,27 @@
     <div class="container">
         <h1>Warhol Café Bar</h1>
         
-        <!-- Botones de menú -->
-        <div class="menu-buttons">
-            <div class="menu-button" data-toggle="tab" href="#bebidas-calientes">Bebidas Calientes</div>
-            <div class="menu-button" data-toggle="tab" href="#cervezas">Cervezas</div>
-            <div class="menu-button" data-toggle="tab" href="#jarra-cervezas">Jarra de Cervezas</div>
-            <div class="menu-button" data-toggle="tab" href="#licores">Licores</div>
-            <div class="menu-button" data-toggle="tab" href="#bebidas-frias">Bebidas Frías</div>
-        </div>
+        <!-- Pestañas de menú -->
+        <ul class="nav nav-pills menu-buttons">
+            <li class="nav-item">
+                <a class="nav-link active" id="bebidas-calientes-tab" data-toggle="pill" href="#bebidas-calientes">Bebidas Calientes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="cervezas-tab" data-toggle="pill" href="#cervezas">Cervezas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="cocteles-tab" data-toggle="pill" href="#cocteles">Cocteles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="licores-tab" data-toggle="pill" href="#licores">Licores</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="bebidas-frias-tab" data-toggle="pill" href="#bebidas-frias">Bebidas Frías</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tortas-tab" data-toggle="pill" href="#tortas">Tortas</a>
+            </li>
+        </ul>
         
         <!-- Contenido de las pestañas -->
         <div class="tab-content" id="menuTabContent">
@@ -130,24 +143,44 @@
                     <li class="list-group-item">Expresso - $4000</li>
                     <li class="list-group-item">Americano - $6000</li>
                     <li class="list-group-item">Capuchino - $8000</li>
-                    <li class="list-group-item">Milo caliente grande - $11000</li>
-                    <li class="list-group-item">Milo caliente pequeño - $10000</li>
+                    <li class="list-group-item">Milo caliente - $11000</li>
+                    <li class="list-group-item">Chocolate con Queso - $12000</li>
+                    <li class="list-group-item">Canelazo (Cafe,Maracuya,Panela,Especies)- $11000</li>
+                    <li class="list-group-item">Aromatica con frutas-9000$</li>
+                    <li class="list-group-item">Carajillo-10000$</li>
+                    <li class="list-group-item">Tinto de Verano-(Vino tinto-Sprite, Limon)- 15000$</li>
+                    <li class="list-group-item">Capuchino con licor(Ron,WHiskey,Aguardiente)- 15000$</li>
+                    <li class="list-group-item">Maicena De Vainilla(Milo,chocolate,Te,Arequipe,Cafe)- 10000$</li>
+                    <li class="list-group-item">Tchai(Jengibre,especias,cardamono)- 10000$</li>
                 </ul>
             </div>
+            <div class="tab-pane fade" id="cocteles" role="tabpanel">
+                <h3>Cócteles</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Cóctel Blue Lady - $20000</li>
+                    <li class="list-group-item">Cóctel Destornillador - $25000</li>
+                    <li class="list-group-item">Blue Margarita - $20000</li>
+                    <li class="list-group-item">Cóctel Cielo Azul - $22000</li>
+                    <li class="list-group-item">Bacardi con Limón - $18000</li>
+                    <li class="list-group-item">Bacardi con Sprite - $16000</li>
+                </ul>
+            </div>
+            
             <div class="tab-pane fade" id="cervezas" role="tabpanel">
                 <h3>Cervezas</h3>
                 <ul class="list-group">
-                    <li class="list-group-item">Cerveza Águila Cero - $3500</li>
+                    <li class="list-group-item">Jarra De Cerveza CLub Colombia $ 25000</li>
+                    <li class="list-group-item">Jarra De Cerveza Poker 20000$</li>
+                    <li class="list-group-item">Jarra De Cerveza Aguila Original 20000$</li>
+                    <li class="list-group-item">Águila Original - $20000</li>
+                    <li class="list-group-item">Poker - $20000</li>
                     <li class="list-group-item">Cerveza Águila Light - $5000</li>
                     <li class="list-group-item">Cerveza Poker - $5000</li>
-                </ul>
-            </div>
-            <div class="tab-pane fade" id="jarra-cervezas" role="tabpanel">
-                <h3>Jarra de Cervezas</h3>
-                <ul class="list-group">
-                    <li class="list-group-item">Club Colombia - $20000</li>
-                    <li class="list-group-item">Águila Original - $17000</li>
-                    <li class="list-group-item">Poker - $17000</li>
+                    <li class="list-group-item">Cerveza Águila Original - $5000</li>
+                    <li class="list-group-item">Cerveza Heinekeen-$10000</li>
+                    <li class="list-group-item">Cerveza Stella Artois - $10000</li>
+                    <li class="list-group-item">Cerveza 3 Cordilleras - $10000</li>
+                    <li class="list-group-item">Cerveza club colombia - $7000</li>
                 </ul>
             </div>
             <div class="tab-pane fade" id="licores" role="tabpanel">
@@ -155,6 +188,20 @@
                 <ul class="list-group">
                     <li class="list-group-item">Aguardiente Amarillo 1/2 - $45000</li>
                     <li class="list-group-item">Aguardiente Amarillo Botella - $80000</li>
+                    <li class="list-group-item">Whisky JACK DANIELS Tennessee Honey - $100000</li>
+                    <li class="list-group-item">ROn Juan De La Cruz 1/2 - $65000</li>
+                    <li class="list-group-item">ROn Tradicional Viejo de Caldas 1/2 - $50000</li>
+                    <li class="list-group-item">Trago Corto de Ron - $3000</li>
+                    <li class="list-group-item">Trago Corto de Aguardiente tapa azul - $3000</li>
+                    <li class="list-group-item">Trago Corto de  Jägermeister- $4500</li>
+                    <li class="list-group-item">Trago Corto de  JackDaniels- $5500</li>
+                    <li class="list-group-item">Trago Corto de  ginebra Gordon's London Dry- $7500</li>
+                    <li class="list-group-item">Trago Corto de  Falcony $4500</li>
+                    <li class="list-group-item">Trago Corto de Tequila jimador Blanco $6000</li>
+                    <li class="list-group-item">Trago Corto de Tequila Olmeco $4500</li>
+                    <li class="list-group-item">Trago Corto de Vodka $5000</li>
+
+                    
                 </ul>
             </div>
             <div class="tab-pane fade" id="bebidas-frias" role="tabpanel">
@@ -162,14 +209,38 @@
                 <ul class="list-group">
                     <li class="list-group-item">Soda saborizada Blue Berry - $12000</li>
                     <li class="list-group-item">Soda saborizada Frutos Rojos - $12000</li>
+                    <li class="list-group-item">Soda saborizada Frutos Amarillos - $12000</li>
+                    <li class="list-group-item">Jugo de Mora En Agua  - $9000</li>
+                    <li class="list-group-item">Jugo de Mora En Leche - $12000</li>
+                    <li class="list-group-item">Milo frio  - $12000</li>
+                    <li class="list-group-item">Granizado de cafe  - $12000</li>
+                    <li class="list-group-item">Limonada de coco  - $12000</li>
+                    <li class="list-group-item">Limonada de cereza  - $12000</li>
+                    <li class="list-group-item">Limonada de Mango Biche  - $12000</li>
+                    <li class="list-group-item">Limonada de Vino Tinto   - $16000</li>
+                    <li class="list-group-item">Malteada de Oreo   - $16000</li>
+                    <li class="list-group-item">Limonada de frutos rojos   - $10000</li>
+                    <li class="list-group-item">Limonada de frutos Amarillos   - $10000</li>
+                    <li class="list-group-item">Jugos Hit   - $4300</li>
+                    <li class="list-group-item">Cocacola   - $4500</li>
+                    <li class="list-group-item">Botella de Agua   - $4000</li>
+                    <li class="list-group-item">Botella de Agua con Gas   - $4500</li>
+                </ul>
+            </div>
+            <!-- Nueva sección para Tortas -->
+            <div class="tab-pane fade" id="tortas" role="tabpanel">
+                <h3>Tortas</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Torta de chocolate y cafe  - $7000</li>
                 </ul>
             </div>
         </div>
     </div>
 
     <!-- Scripts de Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
