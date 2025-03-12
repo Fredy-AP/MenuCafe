@@ -12,6 +12,8 @@
             color: #fff;
             font-family: 'Lora', serif;
             padding-bottom: 30px;
+            overflow-x: hidden;
+            position: relative;
         }
         .menu-container {
             max-width: 800px;
@@ -20,6 +22,8 @@
             background: rgba(0, 0, 0, 0.8);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 1;
         }
         .menu-title {
             text-align: center;
@@ -57,6 +61,40 @@
             font-weight: bold;
             min-width: 70px;
             text-align: right;
+        }
+        
+        /* Estilos para las estrellas o hojas */
+        .decoration {
+            position: fixed;
+            color: white;
+            z-index: 0;
+            opacity: 0;
+            pointer-events: none;
+            animation: float 10s linear forwards, fadeInOut 10s ease-in-out forwards;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+            }
+        }
+        
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -402,5 +440,61 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Opciones de decoración
+        const decorationOptions = [
+            // Estrellas
+            '★', '☆', '✦', '✧', '✩', '✫', '✬', '✭', '✮', '✯',
+            // Hojas
+            '☘', '🍀', '🍃', '🌿'
+        ];
+        
+        // Función para crear un elemento de decoración
+        function createDecoration() {
+            const decoration = document.createElement('div');
+            decoration.className = 'decoration';
+            
+            // Elegir aleatoriamente entre estrellas u hojas
+            const decorationType = Math.random() < 0.7 ? 'star' : 'leaf';
+            
+            // Seleccionar un símbolo aleatorio según el tipo
+            let symbol;
+            if (decorationType === 'star') {
+                symbol = decorationOptions.slice(0, 10)[Math.floor(Math.random() * 10)];
+                decoration.style.fontSize = Math.random() * 15 + 10 + 'px';
+            } else {
+                symbol = decorationOptions.slice(10)[Math.floor(Math.random() * 4)];
+                decoration.style.fontSize = Math.random() * 20 + 15 + 'px';
+                decoration.style.color = '#eeffee';
+            }
+            
+            decoration.innerHTML = symbol;
+            
+            // Posicionar aleatoriamente
+            decoration.style.left = Math.random() * 100 + 'vw';
+            decoration.style.top = '100vh';
+            
+            // Duración aleatoria de la animación
+            const duration = Math.random() * 5 + 8;
+            decoration.style.animationDuration = duration + 's';
+            
+            // Añadir al cuerpo del documento
+            document.body.appendChild(decoration);
+            
+            // Eliminar después de que termine la animación
+            setTimeout(() => {
+                decoration.remove();
+            }, duration * 1000);
+        }
+        
+        // Crear decoraciones periódicamente
+        setInterval(createDecoration, 3000);
+        
+        // Crear algunas decoraciones inmediatamente al cargar
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createDecoration, i * 1000);
+        }
+    </script>
 </body>
 </html>
