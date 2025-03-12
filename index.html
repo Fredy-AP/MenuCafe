@@ -19,7 +19,6 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             height: 100vh;
-            overflow-y: auto;
         }
 
         h1 {
@@ -37,10 +36,10 @@
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 20px;
-            text-align: center;
         }
 
         .list-group {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             border-radius: 10px;
             background-color: rgba(0, 0, 0, 0.6);
             padding: 20px;
@@ -55,19 +54,13 @@
             border-radius: 8px;
             margin-bottom: 12px;
             font-size: 18px;
-            transition: background-color 0.3s, color 0.3s;
             text-transform: capitalize;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background: none; /* Eliminé cualquier fondo */
-            padding: 0; /* Eliminé el padding si tenía */
-            box-shadow: none;
-            box-shadow: none !important;
-}
-/* Eliminé la sombra */
         }
 
         @media (max-width: 767.98px) {
@@ -90,29 +83,65 @@
     <div class="container">
         <h1>Warhol Café Bar</h1>
 
+        <!-- Sección: Bebidas Calientes -->
         <h3>Bebidas Calientes</h3>
         <ul class="list-group">
             <li class="list-group-item">Expresso - $4000</li>
             <li class="list-group-item">Americano - $6000</li>
             <li class="list-group-item">Capuchino - $8000</li>
-            <li class="list-group-item">Café bombón - $10000</li>
+            <li class="list-group-item">Café Bombón (Leche condensada, expreso, leche espumada) - $10000</li>
+            <li class="list-group-item">Café Moca (Expreso, salsa de chocolate y leche espumada) - $8000</li>
+            <li class="list-group-item">Capuchino con Crema de Whisky Baileys - $15000</li>
+            <li class="list-group-item">Milo caliente - $11000</li>
+            <li class="list-group-item">Chocolate con Queso - $10000</li>
+            <li class="list-group-item">Chocolate con Masmelo - $8000</li>
+            <li class="list-group-item">Canelazo (Café, Maracuyá, Panela, Especias) - $11000</li>
+            <li class="list-group-item">Aromática de Frutas Rojas - $9000</li>
+            <li class="list-group-item">Aromática de Frutas Amarillas - $9000</li>
+            <li class="list-group-item">Carajillo con Brandy y Limón - $10000</li>
         </ul>
 
+        <!-- Sección: Cócteles -->
         <h3>Cócteles</h3>
         <ul class="list-group">
             <li class="list-group-item">Cóctel Blue Lady - $20000</li>
             <li class="list-group-item">Cóctel Destornillador - $25000</li>
             <li class="list-group-item">Bacardi con Limón - $18000</li>
+            <li class="list-group-item">Bacardi con Sprite - $16000</li>
+            <li class="list-group-item">Gin Tonic Premium Pink (Agua tónica, fresa) - $27000</li>
+            <li class="list-group-item">Gin Tonic Falcony (Agua tónica, ginebra) - $20000</li>
+            <li class="list-group-item">Vaso de Whiskey - $20000</li>
+            <li class="list-group-item">Cuba Libre (Ron y Coca-Cola) - $10000</li>
         </ul>
 
+        <!-- Sección: Cervezas -->
         <h3>Cervezas</h3>
         <ul class="list-group">
             <li class="list-group-item">Corona - $12000</li>
-            <li class="list-group-item">Heineken - $11000</li>
-            <li class="list-group-item">Club Colombia - $10000</li>
+            <li class="list-group-item">Heineken - $10000</li>
+            <li class="list-group-item">Club Colombia Dorada - $9000</li>
+            <li class="list-group-item">Club Colombia Negra - $9500</li>
+        </ul>
+
+        <!-- Sección: Licores -->
+        <h3>Licores</h3>
+        <ul class="list-group">
+            <li class="list-group-item">Aguardiente Antioqueño - $15000</li>
+            <li class="list-group-item">Ron Medellín - $18000</li>
+            <li class="list-group-item">Whiskey Jack Daniels - $25000</li>
+            <li class="list-group-item">Tequila José Cuervo - $22000</li>
+        </ul>
+
+        <!-- Sección: Tortas -->
+        <h3>Tortas</h3>
+        <ul class="list-group">
+            <li class="list-group-item">Torta de Chocolate - $15000</li>
+            <li class="list-group-item">Torta de Zanahoria - $14000</li>
+            <li class="list-group-item">Cheesecake de Frutas - $16000</li>
         </ul>
     </div>
 </body>
 </html>
+
 
 
