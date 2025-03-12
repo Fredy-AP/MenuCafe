@@ -7,25 +7,20 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Fondo con la imagen */
         body {
-            
             user-select: none;
             margin: 0;
             font-family: 'Poppins', sans-serif;
             color: #ffffff;
             padding: 30px;
-            transition: background-color 0.3s;
-            position: relative;
-            background-image: url('https://www.tragaviajes.com/wp-content/uploads/Eje-Cafetero-Colombia-4-dias-2.jpg'); /* Aquí pones la URL de tu imagen */
-            background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
-            background-position: center; /* Centra la imagen */
-            background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-attachment: fixed; /* Hace que la imagen quede fija al hacer scroll */
-   
-            height: 100vh; /* Asegura que ocupe toda la pantalla */
+            background-image: url('https://www.tragaviajes.com/wp-content/uploads/Eje-Cafetero-Colombia-4-dias-2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            overflow-y: auto;
         }
-       
 
         h1 {
             color: #ebecf3;
@@ -37,17 +32,20 @@
             letter-spacing: 2px;
         }
 
-       h3 {
-    color: #FFFFFF; /* Blanco puro */
-    font-size: 28px;
-    font-weight: 700; /* Más grueso para mayor visibilidad */
-    margin-bottom: 20px;
-}
+        h3 {
+            color: #FFFFFF;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
         .list-group {
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             border-radius: 10px;
             background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            margin-bottom: 40px;
         }
 
         .list-group-item {
@@ -62,57 +60,11 @@
             text-transform: capitalize;
         }
 
-       
-
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .menu-buttons {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-             gap: 9px; 
-             background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .menu-button {
-             background-color: rgba(0, 0, 0, 0.4); /* Más transparente */
-            color: #fff;
-            padding: 15px 25px;
-            border-radius: 8px;
-            font-size: 18px;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            width: 150px;
-            margin-bottom: 15px;
-            gap: 15px; 
-        }
-
-        .menu-button:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-            transform: translateY(-5px);
-        }
-
-        .nav-link {
-           
-    padding: 12px 25px; /* Aumentar espacio interno */
-          color: #fff;
-            padding: 10px 20px;
-            background-color: #000;
-            border-radius: 8px;
-            text-align: center;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .nav-link.active {
-            background-color: #007bff;
-        }
-
-        
         @media (max-width: 767.98px) {
             h1 {
                 font-size: 28px;
@@ -126,29 +78,6 @@
                 font-size: 16px;
                 padding: 12px 15px;
             }
-
-            .menu-buttons {
-                flex-direction: column;
-            }
-
-            .menu-button {
-                width: auto;
-            }
-        }
-
-        /* Efectos para las pestañas */
-        .tab-content {
-            opacity: 0;
-            animation: fadeIn 0.5s forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
         }
     </style>
 </head>
@@ -156,149 +85,70 @@
     <div class="container">
         <h1>Warhol Café Bar</h1>
 
-        <!-- Pestañas de menú -->
-        <ul class="nav nav-pills menu-buttons">
-            <li class="nav-item">
-                <a class="nav-link active" id="bebidas-calientes-tab" data-toggle="pill" href="#bebidas-calientes">Bebidas Calientes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="cervezas-tab" data-toggle="pill" href="#cervezas">Cervezas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="cocteles-tab" data-toggle="pill" href="#cocteles">Cócteles</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="licores-tab" data-toggle="pill" href="#licores">Licores</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="bebidas-frias-tab" data-toggle="pill" href="#bebidas-frias">Bebidas Frías</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="tortas-tab" data-toggle="pill" href="#tortas">Tortas</a>
-            </li>
+        <h3>Bebidas Calientes</h3>
+        <ul class="list-group">
+            <li class="list-group-item">Expresso - $4000</li>
+            <li class="list-group-item">Americano - $6000</li>
+            <li class="list-group-item">Capuchino - $8000</li>
+            <li class="list-group-item">Café bombón (leche condensada, expreso, leche espumada) - $10000</li>
+            <li class="list-group-item">Café moca (expreso, salsa de chocolate y leche espumada) - $8000</li>
+            <li class="list-group-item">Capuchino con crema de whisky BAILEYS - $15000</li>
+            <li class="list-group-item">Milo caliente - $11000</li>
+            <li class="list-group-item">Chocolate con queso - $10000</li>
+            <li class="list-group-item">Chocolate con masmelo - $8000</li>
+            <li class="list-group-item">Canelazo (café, maracuyá, panela, especias) - $11000</li>
+            <li class="list-group-item">Aromática con frutas rojas - $9000</li>
+            <li class="list-group-item">Aromática con frutas amarillas - $9000</li>
+            <li class="list-group-item">Carajillo con brandy y limón - $10000</li>
+            <li class="list-group-item">Tinto de Verano (vino tinto, Sprite, limón) - $15000</li>
+            <li class="list-group-item">Capuchino con licor (ron, whiskey, aguardiente) - $15000</li>
+            <li class="list-group-item">Maicenas (Milo, arequipe) - $10000</li>
+            <li class="list-group-item">Vino caliente (canela, clavos de olor, anís estrellado, jugo de naranja, azúcar) - $17000</li>
+            <li class="list-group-item">Tchai (jengibre, especias) - $10000</li>
         </ul>
 
-        <!-- Contenido de las pestañas -->
-        <div class="tab-content" id="menuTabContent">
-            <div class="tab-pane fade show active" id="bebidas-calientes" role="tabpanel">
-              
-                <ul class="list-group">                 
-                    <li class="list-group-item">Expresso - $4000</li>
-                    <li class="list-group-item">Americano - $6000</li>
-                    <li class="list-group-item">Capuchino - $8000</li>
-                    <li class="list-group-item">cafe bombon(leche condesada,expreso,leche espumada)-$10000</li>
-                    <li class="list-group-item">cafe moca(expreso salsa de chocolate y leche espumada)-$8000</li>
-                    <li class="list-group-item">Capuchino con Crema de whisky BAILEYS - $15000</li>
-                    <li class="list-group-item">Milo caliente - $11000</li>
-                    <li class="list-group-item">Chocolate con Queso - $10000</li>
-                    <li class="list-group-item">Chocolate con Masmelo - $8000</li>
-                    <li class="list-group-item">Canelazo (Cafe, Maracuya, Panela, Especies) - $11000</li>
-                    <li class="list-group-item">Aromática con frutas rojos - $9000</li>
-                     <li class="list-group-item">Aromática con frutas Amarillos - $9000</li>
-                    <li class="list-group-item">Carajillo con brandy y limon - $10000</li>
-                    <li class="list-group-item">Tinto de Verano (Vino tinto-Sprite, Limon) - $15000</li>
-                    <li class="list-group-item">Capuchino con licor (Ron, Whiskey, Aguardiente) - $15000</li>
-                    <li class="list-group-item">Maicenas (Milo,Arequipe) - $10000</li>
-                    <li class="list-group-item">Vino caliente (Canela, clavos de olor, Anís estrellado, jugo de naranja, azúcar) - $17000</li>
-                    <li class="list-group-item">Tchai (Jengibre, especias) - $10000</li>
-                </ul>
-            </div>
+        <h3>Cócteles</h3>
+        <ul class="list-group">
+            <li class="list-group-item">Cóctel Blue Lady - $20000</li>
+            <li class="list-group-item">Cóctel Destornillador - $25000</li>
+            <li class="list-group-item">Bacardi con Limón - $18000</li>
+            <li class="list-group-item">Bacardi con Sprite - $16000</li>
+            <li class="list-group-item">Gin Tonic Premium Pink (agua tónica, fresa) - $27000</li>
+            <li class="list-group-item">Gin Tonic Falcony (agua tónica, ginebra) - $20000</li>
+            <li class="list-group-item">Vaso de Whiskey - $20000</li>
+            <li class="list-group-item">Cuba Libre (ron y Coca-Cola) - $10000</li>
+            <li class="list-group-item">Cóctel Bombón (zumo de fresa, leche condensada, ron blanco, Baileys, hielo) - $20000</li>
+            <li class="list-group-item">Whiskey Sour (whiskey, limón, azúcar) - $18000</li>
+        </ul>
 
-            <div class="tab-pane fade" id="cocteles" role="tabpanel">
-                  
-                <ul class="list-group">
-                    <li class="list-group-item">Cóctel Blue Lady - $20000</li>
-                    <li class="list-group-item">Cóctel Destornillador - $25000</li>
-                    <li class="list-group-item">Bacardi con Limón - $18000</li>
-                    <li class="list-group-item">Bacardi con Sprite - $16000</li>
-                     <li class="list-group-item">Gin Tonic Premium Pink (agua tónica, fresa) - $27000</li>
-    <li class="list-group-item">Gin Tonic Falcony (agua tónica, ginebra) - $20000</li>
-    <li class="list-group-item">Vaso de Whiskey - $20000</li>
-    <li class="list-group-item">Cuba Libre (ron y Coca-Cola) - $10000</li>
-    <li class="list-group-item">Cóctel Bombón (zumo de fresa, leche condensada, ron blanco, Baileys, hielo) - $20000</li>
-    <li class="list-group-item">Whiskey Sour (whiskey, limón, azúcar) - $18000</li>
-    <li class="list-group-item">Baileys con Hielo - $20000</li>
-    <li class="list-group-item">Blue Margarita (tequila, curaçao, jugo de limón, azúcar) - $20000</li>
-    <li class="list-group-item">Cóctel Cielo Azul (gin, vodka, blue curaçao, hielo) - $22000</li>
-    <li class="list-group-item">Mojito (hierbabuena, ron blanco, azúcar, limón) - $8000</li>
-    <li class="list-group-item">Baileys Frío (licor de café, Baileys, café frío, crema de leche) - $25000</li>
-    <li class="list-group-item">Jack Limonada (Jack Daniels Honey, hielo, Sprite) - $20000</li>
-    <li class="list-group-item">Cóctel Orgasmo (licor de café, licor de amaretto, licor de Baileys) - $20000</li>
-                </ul>
-            </div>
+        <h3>Cervezas</h3>
+        <ul class="list-group">
+            <li class="list-group-item">Corona - $12000</li>
+            <li class="list-group-item">Heineken - $11000</li>
+            <li class="list-group-item">Club Colombia - $10000</li>
+        </ul>
 
-            <div class="tab-pane fade" id="cervezas" role="tabpanel">
-                
-                <ul class="list-group">
-                    <li class="list-group-item">Jarra De Cerveza CLub Colombia - $25000</li>
-                    <li class="list-group-item">Jarra De Cerveza Poker - $20000</li>
-                    <li class="list-group-item">Jarra De Cerveza Aguila Original - $20000</li>
-                    <li class="list-group-item">Cerveza Águila Light - $5000</li>
-                    <li class="list-group-item">Cerveza Poker - $5000</li>
-                    <li class="list-group-item">Cerveza Águila Original - $5000</li>
-                    <li class="list-group-item">Cerveza Heineken - $10000</li>
-                    <li class="list-group-item">Cerveza Corona - $12000</li>
-                    <li class="list-group-item">Cerveza Stella Artois - $12000</li>
-                </ul>
-            </div>
+        <h3>Licores</h3>
+        <ul class="list-group">
+            <li class="list-group-item">Ron Medellín - $20000</li>
+            <li class="list-group-item">Aguardiente Antioqueño - $18000</li>
+            <li class="list-group-item">Tequila José Cuervo - $25000</li>
+        </ul>
 
-            <div class="tab-pane fade" id="licores" role="tabpanel">
-           
-                <ul class="list-group">
-                    <li class="list-group-item">Aguardiente Amarillo 1/2 - $45000</li>
-                    <li class="list-group-item">Aguardiente Amarillo Botella - $80000</li>
-                    <li class="list-group-item">Whisky JACK DANIELS Tennessee Honey por media botella- $100000</li>
-                    <li class="list-group-item">Ron Juan De La Cruz 1/2 - $65000</li>
-                    <li class="list-group-item">Ron Tradicional Viejo de Caldas 1/2 - $50000</li>
-                    <li class="list-group-item">Trago Corto de Ron - $4000</li>
-                    <li class="list-group-item">Trago Corto de Aguardiente tapa azul - $4000</li>
-                    <li class="list-group-item">Trago Corto de Jägermeister - $4500</li>
-                    <li class="list-group-item">Trago Corto de Jack Daniels - $5500</li>
-                    <li class="list-group-item">Trago Corto de Ginebra Gordon's London Dry - $7500</li>
-                    <li class="list-group-item">Trago Corto de Falcony - $4500</li>
-                    <li class="list-group-item">Trago Corto de Tequila Jimador Blanco - $6000</li>
-                    <li class="list-group-item">Trago Corto de Tequila Olmeco - $4500</li>
-                    <li class="list-group-item">Trago Corto de Vodka - $5000</li>
-                </ul>
-            </div>
+        <h3>Bebidas Frías</h3>
+        <ul class="list-group">
+            <li class="list-group-item">Limonada Natural - $8000</li>
+            <li class="list-group-item">Limonada de Coco - $10000</li>
+            <li class="list-group-item">Jugos Naturales - $9000</li>
+        </ul>
 
-            <div class="tab-pane fade" id="bebidas-frias" role="tabpanel">
-              
-                <ul class="list-group">
-                    <li class="list-group-item">Soda saborizada Blue Berry - $12000</li>
-                    <li class="list-group-item">Soda saborizada Frutos Rojos - $12000</li>
-                    <li class="list-group-item">Soda saborizada Frutos Amarillos - $12000</li>
-                    <li class="list-group-item">Jugo de Mora en Agua - $9000</li>
-                    <li class="list-group-item">Jugo de Mora en Leche - $12000</li>
-                    <li class="list-group-item">Milo Frío - $12000</li>
-                    <li class="list-group-item">Granizado de Café - $12000</li>
-                    <li class="list-group-item">Limonada de Coco - $12000</li>
-                    <li class="list-group-item">Limonada de Cereza - $12000</li>
-                    <li class="list-group-item">Limonada de Mango Biche - $12000</li>
-                    <li class="list-group-item">Limonada de Vino Tinto - $16000</li>
-                    <li class="list-group-item">Malteada de Oreo - $16000</li>
-                    <li class="list-group-item">Limonada de Frutos Rojos - $10000</li>
-                    <li class="list-group-item">Limonada de Frutos Amarillos - $10000</li>
-                    <li class="list-group-item">Jugos Hit - $4300</li>
-                    <li class="list-group-item">Coca Cola - $4500</li>
-                    <li class="list-group-item">Botella de Agua - $4000</li>
-                    <li class="list-group-item">Botella de Agua con Gas - $4500</li>
-                </ul>
-            </div>
-
-            <div class="tab-pane fade" id="tortas" role="tabpanel">
-                
-                <ul class="list-group">
-                    <li class="list-group-item">Torta de cafe y Chocolate - $7000</li>
-                </ul>
-            </div>
-        </div>
+        <h3>Tortas</h3>
+        <ul class="list-group">
+            <li class="list-group-item">Torta de Chocolate - $10000</li>
+            <li class="list-group-item">Torta de Zanahoria - $11000</li>
+            <li class="list-group-item">Cheesecake de Maracuyá - $12000</li>
+        </ul>
     </div>
- 
-    <!-- Scripts de Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
 
