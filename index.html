@@ -70,25 +70,26 @@
             opacity: 0;
             pointer-events: none;
             animation: fall var(--fall-duration) linear forwards, sway var(--sway-duration) ease-in-out infinite alternate, fadeInOut var(--fall-duration) ease-in-out forwards;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
             text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+            font-size: var(--leaf-size);
         }
         
         @keyframes fall {
             0% {
-                transform: translateY(-5vh) rotate(0deg);
+                transform: translateY(-50px);
             }
             100% {
-                transform: translateY(105vh) rotate(var(--rotation-deg));
+                transform: translateY(105vh);
             }
         }
         
         @keyframes sway {
             0% {
-                transform: translateX(0) rotate(0deg);
+                transform: translateX(-5px) rotate(-3deg);
             }
             100% {
-                transform: translateX(var(--sway-distance)) rotate(var(--sway-rotate));
+                transform: translateX(5px) rotate(3deg);
             }
         }
         
@@ -97,10 +98,10 @@
                 opacity: 0;
             }
             10% {
-                opacity: 0.8;
+                opacity: 0.9;
             }
             90% {
-                opacity: 0.8;
+                opacity: 0.9;
             }
             100% {
                 opacity: 0;
@@ -472,19 +473,24 @@
         
         // Crear hojas aleatorias
         function createLeaves() {
-            const totalLeaves = 25;
-            
-            for (let i = 0; i < totalLeaves; i++) {
-                setTimeout(() => {
-                    createLeaf();
-                }, i * 1000);
+            // Crear varias hojas iniciales distribuidas por toda la pantalla
+            for (let i = 0; i < 15; i++) {
+                createLeafAt(
+                    Math.random() * 100, // Posición horizontal como porcentaje
+                    Math.random() * 100  // Posición vertical como porcentaje
+                );
             }
             
-            // Continuar creando hojas
-            setInterval(createLeaf, 2000);
+            // Continuar creando hojas en intervalos regulares
+            setInterval(() => {
+                createLeafAt(
+                    Math.random() * 100, // Posición horizontal como porcentaje
+                    0  // Siempre desde arriba
+                );
+            }, 800); // Crear una nueva hoja cada 800ms
         }
         
-        function createLeaf() {
+        function createLeafAt(xPercent, yPercent) {
             const leaf = document.createElement('div');
             leaf.className = 'leaf';
             
@@ -492,32 +498,24 @@
             const leafType = leafTypes[Math.floor(Math.random() * leafTypes.length)];
             leaf.innerHTML = leafType;
             
-            // Tamaño aleatorio
-            const size = Math.random() * 2 + 1;
-            leaf.style.fontSize = `${size}rem`;
+            // Tamaño aleatorio entre 1.5rem y 2.5rem
+            const size = Math.random() * 1 + 1.5;
+            leaf.style.setProperty('--leaf-size', `${size}rem`);
             
-            // Posición inicial aleatoria (horizontal)
-            const startPositionX = Math.random() * window.innerWidth;
-            leaf.style.left = `${startPositionX}px`;
-            leaf.style.top = `-50px`;
+            // Posición inicial calculada a partir de porcentajes
+            const xPos = (xPercent / 100) * window.innerWidth;
+            const yPos = (yPercent / 100) * window.innerHeight;
             
-            // Duración de caída aleatoria
-          const fallDuration = Math.random() * 3 + 2;
+            leaf.style.left = `${xPos}px`;
+            leaf.style.top = `${yPos}px`;
+            
+            // Duración de caída entre 5s y 10s (más rápido que antes)
+            const fallDuration = Math.random() * 5 + 5;
             leaf.style.setProperty('--fall-duration', `${fallDuration}s`);
             
-            // Rotación final aleatoria
-            const rotation = Math.random() * 360;
-            leaf.style.setProperty('--rotation-deg', `${rotation}deg`);
-            
-            // Configuración de balanceo
-            const swayDuration = Math.random() * 6 + 3;
+            // Duración del balanceo
+            const swayDuration = Math.random() * 2 + 2;
             leaf.style.setProperty('--sway-duration', `${swayDuration}s`);
-            
-            const swayDistance = Math.random() * 100 - 50;
-            leaf.style.setProperty('--sway-distance', `${swayDistance}px`);
-            
-            const swayRotate = Math.random() * 30 - 15;
-            leaf.style.setProperty('--sway-rotate', `${swayRotate}deg`);
             
             document.body.appendChild(leaf);
             
