@@ -63,22 +63,32 @@
             text-align: right;
         }
         
-        /* Estilos para las estrellas o hojas */
-        .decoration {
+        /* Estilos para las hojas cayendo */
+        .leaf {
             position: fixed;
-            color: white;
             z-index: 0;
             opacity: 0;
             pointer-events: none;
-            animation: float 10s linear forwards, fadeInOut 10s ease-in-out forwards;
+            animation: fall var(--fall-duration) linear forwards, sway var(--sway-duration) ease-in-out infinite alternate, fadeInOut var(--fall-duration) ease-in-out forwards;
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
         }
         
-        @keyframes float {
+        @keyframes fall {
             0% {
-                transform: translateY(-20px) rotate(0deg);
+                transform: translateY(-5vh) rotate(0deg);
             }
             100% {
-                transform: translateY(100vh) rotate(360deg);
+                transform: translateY(105vh) rotate(var(--rotation-deg));
+            }
+        }
+        
+        @keyframes sway {
+            0% {
+                transform: translateX(0) rotate(0deg);
+            }
+            100% {
+                transform: translateX(var(--sway-distance)) rotate(var(--sway-rotate));
             }
         }
         
@@ -436,22 +446,89 @@
                     <span>$20.000</span>
                 </div>
             </div>
-             <div class="menu-section">
+            <div class="menu-section">
                 <h2 class="section-title">Tortas</h2>
                 
                 <div class="menu-item">
                     <span>Torta de cafe y chocolate </span>
                     <span>$7.000</span>
-                    </div>
-                    <div class="menu-item">
+                </div>
+                <div class="menu-item">
                     <span>Chicharrines </span>
                     <span>$4.000</span>
                 </div>
+            </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
- 
+    <!-- Script para crear las hojas cayendo -->
+    <script>
+        // Tipos de hojas
+        const leafTypes = [
+            '🍂', '🍃', '🌿', '☘️', '🍀', '🍁', '🌱'
+        ];
+        
+        // Crear hojas aleatorias
+        function createLeaves() {
+            const totalLeaves = 25;
+            
+            for (let i = 0; i < totalLeaves; i++) {
+                setTimeout(() => {
+                    createLeaf();
+                }, i * 1000);
+            }
+            
+            // Continuar creando hojas
+            setInterval(createLeaf, 2000);
+        }
+        
+        function createLeaf() {
+            const leaf = document.createElement('div');
+            leaf.className = 'leaf';
+            
+            // Seleccionar un tipo de hoja aleatorio
+            const leafType = leafTypes[Math.floor(Math.random() * leafTypes.length)];
+            leaf.innerHTML = leafType;
+            
+            // Tamaño aleatorio
+            const size = Math.random() * 2 + 1;
+            leaf.style.fontSize = `${size}rem`;
+            
+            // Posición inicial aleatoria (horizontal)
+            const startPositionX = Math.random() * window.innerWidth;
+            leaf.style.left = `${startPositionX}px`;
+            leaf.style.top = `-50px`;
+            
+            // Duración de caída aleatoria
+            const fallDuration = Math.random() * 10 + 10;
+            leaf.style.setProperty('--fall-duration', `${fallDuration}s`);
+            
+            // Rotación final aleatoria
+            const rotation = Math.random() * 360;
+            leaf.style.setProperty('--rotation-deg', `${rotation}deg`);
+            
+            // Configuración de balanceo
+            const swayDuration = Math.random() * 6 + 3;
+            leaf.style.setProperty('--sway-duration', `${swayDuration}s`);
+            
+            const swayDistance = Math.random() * 100 - 50;
+            leaf.style.setProperty('--sway-distance', `${swayDistance}px`);
+            
+            const swayRotate = Math.random() * 30 - 15;
+            leaf.style.setProperty('--sway-rotate', `${swayRotate}deg`);
+            
+            document.body.appendChild(leaf);
+            
+            // Eliminar la hoja después de que termine la animación
+            setTimeout(() => {
+                leaf.remove();
+            }, fallDuration * 1000);
+        }
+        
+        // Iniciar la caída de hojas cuando la página se cargue
+        window.addEventListener('load', createLeaves);
+    </script>
 </body>
 </html>
