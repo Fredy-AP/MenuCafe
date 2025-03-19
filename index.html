@@ -488,69 +488,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Script para crear las hojas cayendo -->
-    <script>
-        // Tipos de hojas
-        const leafTypes = [
-            '🍂', '🍃', '🌿', '☘️', '🍀', '🍁', '🌱'
-        ];
-        
-        // Crear hojas aleatorias
-        function createLeaves() {
-            // Crear varias hojas iniciales distribuidas por toda la pantalla
-            for (let i = 0; i < 15; i++) {
-                createLeafAt(
-                    Math.random() * 100, // Posición horizontal como porcentaje
-                    Math.random() * 100  // Posición vertical como porcentaje
-                );
-            }
-            
-            // Continuar creando hojas en intervalos regulares
-            setInterval(() => {
-                createLeafAt(
-                    Math.random() * 100, // Posición horizontal como porcentaje
-                    0  // Siempre desde arriba
-                );
-            }, 800); // Crear una nueva hoja cada 800ms
-        }
-        
-        function createLeafAt(xPercent, yPercent) {
-            const leaf = document.createElement('div');
-            leaf.className = 'leaf';
-            
-            // Seleccionar un tipo de hoja aleatorio
-            const leafType = leafTypes[Math.floor(Math.random() * leafTypes.length)];
-            leaf.innerHTML = leafType;
-            
-            // Tamaño aleatorio entre 1.5rem y 2.5rem
-            const size = Math.random() * 1 + 1.5;
-            leaf.style.setProperty('--leaf-size', `${size}rem`);
-            
-            // Posición inicial calculada a partir de porcentajes
-            const xPos = (xPercent / 100) * window.innerWidth;
-            const yPos = (yPercent / 100) * window.innerHeight;
-            
-            leaf.style.left = `${xPos}px`;
-            leaf.style.top = `${yPos}px`;
-            
-            // Duración de caída entre 5s y 10s (más rápido que antes)
-            const fallDuration = Math.random() * 5 + 5;
-            leaf.style.setProperty('--fall-duration', `${fallDuration}s`);
-            
-            // Duración del balanceo
-            const swayDuration = Math.random() * 2 + 2;
-            leaf.style.setProperty('--sway-duration', `${swayDuration}s`);
-            
-            document.body.appendChild(leaf);
-            
-            // Eliminar la hoja después de que termine la animación
-            setTimeout(() => {
-                leaf.remove();
-            }, fallDuration * 1000);
-        }
-        
-        // Iniciar la caída de hojas cuando la página se cargue
-        window.addEventListener('load', createLeaves);
     </script>
 </body>
 </html>
