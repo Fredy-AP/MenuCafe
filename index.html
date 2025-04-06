@@ -6,6 +6,69 @@
     <title>Warhol Café Bar - Menú</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+<!-- Pega este bloque dentro de la etiqueta <head> de tu HTML -->
+<style>
+  /* Efecto Glassmorphism y Fade-In para el contenedor */
+  .menu-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Transición Hover para los ítems del menú */
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    transition: transform 0.3s ease;
+  }
+  .menu-item:hover {
+    transform: translateX(5px);
+  }
+
+  /* Animación de hojas cayendo */
+  .leaf {
+    position: fixed;
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+    animation: fall var(--fall-duration, 10s) linear forwards,
+               sway var(--sway-duration, 3s) ease-in-out infinite alternate,
+               fadeInOut var(--fall-duration, 10s) ease-in-out forwards;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    font-size: var(--leaf-size, 1.5rem);
+  }
+  @keyframes fall {
+    0% { transform: translateY(-50px); }
+    100% { transform: translateY(105vh); }
+  }
+  @keyframes sway {
+    0% { transform: translateX(-5px) rotate(-3deg); }
+    100% { transform: translateX(5px) rotate(3deg); }
+  }
+  @keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 0.9; }
+    90% { opacity: 0.9; }
+    100% { opacity: 0; }
+  }
+</style>
+
+<!-- Pega este bloque dentro de la etiqueta <body> donde quieras que aparezcan las hojas -->
+<div class="leaf" style="--fall-duration: 12s; --sway-duration: 4s; --leaf-size: 1.2rem; left: 10%;">🍃</div>
+<div class="leaf" style="--fall-duration: 10s; --sway-duration: 3s; --leaf-size: 1.5rem; left: 80%;">🍃</div>
+<div class="leaf" style="--fall-duration: 14s; --sway-duration: 5s; --leaf-size: 1rem; left: 50%;">🍃</div>
     <style>
         body {
             background-color: #5e4630;
