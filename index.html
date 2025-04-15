@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warhol Café Bar - Menú</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-text: #fff;
@@ -20,13 +18,12 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             color: var(--primary-text);
-            font-family: 'Lora', serif;
+            font-family: Arial, sans-serif;
             padding-bottom: 30px;
             overflow-x: hidden;
             position: relative;
         }
         
-        /* Glassmorphism and Fade-In for container */
         .menu-container {
             max-width: 1200px;
             margin: 30px auto;
@@ -35,18 +32,10 @@
             padding: 30px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
-            opacity: 0;
-            animation: fadeIn 1.5s ease forwards;
             position: relative;
             z-index: 1;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Menu title styling */
         .menu-title {
             text-align: center;
             margin-bottom: 30px;
@@ -57,7 +46,6 @@
             font-weight: 700;
         }
         
-        /* Menu sections styling */
         .menu-section {
             margin-bottom: 40px;
         }
@@ -73,18 +61,12 @@
             font-weight: 700;
         }
         
-        /* Menu items styling with hover effect */
         .menu-item {
             display: flex;
             justify-content: space-between;
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             padding: 10px 0;
             letter-spacing: 0.3px;
-            transition: transform 0.3s ease;
-        }
-        
-        .menu-item:hover {
-            transform: translateX(5px);
         }
         
         .menu-item span:first-child {
@@ -97,81 +79,6 @@
             text-align: right;
         }
         
-        /* Falling leaves animation */
-        .leaf {
-            position: fixed;
-            z-index: 0;
-            opacity: 0;
-            pointer-events: none;
-            animation: fall var(--fall-duration, 10s) linear forwards,
-                       sway var(--sway-duration, 3s) ease-in-out infinite alternate,
-                       fadeInOut var(--fall-duration, 10s) ease-in-out forwards;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-            font-size: var(--leaf-size, 1.5rem);
-        }
-        
-        @keyframes fall {
-            0% { transform: translateY(-50px); }
-            100% { transform: translateY(105vh); }
-        }
-        
-        @keyframes sway {
-            0% { transform: translateX(-5px) rotate(-3deg); }
-            100% { transform: translateX(5px) rotate(3deg); }
-        }
-        
-        @keyframes fadeInOut {
-            0% { opacity: 0; }
-            10% { opacity: 0.9; }
-            90% { opacity: 0.9; }
-            100% { opacity: 0; }
-        }
-        
-        /* Language switcher styling */
-        .language-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 30px;
-            padding: 8px 15px;
-            display: flex;
-            gap: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .language-btn {
-            background: none;
-            border: none;
-            color: var(--secondary-text);
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            padding: 5px 10px;
-            border-radius: 20px;
-        }
-        
-        .language-btn.active {
-            background: var(--accent-color);
-            color: #000;
-        }
-        
-        /* Hide content based on language */
-        .en {
-            display: none;
-        }
-        
-        html[lang="en"] .es {
-            display: none;
-        }
-        
-        html[lang="en"] .en {
-            display: block;
-        }
-        
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .menu-container {
                 margin: 15px;
@@ -198,200 +105,162 @@
             .menu-item span:last-child {
                 text-align: left;
             }
-            
-        
+        }
     </style>
 </head>
 <body>
-    
     <div class="container">
         <div class="menu-container">
             <h1 class="menu-title">Warhol Café Bar</h1>
             
             <!-- Hot Drinks Section -->
             <div class="menu-section">
-                <h2 class="section-title es">Bebidas Calientes</h2>
-                <h2 class="section-title en">Hot Drinks</h2>
+                <h2 class="section-title">Bebidas Calientes</h2>
                 
                 <div class="menu-item">
                     <span>Espresso</span>
                     <span>$4.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Americano</span>
-                    <span class="en">Americano</span>
+                    <span>Americano</span>
                     <span>$6.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Americano con licor (ron, aguardiente, amareto)</span>
-                    <span class="en">Americano with liquor (rum, aguardiente, amaretto)</span>
+                    <span>Americano con licor (ron, aguardiente, amareto)</span>
                     <span>$9.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Capuchino</span>
-                    <span class="en">Cappuccino</span>
+                    <span>Capuchino</span>
                     <span>$8.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Café Bombón (Leche condensada, expreso, leche espumada)</span>
-                    <span class="en">Bombón Coffee (Condensed milk, espresso, foamed milk)</span>
+                    <span>Café Bombón (Leche condensada, expreso, leche espumada)</span>
                     <span>$10.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Café Moca (Expreso, salsa de chocolate y leche espumada)</span>
-                    <span class="en">Mocha Coffee (Espresso, chocolate sauce and foamed milk)</span>
+                    <span>Café Moca (Expreso, salsa de chocolate y leche espumada)</span>
                     <span>$8.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Capuchino con Crema de Whisky BAILEYS</span>
-                    <span class="en">Cappuccino with BAILEYS Whiskey Cream</span>
+                    <span>Capuchino con Crema de Whisky BAILEYS</span>
                     <span>$15.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Milo caliente</span>
-                    <span class="en">Hot Milo</span>
+                    <span>Milo caliente</span>
                     <span>$10.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Chocolate con Queso</span>
-                    <span class="en">Hot Chocolate with Cheese</span>
+                    <span>Chocolate con Queso</span>
                     <span>$10.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Chocolate con Masmelo</span>
-                    <span class="en">Hot Chocolate with Marshmallows</span>
+                    <span>Chocolate con Masmelo</span>
                     <span>$8.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Canelazo (Café, Maracuyá, Panela, Especias)</span>
-                    <span class="en">Canelazo (Coffee, Passion Fruit, Panela, Spices)</span>
+                    <span>Canelazo (Café, Maracuyá, Panela, Especias)</span>
                     <span>$11.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Aromática con Frutas Rojas</span>
-                    <span class="en">Herbal Tea with Red Fruits</span>
+                    <span>Aromática con Frutas Rojas</span>
                     <span>$9.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Aromática con Frutas Amarillas</span>
-                    <span class="en">Herbal Tea with Yellow Fruits</span>
+                    <span>Aromática con Frutas Amarillas</span>
                     <span>$9.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Carajillo con Brandy y Limón</span>
-                    <span class="en">Carajillo with Brandy and Lemon</span>
+                    <span>Carajillo con Brandy y Limón</span>
                     <span>$10.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Tinto de Verano (Vino tinto, Sprite, Limón)</span>
-                    <span class="en">Summer Red Wine (Red wine, Sprite, Lemon)</span>
+                    <span>Tinto de Verano (Vino tinto, Sprite, Limón)</span>
                     <span>$15.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Capuchino con Licor (Ron, amareto, Aguardiente)</span>
-                    <span class="en">Cappuccino with Liquor (Rum, amaretto, Aguardiente)</span>
+                    <span>Capuchino con Licor (Ron, amareto, Aguardiente)</span>
                     <span>$12.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Maicenas (Milo, Arequipe)</span>
-                    <span class="en">Maicenas (Milo, Dulce de Leche)</span>
+                    <span>Maicenas (Milo, Arequipe)</span>
                     <span>$10.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Vino Caliente (Canela, clavos de olor, anís estrellado, jugo de naranja, azúcar)</span>
-                    <span class="en">Mulled Wine (Cinnamon, cloves, star anise, orange juice, sugar)</span>
+                    <span>Vino Caliente (Canela, clavos de olor, anís estrellado, jugo de naranja, azúcar)</span>
                     <span>$17.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Tchai (Jengibre, especias)</span>
-                    <span class="en">Chai (Ginger, spices)</span>
+                    <span>Tchai (Jengibre, especias)</span>
                     <span>$10.000</span>
                 </div>
             </div>
             
             <!-- Cold Drinks Section -->
             <div class="menu-section">
-                <h2 class="section-title es">Bebidas Frías</h2>
-                <h2 class="section-title en">Cold Drinks</h2>
+                <h2 class="section-title">Bebidas Frías</h2>
                 
                 <div class="menu-item">
-                    <span class="es">Soda saborizada Blue Berry</span>
-                    <span class="en">Blueberry Flavored Soda</span>
+                    <span>Soda saborizada Blue Berry</span>
                     <span>$13.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Soda saborizada Frutos Rojos</span>
-                    <span class="en">Red Fruits Flavored Soda</span>
+                    <span>Soda saborizada Frutos Rojos</span>
                     <span>$13.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Soda saborizada Frutos Amarillos</span>
-                    <span class="en">Yellow Fruits Flavored Soda</span>
+                    <span>Soda saborizada Frutos Amarillos</span>
                     <span>$13.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Jugos en agua</span>
-                    <span class="en">Fruit Juices (water based)</span>
+                    <span>Jugos en agua</span>
                     <span>$8.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Jugo en leche</span>
-                    <span class="en">Fruit Juices (milk based)</span>
+                    <span>Jugo en leche</span>
                     <span>$10.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Milo Frío</span>
-                    <span class="en">Cold Milo</span>
+                    <span>Milo Frío</span>
                     <span>$10.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Granizado de Café</span>
-                    <span class="en">Coffee Slushie</span>
+                    <span>Granizado de Café</span>
                     <span>$12.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Limonada de Coco</span>
-                    <span class="en">Coconut Lemonade</span>
+                    <span>Limonada de Coco</span>
                     <span>$12.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Limonada de Cereza</span>
-                    <span class="en">Cherry Lemonade</span>
+                    <span>Limonada de Cereza</span>
                     <span>$10.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Limonada de Mango Biche</span>
-                    <span class="en">Green Mango Lemonade</span>
+                    <span>Limonada de Mango Biche</span>
                     <span>$10.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Limonada de Vino Tinto</span>
-                    <span class="en">Red Wine Lemonade</span>
+                    <span>Limonada de Vino Tinto</span>
                     <span>$15.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Malteada grande (oreo, maracuya, milo, cafe)</span>
-                    <span class="en">Large Milkshake (oreo, passion fruit, milo, coffee)</span>
+                    <span>Malteada grande (oreo, maracuya, milo, cafe)</span>
                     <span>$16.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Malteada pequeña (oreo, maracuya, milo, cafe)</span>
-                    <span class="en">Small Milkshake (oreo, passion fruit, milo, coffee)</span>
+                    <span>Malteada pequeña (oreo, maracuya, milo, cafe)</span>
                     <span>$13.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Limonada de Frutos Rojos</span>
-                    <span class="en">Red Fruits Lemonade</span>
+                    <span>Limonada de Frutos Rojos</span>
                     <span>$10.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Limonada de Frutos Amarillos</span>
-                    <span class="en">Yellow Fruits Lemonade</span>
+                    <span>Limonada de Frutos Amarillos</span>
                     <span>$10.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Jugos Hit</span>
-                    <span class="en">Hit Juices</span>
+                    <span>Jugos Hit</span>
                     <span>$4.300</span>
                 </div>
                 <div class="menu-item">
@@ -399,798 +268,639 @@
                     <span>$4.500</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Botella de Agua</span>
-                    <span class="en">Bottled Water</span>
+                    <span>Botella de Agua</span>
                     <span>$4.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Botella de Agua con Gas</span>
-                    <span class="en">Sparkling Water</span>
+                    <span>Botella de Agua con Gas</span>
                     <span>$4.500</span>
                 </div>
             </div>
             
             <!-- Beer Section -->
             <div class="menu-section">
-                <h2 class="section-title es">Cervezas</h2>
-                <h2 class="section-title en">Beers</h2>
+                <h2 class="section-title">Cervezas</h2>
                 
                 <div class="menu-item">
-                    <span class="es">Jarra De Cerveza Club Colombia</span>
-                    <span class="en">Club Colombia Beer Pitcher</span>
+                    <span>Jarra De Cerveza Club Colombia</span>
                     <span>$25.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Jarra De Cerveza Poker</span>
-                    <span class="en">Poker Beer Pitcher</span>
+                    <span>Jarra De Cerveza Poker</span>
                     <span>$20.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Jarra De Cerveza Aguila Original</span>
-                    <span class="en">Aguila Original Beer Pitcher</span>
+                    <span>Jarra De Cerveza Aguila Original</span>
                     <span>$20.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Cerveza Águila Light</span>
-                    <span class="en">Águila Light Beer</span>
+                    <span>Cerveza Águila Light</span>
                     <span>$5.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Cerveza Poker</span>
-                    <span class="en">Poker Beer</span>
+                    <span>Cerveza Poker</span>
                     <span>$5.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Cerveza Águila Original</span>
-                    <span class="en">Águila Original Beer</span>
+                    <span>Cerveza Águila Original</span>
                     <span>$5.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Cerveza Heineken</span>
-                    <span class="en">Heineken Beer</span>
+                    <span>Cerveza Heineken</span>
                     <span>$7.500</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Cerveza Corona</span>
-                    <span class="en">Corona Beer</span>
+                    <span>Cerveza Corona</span>
                     <span>$10.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Cerveza Stella Artois</span>
-                    <span class="en">Stella Artois Beer</span>
+                    <span>Cerveza Stella Artois</span>
                     <span>$10.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Cerveza 3 cordilleras rosada</span>
-                    <span class="en">3 Cordilleras Pink Beer</span>
+                    <span>Cerveza 3 cordilleras rosada</span>
                     <span>$7.500</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Cerveza 3 cordilleras (mestiza, blanca)</span>
-                    <span class="en">3 Cordilleras Beer (mestiza, white)</span>
+                    <span>Cerveza 3 cordilleras (mestiza, blanca)</span>
                     <span>$10.000</span>
                 </div>
             </div>
             
             <!-- Liquor Section -->
             <div class="menu-section">
-                <h2 class="section-title es">Licores</h2>
-                <h2 class="section-title en">Liquors</h2>
+                <h2 class="section-title">Licores</h2>
                 
                 <div class="menu-item">
-                    <span class="es">Aguardiente Amarillo 1/2</span>
-                    <span class="en">Yellow Aguardiente 1/2 Bottle</span>
+                    <span>Aguardiente Amarillo 1/2</span>
                     <span>$50.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Aguardiente Amarillo Botella</span>
-                    <span class="en">Yellow Aguardiente Full Bottle</span>
+                    <span>Aguardiente Amarillo Botella</span>
                     <span>$80.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Whisky JACK DANIELS Tennessee Honey por media botella</span>
-                    <span class="en">JACK DANIELS Tennessee Honey Whiskey half bottle</span>
+                    <span>Whisky JACK DANIELS Tennessee Honey por media botella</span>
                     <span>$100.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Ron Juan De La Cruz 1/2</span>
-                    <span class="en">Juan De La Cruz Rum 1/2 Bottle</span>
+                    <span>Ron Juan De La Cruz 1/2</span>
                     <span>$65.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Ron Tradicional Viejo de Caldas 1/2</span>
-                    <span class="en">Traditional Viejo de Caldas Rum 1/2 Bottle</span>
+                    <span>Ron Tradicional Viejo de Caldas 1/2</span>
                     <span>$50.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Trago Corto de Ron</span>
-                    <span class="en">Rum Shot</span>
+                    <span>Trago Corto de Ron</span>
                     <span>$4.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Trago Corto de Aguardiente tapa azul</span>
-                    <span class="en">Blue Cap Aguardiente Shot</span>
+                    <span>Trago Corto de Aguardiente tapa azul</span>
                     <span>$4.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Trago Corto de Jägermeister</span>
-                    <span class="en">Jägermeister Shot</span>
+                    <span>Trago Corto de Jägermeister</span>
                     <span>$4.500</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Trago Corto de Jack Daniels</span>
-                    <span class="en">Jack Daniels Shot</span>
+                    <span>Trago Corto de Jack Daniels</span>
                     <span>$5.500</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Trago Corto de Ginebra Gordon's London Dry</span>
-                    <span class="en">Gordon's London Dry Gin Shot</span>
+                    <span>Trago Corto de Ginebra Gordon's London Dry</span>
                     <span>$7.500</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Trago Corto de Falcony</span>
-                    <span class="en">Falcony Shot</span>
+                    <span>Trago Corto de Falcony</span>
                     <span>$4.500</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Trago Corto de Tequila Jimador Blanco</span>
-                    <span class="en">Jimador White Tequila Shot</span>
+                    <span>Trago Corto de Tequila Jimador Blanco</span>
                     <span>$5.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Trago Corto de Tequila Olmeco</span>
-                    <span class="en">Olmeco Tequila Shot</span>
+                    <span>Trago Corto de Tequila Olmeco</span>
                     <span>$4.500</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Trago Corto de Vodka</span>
-                    <span class="en">Vodka Shot</span>
+                    <span>Trago Corto de Vodka</span>
                     <span>$5.000</span>
                 </div>
             </div>
             
             <!-- Cocktails Section -->
             <div class="menu-section">
-                <h2 class="section-title es">Cócteles</h2>
-                <h2 class="section-title en">Cocktails</h2>
+                <h2 class="section-title">Cócteles</h2>
                 
                 <div class="menu-item">
-                    <span class="es">Cóctel Blue Lady (gin tonic, limon, blue curacao, hielo)</span>
-                    <span class="en">Blue Lady Cocktail (gin tonic, lemon, blue curacao, ice)</span>
+                    <span>Cóctel Blue Lady (gin tonic, limon, blue curacao, hielo)</span>
                     <span>$20.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Cóctel Destornillador (zumo de naranja y vocka)</span>
-                    <span class="en">Screwdriver Cocktail (orange juice and vodka)</span>
+                    <span>Cóctel Destornillador (zumo de naranja y vocka)</span>
                     <span>$25.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Bacardi con Limón</span>
-                    <span class="en">Bacardi with Lemon</span>
+                    <span>Bacardi con Limón</span>
                     <span>$18.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Bacardi con Sprite</span>
-                    <span class="en">Bacardi with Sprite</span>
+                    <span>Bacardi con Sprite</span>
                     <span>$16.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Gin Tonic Premium Pink (agua tónica, fresa)</span>
-                    <span class="en">Premium Pink Gin Tonic (tonic water, strawberry)</span>
+                    <span>Gin Tonic Premium Pink (agua tónica, fresa)</span>
                     <span>$27.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Gin Tonic Falcony (agua tónica, ginebra)</span>
-                    <span class="en">Falcony Gin Tonic (tonic water, gin)</span>
+                    <span>Gin Tonic Falcony (agua tónica, ginebra)</span>
                     <span>$20.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Vaso de Whiskey</span>
-                    <span class="en">Glass of Whiskey</span>
+                    <span>Vaso de Whiskey</span>
                     <span>$20.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Cuba Libre (ron y Coca-Cola)</span>
-                    <span class="en">Cuba Libre (rum and Coca-Cola)</span>
+                    <span>Cuba Libre (ron y Coca-Cola)</span>
                     <span>$10.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Cóctel Bombón (zumo de fresa, leche condensada, ron blanco, Baileys, hielo)</span>
-                    <span class="en">Bombón Cocktail (strawberry juice, condensed milk, white rum, Baileys, ice)</span>
+                    <span>Cóctel Bombón (zumo de fresa, leche condensada, ron blanco, Baileys, hielo)</span>
                     <span>$20.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Whiskey Sour (whiskey, limón, azúcar)</span>
-                    <span class="en">Whiskey Sour (whiskey, lemon, sugar)</span>
+                    <span>Whiskey Sour (whiskey, limón, azúcar)</span>
                     <span>$18.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Baileys con Hielo</span>
-                    <span class="en">Baileys on Ice</span>
+                    <span>Baileys con Hielo</span>
                     <span>$20.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Blue Margarita (tequila, curaçao, jugo de limón, azúcar)</span>
-                    <span class="en">Blue Margarita (tequila, curaçao, lemon juice, sugar)</span>
+                    <span>Blue Margarita (tequila, curaçao, jugo de limón, azúcar)</span>
                     <span>$20.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Cóctel Cielo Azul (gin, vodka, blue curaçao, hielo)</span>
-                    <span class="en">Blue Sky Cocktail (gin, vodka, blue curaçao, ice)</span>
+                    <span>Cóctel Cielo Azul (gin, vodka, blue curaçao, hielo)</span>
                     <span>$22.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Mojito (hierbabuena, ron blanco, azúcar, limón)</span>
-                    <span class="en">Mojito (mint, white rum, sugar, lemon)</span>
+                    <span>Mojito (hierbabuena, ron blanco, azúcar, limón)</span>
                     <span>$8.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Baileys Frío (licor de café, Baileys, café frío, crema de leche)</span>
-                    <span class="en">Cold Baileys (coffee liqueur, Baileys, cold coffee, cream)</span>
+                    <span>Baileys Frío (licor de café, Baileys, café frío, crema de leche)</span>
                     <span>$25.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Jack Limonada (Jack Daniels Honey, hielo, Sprite)</span>
-                    <span class="en">Jack Lemonade (Jack Daniels Honey, ice, Sprite)</span>
+                    <span>Jack Limonada (Jack Daniels Honey, hielo, Sprite)</span>
                     <span>$20.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Cóctel Orgasmo (licor de café, licor de amaretto, licor de Baileys)</span>
-                    <span class="en">Orgasm Cocktail (coffee liqueur, amaretto liqueur, Baileys liqueur)</span>
+                    <span>Cóctel Orgasmo (licor de café, licor de amaretto, licor de Baileys)</span>
                     <span>$20.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Coctel Caipiroska (limon, azucar, vodka)</span>
-                    <span class="en">Caipiroska Cocktail (lemon, sugar, vodka)</span>
+                    <span>Coctel Caipiroska (limon, azucar, vodka)</span>
                     <span>$25.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Vino blanco</span>
-                    <span class="en">White wine</span>
+                    <span>Vino blanco</span>
                     <span>$25.000</span>
                 </div>
             </div>
             
             <!-- Desserts Section -->
             <div class="menu-section">
-                <h2 class="section-title es">Tortas Panaderia</h2>
-                <h2 class="section-title en">Bakery Cakes</h2>
+                <h2 class="section-title">Tortas Panaderia</h2>
                 
                 <div class="menu-item">
-                    <span class="es">Torta de cafe y chocolate</span>
-                    <span class="en">Coffee and chocolate cake</span>
+                    <span>Torta de cafe y chocolate</span>
                     <span>$8.000</span>
                 </div>
             </div>
             
             <div class="menu-section">
-                <h2 class="section-title es">Postres</h2>
-                <h2 class="section-title en">Desserts</h2>
+                <h2 class="section-title">Postres</h2>
                 
                 <div class="menu-item">
-                    <span class="es">Postre Del Dia</span>
-                    <span class="en">Dessert of the Day</span>
+                    <span>Postre Del Dia</span>
                     <span>$10.000</span>
                 </div>
             </div>
             
             <!-- Salchipapas Section -->
             <div class="menu-section">
-                <h2 class="section-title es">Salchipapas</h2>
-                <h2 class="section-title en">Salchipapas (Sausage & Fries)</h2>
+                <h2 class="section-title">Salchipapas</h2>
 
                 <div class="menu-item">
-                    <span class="es"><strong>CLASICA SENCILLA</strong> (papa a la francesa, salchicha zenu y salsas premiun)</span>
-                    <span class="en"><strong>CLASSIC SIMPLE</strong> (french fries, zenu sausage and premium sauces)</span>
+                    <span><strong>CLASICA SENCILLA</strong> (papa a la francesa, salchicha zenu y salsas premiun)</span>
                     <span>$17.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>CLASICA DOS PERSONAS</strong> (papa a la francesa, salchicha zenu y salsas premiun)</span>
-                    <span class="en"><strong>CLASSIC FOR TWO</strong> (french fries, zenu sausage and premium sauces)</span>
+                    <span><strong>CLASICA DOS PERSONAS</strong> (papa a la francesa, salchicha zenu y salsas premiun)</span>
                     <span>$27.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>GRATINADA SENCILLA</strong> (papa a la francesa, salchicha zenu, baño de queso fundido, tocineta y salsas premiun)</span>
-                    <span class="en"><strong>SIMPLE GRATINATED</strong> (french fries, zenu sausage, melted cheese, bacon and premium sauces)</span>
+                    <span><strong>GRATINADA SENCILLA</strong> (papa a la francesa, salchicha zenu, baño de queso fundido, tocineta y salsas premiun)</span>
                     <span>$20.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>GRATINADA DOS PERSONAS</strong> (papa a la francesa, salchicha zenu, baño de queso fundido, tocineta y salsas premiun)</span>
-                    <span class="en"><strong>GRATINATED FOR TWO</strong> (french fries, zenu sausage, melted cheese, bacon and premium sauces)</span>
+                    <span><strong>GRATINADA DOS PERSONAS</strong> (papa a la francesa, salchicha zenu, baño de queso fundido, tocineta y salsas premiun)</span>
                     <span>$37.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>KLISA</strong> (papa a la francesa, salchicha zenu, baño de queso fundido, pollo desmechado en salsa de la casa, chorizo santarrosano, tocinetas y salsas premiun)</span>
-                    <span class="en"><strong>KLISA</strong> (french fries, zenu sausage, melted cheese, shredded chicken in house sauce, santarrosano chorizo, bacon and premium sauces)</span>
+                    <span><strong>KLISA</strong> (papa a la francesa, salchicha zenu, baño de queso fundido, pollo desmechado en salsa de la casa, chorizo santarrosano, tocinetas y salsas premiun)</span>
                     <span>$27.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>KLISA 2 PERSONAS</strong> (papa a la francesa, salchicha zenu, baño de queso fundido, pollo desmechado en salsa de la casa, chorizo santarrosano, tocinetas y salsas premiun)</span>
-                    <span class="en"><strong>KLISA FOR 2</strong> (french fries, zenu sausage, melted cheese, shredded chicken in house sauce, santarrosano chorizo, bacon and premium sauces)</span>
+                    <span><strong>KLISA 2 PERSONAS</strong> (papa a la francesa, salchicha zenu, baño de queso fundido, pollo desmechado en salsa de la casa, chorizo santarrosano, tocinetas y salsas premiun)</span>
                     <span>$48.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>SALCHICRIOLLA 2 PERSONAS</strong> (papa criolla, queso fundido, trozos de pechuga apanados, salchicha ranchera, maiz dulce, y salsas premiun)</span>
-                    <span class="en"><strong>SALCHICRIOLLA FOR 2</strong> (creole potatoes, melted cheese, breaded chicken breast pieces, ranch sausage, sweet corn, and premium sauces)</span>
+                    <span><strong>SALCHICRIOLLA 2 PERSONAS</strong> (papa criolla, queso fundido, trozos de pechuga apanados, salchicha ranchera, maiz dulce, y salsas premiun)</span>
                     <span>$40.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>ANTIOQUEÑA PERSONAL</strong> (papa a la francesa, salchicha zenu, baño de queso fundido, guacamole artesanal, chicharron, maduro frito y salsas premium)</span>
-                    <span class="en"><strong>ANTIOQUEÑA PERSONAL</strong> (french fries, zenu sausage, melted cheese, artisanal guacamole, pork rinds, fried plantain and premium sauces)</span>
+                    <span><strong>ANTIOQUEÑA PERSONAL</strong> (papa a la francesa, salchicha zenu, baño de queso fundido, guacamole artesanal, chicharron, maduro frito y salsas premium)</span>
                     <span>$27.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>ANTIOQUEÑA 2 PERSONAS</strong> (papa a la francesa, salchicha zenu, baño de queso fundido, guacamole artesanal, chicharron, maduro frito y salsas premium)</span>
-                    <span class="en"><strong>ANTIOQUEÑA FOR 2</strong> (french fries, zenu sausage, melted cheese, artisanal guacamole, pork rinds, fried plantain and premium sauces)</span>
+                    <span><strong>ANTIOQUEÑA 2 PERSONAS</strong> (papa a la francesa, salchicha zenu, baño de queso fundido, guacamole artesanal, chicharron, maduro frito y salsas premium)</span>
                     <span>$40.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>FULL MIXTA PERSONAL</strong> (papa a la francesa, salchicha zenu, baño de queso fundido, pollo desmechado en salsa de la casa, costilla de cerdo desmechada en salsa bbq, chorizo santa rosano, y salsas premiun)</span>
-                    <span class="en"><strong>FULL MIXED PERSONAL</strong> (french fries, zenu sausage, melted cheese, shredded chicken in house sauce, shredded pork ribs in bbq sauce, santa rosa chorizo, and premium sauces)</span>
+                    <span><strong>FULL MIXTA PERSONAL</strong> (papa a la francesa, salchicha zenu, baño de queso fundido, pollo desmechado en salsa de la casa, costilla de cerdo desmechada en salsa bbq, chorizo santa rosano, y salsas premiun)</span>
                     <span>$29.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>FULL MIXTA 2 PERSONAS</strong> (papa a la francesa, salchicha zenu, baño de queso fundido, pollo desmechado en salsa de la casa, costilla de cerdo desmechada en salsa bbq, chorizo santa rosano, y salsas premiun)</span>
-                    <span class="en"><strong>FULL MIXED FOR 2</strong> (french fries, zenu sausage, melted cheese, shredded chicken in house sauce, shredded pork ribs in bbq sauce, santa rosa chorizo, and premium sauces)</span>
+                    <span><strong>FULL MIXTA 2 PERSONAS</strong> (papa a la francesa, salchicha zenu, baño de queso fundido, pollo desmechado en salsa de la casa, costilla de cerdo desmechada en salsa bbq, chorizo santa rosano, y salsas premiun)</span>
                     <span>$50.000</span>
                 </div>
             </div>
 
             <!-- Asados Section -->
             <div class="menu-section">
-                <h2 class="section-title es">Asados</h2>
-                <h2 class="section-title en">Grilled Meats</h2>
+                <h2 class="section-title">Asados</h2>
 
                 <div class="menu-item">
-                    <span class="es"><strong>BANDEJA DE CHORIZOS</strong> (2 chorizos santarosanos, arepa, tomate y limon)</span>
-                    <span class="en"><strong>CHORIZO PLATTER</strong> (2 santarosano chorizos, arepa, tomato and lemon)</span>
+                    <span><strong>BANDEJA DE CHORIZOS</strong> (2 chorizos santarosanos, arepa, tomate y limon)</span>
                     <span>$19.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>PECHUGA PARRILLERA</strong> (300 g de pechuga asada a la parrilla, ensalada de la casa, guacamole artesanal y acompañamiento (a elección))</span>
-                    <span class="en"><strong>GRILLED CHICKEN BREAST</strong> (300 g of grilled chicken breast, house salad, artisanal guacamole and side dish (your choice))</span>
+                    <span><strong>PECHUGA PARRILLERA</strong> (300 g de pechuga asada a la parrilla, ensalada de la casa, guacamole artesanal y acompañamiento (a elección))</span>
                     <span>$29.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>COSTILLAS AHUMADAS DE CERDO</strong> (400 g de costillas de cerdo ahumada con un baño de salsa BBQ, ensalada de la casa, guacamole artesanal y acompañamiento (a elección))</span>
-                    <span class="en"><strong>SMOKED PORK RIBS</strong> (400 g of smoked pork ribs with BBQ sauce, house salad, artisanal guacamole and side dish (your choice))</span>
+                    <span><strong>COSTILLAS AHUMADAS DE CERDO</strong> (400 g de costillas de cerdo ahumada con un baño de salsa BBQ, ensalada de la casa, guacamole artesanal y acompañamiento (a elección))</span>
                     <span>$29.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>LOMO DE CERDO</strong> (300 g de lomo de cerdo asado a la parrilla, ensalada de la casa, guacamole artesanal y acompañamiento (a elección))</span>
-                    <span class="en"><strong>PORK LOIN</strong> (300 g of grilled pork loin, house salad, artisanal guacamole and side dish (your choice))</span>
+                    <span><strong>LOMO DE CERDO</strong> (300 g de lomo de cerdo asado a la parrilla, ensalada de la casa, guacamole artesanal y acompañamiento (a elección))</span>
                     <span>$30.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>ASADO DE RES</strong> (300 g de carne asada a la parrilla, ensalada de la casa, guacamole artesanal y acompañamiento (a elección))</span>
-                    <span class="en"><strong>GRILLED BEEF</strong> (300 g of grilled beef, house salad, artisanal guacamole and side dish (your choice))</span>
+                    <span><strong>ASADO DE RES</strong> (300 g de carne asada a la parrilla, ensalada de la casa, guacamole artesanal y acompañamiento (a elección))</span>
                     <span>$30.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>PECHUGA GRATINADA</strong> (300 g de pechuga asada a la parrilla con un baño de queso fundido, maiz dulce, ensalada de la casa, guacamole artesanal y acompañamiento (a elección))</span>
-                    <span class="en"><strong>GRATINATED CHICKEN BREAST</strong> (300 g of grilled chicken breast with melted cheese, sweet corn, house salad, artisanal guacamole and side dish (your choice))</span>
+                    <span><strong>PECHUGA GRATINADA</strong> (300 g de pechuga asada a la parrilla con un baño de queso fundido, maiz dulce, ensalada de la casa, guacamole artesanal y acompañamiento (a elección))</span>
                     <span>$32.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>AREPA BURGUER</strong> (Arepa, base de lechuga batavia, 150 gramos de carne de res, queso fundido, tocineta, salsas premiun)</span>
-                    <span class="en"><strong>AREPA BURGER</strong> (Arepa, batavia lettuce base, 150 grams of beef, melted cheese, bacon, premium sauces)</span>
+                    <span><strong>AREPA BURGUER</strong> (Arepa, base de lechuga batavia, 150 gramos de carne de res, queso fundido, tocineta, salsas premiun)</span>
                     <span>$20.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>ACOMPAÑAMIENTOS</strong></span>
-                    <span class="en"><strong>SIDE DISHES</strong></span>
+                    <span><strong>ACOMPAÑAMIENTOS</strong></span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Croquetas de yuca</span>
-                    <span class="en">Cassava croquettes</span>
+                    <span>Croquetas de yuca</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Papas a la francesa</span>
-                    <span class="en">French fries</span>
+                    <span>Papas a la francesa</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Aros de cebolla</span>
-                    <span class="en">Onion rings</span>
+                    <span>Aros de cebolla</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">Papa criolla</span>
-                    <span class="en">Creole potatoes</span>
+                    <span>Papa criolla</span>
                 </div>
             </div>
 
             <!-- Hamburgers Section -->
             <div class="menu-section">
-                <h2 class="section-title es">Hamburguesas</h2>
-                <h2 class="section-title en">Hamburgers</h2>
+                <h2 class="section-title">Hamburguesas</h2>
 
                 <div class="menu-item">
-                    <span class="es"><strong>CLASICA SENCILLA</strong> (Pan artesanal, 150 gr carne de res, queso mozzarella, verduras frescas, salsas premium y cebolla caramelizada (a elección))</span>
-                    <span class="en"><strong>CLASSIC SIMPLE</strong> (Artisanal bread, 150 g beef, mozzarella cheese, fresh vegetables, premium sauces and caramelized onion (optional))</span>
+                    <span><strong>CLASICA SENCILLA</strong> (Pan artesanal, 150 gr carne de res, queso mozzarella, verduras frescas, salsas premium y cebolla caramelizada (a elección))</span>
                     <span>$18.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>TROPICAL</strong> (Pan artesanal, 150 gr carne de res, queso mozzarella fundido, piña calada, maiz dulce, verduras frescas, salsas premium y cebolla caramelizada (a elección))</span>
-                    <span class="en"><strong>TROPICAL</strong> (Artisanal bread, 150 g beef, melted mozzarella cheese, pineapple, sweet corn, fresh vegetables, premium sauces and caramelized onion (optional))</span>
+                    <span><strong>TROPICAL</strong> (Pan artesanal, 150 gr carne de res, queso mozzarella fundido, piña calada, maiz dulce, verduras frescas, salsas premium y cebolla caramelizada (a elección))</span>
                     <span>$20.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>BBQ RIBS</strong> (Pan artesanal, 150 gr carne de res, queso mozzarella fundido, costilla de cerdo desmechada en salsa BBQ, maiz dulce, verduras frescas, salsas premium y cebolla caramelizada (a elección))</span>
-                    <span class="en"><strong>BBQ RIBS</strong> (Artisanal bread, 150 g beef, melted mozzarella cheese, shredded pork ribs in BBQ sauce, sweet corn, fresh vegetables, premium sauces and caramelized onion (optional))</span>
+                    <span><strong>BBQ RIBS</strong> (Pan artesanal, 150 gr carne de res, queso mozzarella fundido, costilla de cerdo desmechada en salsa BBQ, maiz dulce, verduras frescas, salsas premium y cebolla caramelizada (a elección))</span>
                     <span>$22.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>DOBLE QUESO</strong> (Pan artesanal, 150 gr carne de res, queso mozzarella, baño de queso fundido, tocineta, verduras frescas, salsas premium y cebolla caramelizada (a eleccion))</span>
-                    <span class="en"><strong>DOUBLE CHEESE</strong> (Artisanal bread, 150 g beef, mozzarella cheese, melted cheese, bacon, fresh vegetables, premium sauces and caramelized onion (optional))</span>
+                    <span><strong>DOBLE QUESO</strong> (Pan artesanal, 150 gr carne de res, queso mozzarella, baño de queso fundido, tocineta, verduras frescas, salsas premium y cebolla caramelizada (a eleccion))</span>
                     <span>$22.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>MEXICANA SENCILLA</strong> (Pan artesanal, 150 gr carne de res, queso mozzarella, queso fundido, jalapeños o pepinillos, guacamole, tocineta, verduras frescas, salsas premium y cebolla caramelizada (a elección))</span>
-                    <span class="en"><strong>MEXICAN SIMPLE</strong> (Artisanal bread, 150 g beef, mozzarella cheese, melted cheese, jalapeños or pickles, guacamole, bacon, fresh vegetables, premium sauces and caramelized onion (optional))</span>
+                    <span><strong>MEXICANA SENCILLA</strong> (Pan artesanal, 150 gr carne de res, queso mozzarella, queso fundido, jalapeños o pepinillos, guacamole, tocineta, verduras frescas, salsas premium y cebolla caramelizada (a elección))</span>
                     <span>$23.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>DE MI PUEBLO</strong> (Pan artesanal, 150 gr carne de res, queso mozzarella, chorizo santarrosano, verduras frescas, salsas premium y cebolla caramelizada (a elección))</span>
-                    <span class="en"><strong>FROM MY TOWN</strong> (Artisanal bread, 150 g beef, mozzarella cheese, santarrosano chorizo, fresh vegetables, premium sauces and caramelized onion (optional))</span>
+                    <span><strong>DE MI PUEBLO</strong> (Pan artesanal, 150 gr carne de res, queso mozzarella, chorizo santarrosano, verduras frescas, salsas premium y cebolla caramelizada (a elección))</span>
                     <span>$26.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>KLISA</strong> (Pan artesanal, 150 gr carne de res, queso mozzarella, pollo desmechado en salsa de la casa, tocineta, aros de cebolla, verduras frescas, salsas premium y cebolla caramelizada (a elección))</span>
-                    <span class="en"><strong>KLISA</strong> (Artisanal bread, 150 g beef, mozzarella cheese, shredded chicken in house sauce, bacon, onion rings, fresh vegetables, premium sauces and caramelized onion (optional))</span>
+                    <span><strong>KLISA</strong> (Pan artesanal, 150 gr carne de res, queso mozzarella, pollo desmechado en salsa de la casa, tocineta, aros de cebolla, verduras frescas, salsas premium y cebolla caramelizada (a elección))</span>
                     <span>$25.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>MASTER DOBLE CARNE</strong> (Pan artesanal, 300 gr doble carne de res, queso mozzarella, baño de queso fundido, tocineta, verduras frescas, salsas premium y cebolla caramelizada (a elección))</span>
-                    <span class="en"><strong>MASTER DOUBLE MEAT</strong> (Artisanal bread, 300 g double beef, mozzarella cheese, melted cheese, bacon, fresh vegetables, premium sauces and caramelized onion (optional))</span>
+                    <span><strong>MASTER DOBLE CARNE</strong> (Pan artesanal, 300 gr doble carne de res, queso mozzarella, baño de queso fundido, tocineta, verduras frescas, salsas premium y cebolla caramelizada (a elección))</span>
                     <span>$29.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>MASTER MIXTA</strong> (Pan artesanal, 150 gr carne de res, pechuga apanada, queso mozzarella, baño de queso fundido, tocineta, verduras frescas, salsas premium y cebolla caramelizada)</span>
-                    <span class="en"><strong>MASTER MIXED</strong> (Artisanal bread, 150 g beef, breaded chicken breast, mozzarella cheese, melted cheese, bacon, fresh vegetables, premium sauces and caramelized onion)</span>
+                    <span><strong>MASTER MIXTA</strong> (Pan artesanal, 150 gr carne de res, pechuga apanada, queso mozzarella, baño de queso fundido, tocineta, verduras frescas, salsas premium y cebolla caramelizada)</span>
                     <span>$28.000</span>
                 </div>
             </div>
 
             <!-- Mexican Food Sections -->
             <div class="menu-section">
-                <h2 class="section-title es">Tacos</h2>
-                <h2 class="section-title en">Tacos</h2>
+                <h2 class="section-title">Tacos</h2>
                 <div class="menu-item">
-                    <span class="es"><strong>TACOS DE BIRRIA</strong></span>
-                    <span class="en"><strong>BIRRIA TACOS</strong></span>
+                    <span><strong>TACOS DE BIRRIA</strong></span>
                     <span>$27.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>TACOS PASTOR</strong></span>
-                    <span class="en"><strong>AL PASTOR TACOS</strong></span>
+                    <span><strong>TACOS PASTOR</strong></span>
                     <span>$27.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>TACOS DE COCHINITA PIBIL</strong></span>
-                    <span class="en"><strong>COCHINITA PIBIL TACOS</strong></span>
+                    <span><strong>TACOS DE COCHINITA PIBIL</strong></span>
                     <span>$27.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>TACOS DE FAJITAS DE RES</strong></span>
-                    <span class="en"><strong>BEEF FAJITA TACOS</strong></span>
+                    <span><strong>TACOS DE FAJITAS DE RES</strong></span>
                     <span>$26.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>TACOS DE FAJITAS DE POLLO</strong></span>
-                    <span class="en"><strong>CHICKEN FAJITA TACOS</strong></span>
+                    <span><strong>TACOS DE FAJITAS DE POLLO</strong></span>
                     <span>$25.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>TACOS DE CHICHARRÓN</strong> (Trozos de Chicharrón salteados en mantequilla con Pimentón, Cebolla y Cilantro)</span>
-                    <span class="en"><strong>PORK RIND TACOS</strong> (Pieces of pork rinds sautéed in butter with paprika, onion and cilantro)</span>
+                    <span><strong>TACOS DE CHICHARRÓN</strong> (Trozos de Chicharrón salteados en mantequilla con Pimentón, Cebolla y Cilantro)</span>
                     <span>$26.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>TACOS DE LENGUA</strong> (Trozos de Lengua salteada en mantequilla con Pimentón, Cebolla y Cilantro)</span>
-                    <span class="en"><strong>TONGUE TACOS</strong> (Pieces of tongue sautéed in butter with paprika, onion and cilantro)</span>
+                    <span><strong>TACOS DE LENGUA</strong> (Trozos de Lengua salteada en mantequilla con Pimentón, Cebolla y Cilantro)</span>
                     <span>$27.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>TACOS DE TRIPITA</strong> (Trozos de Tripita salteadas en mantequilla con Pimentón, Cebolla y Cilantro)</span>
-                    <span class="en"><strong>TRIPE TACOS</strong> (Pieces of tripe sautéed in butter with paprika, onion and cilantro)</span>
+                    <span><strong>TACOS DE TRIPITA</strong> (Trozos de Tripita salteadas en mantequilla con Pimentón, Cebolla y Cilantro)</span>
                     <span>$27.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>TACOS ROSARITO</strong> (Deliciosos Camarones salteados en mantequilla con Queso, Pimentón, Cebolla y Cilantro)</span>
-                    <span class="en"><strong>ROSARITO TACOS</strong> (Delicious shrimp sautéed in butter with cheese, paprika, onion and cilantro)</span>
+                    <span><strong>TACOS ROSARITO</strong> (Deliciosos Camarones salteados en mantequilla con Queso, Pimentón, Cebolla y Cilantro)</span>
                     <span>$29.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>TACOS BAJA CALIFORNIA</strong> (Corte de Pescado apanado al mejor estilo de AY CHABELA!!)</span>
-                    <span class="en"><strong>BAJA CALIFORNIA TACOS</strong> (Breaded fish cut in the best style of AY CHABELA!!)</span>
+                    <span><strong>TACOS BAJA CALIFORNIA</strong> (Corte de Pescado apanado al mejor estilo de AY CHABELA!!)</span>
                     <span>$27.000</span>
                 </div>
             </div>
 
             <div class="menu-section">
-                <h2 class="section-title es">BURROS</h2>
-                <h2 class="section-title en">BURRITOS</h2>
+                <h2 class="section-title">BURROS</h2>
 
                 <div class="menu-item">
-                    <span class="es"><strong>GRATINADO DE BIRRIA</strong></span>
-                    <span class="en"><strong>BIRRIA GRATINATED</strong></span>
+                    <span><strong>GRATINADO DE BIRRIA</strong></span>
                     <span>$29.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>BURRO DE BIRRIA</strong></span>
-                    <span class="en"><strong>BIRRIA BURRITO</strong></span>
+                    <span><strong>BURRO DE BIRRIA</strong></span>
                     <span>$26.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>GRATINADO DE PASTOR</strong></span>
-                    <span class="en"><strong>AL PASTOR GRATINATED</strong></span>
+                    <span><strong>GRATINADO DE PASTOR</strong></span>
                     <span>$29.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>BURRO PASTOR</strong></span>
-                    <span class="en"><strong>AL PASTOR BURRITO</strong></span>
+                    <span><strong>BURRO PASTOR</strong></span>
                     <span>$29.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>GRATINADO DE COCHINITA PIBIL</strong></span>
-                    <span class="en"><strong>COCHINITA PIBIL GRATINATED</strong></span>
+                    <span><strong>GRATINADO DE COCHINITA PIBIL</strong></span>
                     <span>$26.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>BURRO DE COCHINITA PIBIL</strong></span>
-                    <span class="en"><strong>COCHINITA PIBIL BURRITO</strong></span>
+                    <span><strong>BURRO DE COCHINITA PIBIL</strong></span>
                     <span>$26.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>GRATINADO DE FAJITAS DE RES</strong></span>
-                    <span class="en"><strong>BEEF FAJITA GRATINATED</strong></span>
+                    <span><strong>GRATINADO DE FAJITAS DE RES</strong></span>
                     <span>$29.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>BURRO DE FAJITAS DE RES</strong></span>
-                    <span class="en"><strong>BEEF FAJITA BURRITO</strong></span>
+                    <span><strong>BURRO DE FAJITAS DE RES</strong></span>
                     <span>$29.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>GRATINADO DE FAJITAS DE POLLO</strong></span>
-                    <span class="en"><strong>CHICKEN FAJITA GRATINATED</strong></span>
+                    <span><strong>GRATINADO DE FAJITAS DE POLLO</strong></span>
                     <span>$26.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>BURRO DE FAJITAS DE POLLO</strong></span>
-                    <span class="en"><strong>CHICKEN FAJITA BURRITO</strong></span>
+                    <span><strong>BURRO DE FAJITAS DE POLLO</strong></span>
                     <span>$24.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>GRATINADO VEGETARIANO</strong></span>
-                    <span class="en"><strong>VEGETARIAN GRATINATED</strong></span>
+                    <span><strong>GRATINADO VEGETARIANO</strong></span>
                     <span>$21.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>BURRO VEGETARIANO</strong></span>
-                    <span class="en"><strong>VEGETARIAN BURRITO</strong></span>
+                    <span><strong>BURRO VEGETARIANO</strong></span>
                     <span>$24.000</span>
                 </div>
             </div>
 
             <div class="menu-section">
-                <h2 class="section-title es">Quesadillas</h2>
-                <h2 class="section-title en">Quesadillas</h2>
+                <h2 class="section-title">Quesadillas</h2>
                 <div class="menu-item">
-                    <span class="es"><strong>QUESADILLA DE BIRRIA</strong></span>
-                    <span class="en"><strong>BIRRIA QUESADILLA</strong></span>
+                    <span><strong>QUESADILLA DE BIRRIA</strong></span>
                     <span>$29.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>QUESADILLA DE FAJITAS DE POLLO</strong></span>
-                    <span class="en"><strong>CHICKEN FAJITA QUESADILLA</strong></span>
+                    <span><strong>QUESADILLA DE FAJITAS DE POLLO</strong></span>
                     <span>$26.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>QUESADILLA PASTOR</strong></span>
-                    <span class="en"><strong>AL PASTOR QUESADILLA</strong></span>
+                    <span><strong>QUESADILLA PASTOR</strong></span>
                     <span>$29.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>QUESADILLA VEGETARIANA</strong></span>
-                    <span class="en"><strong>VEGETARIAN QUESADILLA</strong></span>
+                    <span><strong>QUESADILLA VEGETARIANA</strong></span>
                     <span>$24.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>QUESADILLA DE COCHINITA PIBIL</strong></span>
-                    <span class="en"><strong>COCHINITA PIBIL QUESADILLA</strong></span>
+                    <span><strong>QUESADILLA DE COCHINITA PIBIL</strong></span>
                     <span>$29.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>QUESADILLA SÓLO QUESO</strong></span>
-                    <span class="en"><strong>CHEESE ONLY QUESADILLA</strong></span>
+                    <span><strong>QUESADILLA SÓLO QUESO</strong></span>
                     <span>$15.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>QUESADILLA DE FAJITAS DE RES</strong></span>
-                    <span class="en"><strong>BEEF FAJITA QUESADILLA</strong></span>
+                    <span><strong>QUESADILLA DE FAJITAS DE RES</strong></span>
                     <span>$29.000</span>
                 </div>
             </div>
 
             <div class="menu-section">
-                <h2 class="section-title es">Sopas</h2>
-                <h2 class="section-title en">Soups</h2>
+                <h2 class="section-title">Sopas</h2>
                 <div class="menu-item">
-                    <span class="es"><strong>SOPA AZTECA</strong></span>
-                    <span class="en"><strong>AZTEC SOUP</strong></span>
+                    <span><strong>SOPA AZTECA</strong></span>
                     <span>$18.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>SOPA LEVANTA MUERTOS</strong></span>
-                    <span class="en"><strong>HANGOVER SOUP</strong></span>
+                    <span><strong>SOPA LEVANTA MUERTOS</strong></span>
                     <span>$23.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>BIRRIA - RAMEN</strong></span>
-                    <span class="en"><strong>BIRRIA - RAMEN</strong></span>
+                    <span><strong>BIRRIA - RAMEN</strong></span>
                     <span>$23.000</span>
                 </div>
             </div>
 
             <div class="menu-section">
-                <h2 class="section-title es">Flautas y Chimichangas</h2>
-                <h2 class="section-title en">Flautas and Chimichangas</h2>
+                <h2 class="section-title">Flautas y Chimichangas</h2>
                 <div class="menu-item">
-                    <span class="es"><strong>FLAUTAS</strong></span>
-                    <span class="en"><strong>FLAUTAS</strong></span>
+                    <span><strong>FLAUTAS</strong></span>
                     <span>$30.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>CHIMICHANGA</strong></span>
-                    <span class="en"><strong>CHIMICHANGA</strong></span>
+                    <span><strong>CHIMICHANGA</strong></span>
                     <span>$28.000</span>
                 </div>
             </div>
 
             <div class="menu-section">
-                <h2 class="section-title es">Tortas Comida Mexicana</h2>
-                <h2 class="section-title en">Mexican Sandwiches</h2>
+                <h2 class="section-title">Tortas Comida Mexicana</h2>
                 <div class="menu-item">
-                    <span class="es"><strong>TORTA CARNITAS</strong></span>
-                    <span class="en"><strong>CARNITAS SANDWICH</strong></span>
+                    <span><strong>TORTA CARNITAS</strong></span>
                     <span>$24.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>MAYA</strong></span>
-                    <span class="en"><strong>MAYA</strong></span>
+                    <span><strong>MAYA</strong></span>
                     <span>$27.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>TORTA AHOGADA</strong></span>
-                    <span class="en"><strong>DROWNED SANDWICH</strong></span>
+                    <span><strong>TORTA AHOGADA</strong></span>
                     <span>$28.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es">TODAS NUESTRAS TORTAS VIENEN EN PAN BRIOCHE, CON FRIJOL REFRITO, LECHUGA, GUACAMOLE, CEBOLLA BRUJA, JALAPENOS, QUESO CHEDDAR, TOCINETA, QUESO MOZZARELLA Y SOURCREAM. ACOMPAÑADA CON DELICIOSOS NACHOS</span>
-                    <span class="en">ALL OUR SANDWICHES COME ON BRIOCHE BREAD, WITH REFRIED BEANS, LETTUCE, GUACAMOLE, ONION, JALAPENOS, CHEDDAR CHEESE, BACON, MOZZARELLA CHEESE AND SOUR CREAM. SERVED WITH DELICIOUS NACHOS</span>
+                    <span>TODAS NUESTRAS TORTAS VIENEN EN PAN BRIOCHE, CON FRIJOL REFRITO, LECHUGA, GUACAMOLE, CEBOLLA BRUJA, JALAPENOS, QUESO CHEDDAR, TOCINETA, QUESO MOZZARELLA Y SOURCREAM. ACOMPAÑADA CON DELICIOSOS NACHOS</span>
                 </div>
             </div>
 
             <div class="menu-section">
-                <h2 class="section-title es">Para Compartir</h2>
-                <h2 class="section-title en">To Share</h2>
+                <h2 class="section-title">Para Compartir</h2>
                 <div class="menu-item">
-                    <span class="es"><strong>FAJITAS DE RES</strong> Deliciosas Fajitas de Res, salteado en mantequilla con Pimentón, Cebolla y Cilantro. Acompañado de Lechuga, Pico de gallo, Frijol Refrito, Guacamole, Mermelada de Piña - Maracuya y Sour Cream. 8 Tortillas de maíz y deliciosos Nachos (2-3 Personas)</span>
-                    <span class="en"><strong>BEEF FAJITAS</strong> Delicious Beef Fajitas, sautéed in butter with Paprika, Onion and Cilantro. Served with Lettuce, Pico de gallo, Refried Beans, Guacamole, Pineapple - Passion Fruit Jam and Sour Cream. 8 Corn Tortillas and delicious Nachos (2-3 People)</span>
+                    <span><strong>FAJITAS DE RES</strong> Deliciosas Fajitas de Res, salteado en mantequilla con Pimentón, Cebolla y Cilantro. Acompañado de Lechuga, Pico de gallo, Frijol Refrito, Guacamole, Mermelada de Piña - Maracuya y Sour Cream. 8 Tortillas de maíz y deliciosos Nachos (2-3 Personas)</span>
                     <span>$55.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>ALAMBRE</strong> Deliciosa mezcla de Fajitas de Res y de Pollo salteadas en mantequilla con Pimentón, Cebolla, Cilantro y Queso, MUUUCHO QUESO! Acompañada de Lechuga, Pico de gallo, Frijol refrito, Guacamole, Mermelada de Piña - Maracuya y Sour Cream. 8 Tortillas de maíz y deliciosos Nachos (2-3 Personas)</span>
-                    <span class="en"><strong>ALAMBRE</strong> Delicious mix of Beef and Chicken Fajitas sautéed in butter with Paprika, Onion, Cilantro and Cheese, LOTS OF CHEESE! Served with Lettuce, Pico de gallo, Refried Beans, Guacamole, Pineapple - Passion Fruit Jam and Sour Cream. 8 Corn Tortillas and delicious Nachos (2-3 People)</span>
+                    <span><strong>ALAMBRE</strong> Deliciosa mezcla de Fajitas de Res y de Pollo salteadas en mantequilla con Pimentón, Cebolla, Cilantro y Queso, MUUUCHO QUESO! Acompañada de Lechuga, Pico de gallo, Frijol refrito, Guacamole, Mermelada de Piña - Maracuya y Sour Cream. 8 Tortillas de maíz y deliciosos Nachos (2-3 Personas)</span>
                     <span>$65.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>TACADA</strong> Compuesta por 9 deliciosos tacos: 3 Fajitas de Res, 3 Cochnita Pibil, 3 Fajitas de Pollo. Acompañada de deliciosos Nachos, Pico de Gallo y Guacamole (2-3 Personas)</span>
-                    <span class="en"><strong>TACADA</strong> Composed of 9 delicious tacos: 3 Beef Fajitas, 3 Cochinita Pibil, 3 Chicken Fajitas. Served with delicious Nachos, Pico de Gallo and Guacamole (2-3 People)</span>
+                    <span><strong>TACADA</strong> Compuesta por 9 deliciosos tacos: 3 Fajitas de Res, 3 Cochnita Pibil, 3 Fajitas de Pollo. Acompañada de deliciosos Nachos, Pico de Gallo y Guacamole (2-3 Personas)</span>
                     <span>$75.000</span>
                 </div>
             </div>
 
             <div class="menu-section">
-                <h2 class="section-title es">Nachos</h2>
-                <h2 class="section-title en">Nachos</h2>
+                <h2 class="section-title">Nachos</h2>
                 <div class="menu-item">
-                    <span class="es"><strong>NACHOS CHABELITA</strong> Deliciosos nachos recién hechos, acompañados de salsa puebla (PICANTE) al mejor estilo Ay Chabela.</span>
-                    <span class="en"><strong>CHABELITA NACHOS</strong> Delicious freshly made nachos, accompanied by puebla sauce (SPICY) in the best Ay Chabela style.</span>
+                    <span><strong>NACHOS CHABELITA</strong> Deliciosos nachos recién hechos, acompañados de salsa puebla (PICANTE) al mejor estilo Ay Chabela.</span>
                     <span>$12.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>NACHOS TRADICIONALES</strong> Cama de nachos con fríjol refrito, pico de gallo, guacamole, sour cream y queso cheddar.</span>
-                    <span class="en"><strong>TRADITIONAL NACHOS</strong> Bed of nachos with refried beans, pico de gallo, guacamole, sour cream and cheddar cheese.</span>
+                    <span><strong>NACHOS TRADICIONALES</strong> Cama de nachos con fríjol refrito, pico de gallo, guacamole, sour cream y queso cheddar.</span>
                     <span>$14.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>MEROS NACHOS</strong> Cama de nachos con fríjol refrito, tocineta, pico de gallo, guacamole, sour cream, cheddar y mermelada de piña-maracuyá.</span>
-                    <span class="en"><strong>MEROS NACHOS</strong> Bed of nachos with refried beans, bacon, pico de gallo, guacamole, sour cream, cheddar and pineapple-passion fruit jam.</span>
+                    <span><strong>MEROS NACHOS</strong> Cama de nachos con fríjol refrito, tocineta, pico de gallo, guacamole, sour cream, cheddar y mermelada de piña-maracuyá.</span>
                     <span>$19.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>NACHOS GUADALUPE</strong> Cama de nachos con fríjol refrito, fajitas de pollo o pastor, pico de gallo, guacamole y sour cream.</span>
-                    <span class="en"><strong>GUADALUPE NACHOS</strong> Bed of nachos with refried beans, chicken or al pastor fajitas, pico de gallo, guacamole and sour cream.</span>
+                    <span><strong>NACHOS GUADALUPE</strong> Cama de nachos con fríjol refrito, fajitas de pollo o pastor, pico de gallo, guacamole y sour cream.</span>
                     <span>$23.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>EMPANADAS (5 unidades)</strong> Deliciosas empanadas de birria con queso en masita de harina, súper crujientes. Acompañadas de sour cream, guacamole, mermelada de piña-maracuyá y un encurtido picosito.</span>
-                    <span class="en"><strong>EMPANADAS (5 units)</strong> Delicious birria empanadas with cheese in flour dough, super crunchy. Accompanied by sour cream, guacamole, pineapple-passion fruit jam and a spicy pickle.</span>
+                    <span><strong>EMPANADAS (5 unidades)</strong> Deliciosas empanadas de birria con queso en masita de harina, súper crujientes. Acompañadas de sour cream, guacamole, mermelada de piña-maracuyá y un encurtido picosito.</span>
                     <span>$23.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>EMPANADAS (7 unidades)</strong> Mismas empanadas con porción más grande.</span>
-                    <span class="en"><strong>EMPANADAS (7 units)</strong> Same empanadas with larger portion.</span>
+                    <span><strong>EMPANADAS (7 unidades)</strong> Mismas empanadas con porción más grande.</span>
                     <span>$27.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>CHICHANACHOS</strong> Cama de nachos con fríjol refrito, trozos de chicharrón, queso, pico de gallo, guacamole, sour cream y mermelada de piña-maracuyá.</span>
-                    <span class="en"><strong>CHICHANACHOS</strong> Bed of nachos with refried beans, pork rind pieces, cheese, pico de gallo, guacamole, sour cream and pineapple-passion fruit jam.</span>
+                    <span><strong>CHICHANACHOS</strong> Cama de nachos con fríjol refrito, trozos de chicharrón, queso, pico de gallo, guacamole, sour cream y mermelada de piña-maracuyá.</span>
                     <span>$25.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>BIRRIANACHOS</strong> Cama de nachos con fríjol refrito, extra de birria, queso, pico de gallo, guacamole, sour cream y jalapeños.</span>
-                    <span class="en"><strong>BIRRIANACHOS</strong> Bed of nachos with refried beans, extra birria, cheese, pico de gallo, guacamole, sour cream and jalapeños.</span>
+                    <span><strong>BIRRIANACHOS</strong> Cama de nachos con fríjol refrito, extra de birria, queso, pico de gallo, guacamole, sour cream y jalapeños.</span>
                     <span>$27.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>NACHOS PANCHO</strong> Cama de nachos con fríjol refrito, fajitas de res, queso, pico de gallo, guacamole, sour cream y jalapeños.</span>
-                    <span class="en"><strong>PANCHO NACHOS</strong> Bed of nachos with refried beans, beef fajitas, cheese, pico de gallo, guacamole, sour cream and jalapeños.</span>
+                    <span><strong>NACHOS PANCHO</strong> Cama de nachos con fríjol refrito, fajitas de res, queso, pico de gallo, guacamole, sour cream y jalapeños.</span>
                     <span>$26.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>NACHOS VERACRUZ</strong> Cama de nachos con fríjol refrito, camarones salteados, fajitas de pollo, pico de gallo, guacamole y sour cream.</span>
-                    <span class="en"><strong>VERACRUZ NACHOS</strong> Bed of nachos with refried beans, sautéed shrimp, chicken fajitas, pico de gallo, guacamole and sour cream.</span>
+                    <span><strong>NACHOS VERACRUZ</strong> Cama de nachos con fríjol refrito, camarones salteados, fajitas de pollo, pico de gallo, guacamole y sour cream.</span>
                     <span>$29.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>DORILOCOS PERSONALES (SÓLO MIXTO)</strong> (Cama de Doritos, acompañada de fríjol refrito, pico de gallo, cebolla bruja, cheddar, sour cream, cilantro, jalapeños, queso mozzarella, maíz tierno, guacamole, mermelada de piña-maracuyá)</span>
-                    <span class="en"><strong>PERSONAL DORILOCOS (MIXED ONLY)</strong> (Bed of Doritos, accompanied by refried beans, pico de gallo, onion, cheddar, sour cream, cilantro, jalapeños, mozzarella cheese, sweet corn, guacamole, pineapple-passion fruit jam)</span>
+                    <span><strong>DORILOCOS PERSONALES (SÓLO MIXTO)</strong> (Cama de Doritos, acompañada de fríjol refrito, pico de gallo, cebolla bruja, cheddar, sour cream, cilantro, jalapeños, queso mozzarella, maíz tierno, guacamole, mermelada de piña-maracuyá)</span>
                     <span>$15.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>DORILOCOS SENCILLOS (GRANDE)</strong> Incluye los mismos ingredientes en una porción más grande.</span>
-                    <span class="en"><strong>SIMPLE DORILOCOS (LARGE)</strong> Includes the same ingredients in a larger portion.</span>
+                    <span><strong>DORILOCOS SENCILLOS (GRANDE)</strong> Incluye los mismos ingredientes en una porción más grande.</span>
                     <span>$20.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>DORILOCOS CON PROTEÍNA (GRANDE)</strong> Incluye los mismos ingredientes más la proteína de tu elección: Birria, Pastor, Cochinita Pibil, Fajitas de Res, Fajitas de Pollo, Chicharrón o Tripita.</span>
-                    <span class="en"><strong>DORILOCOS WITH PROTEIN (LARGE)</strong> Includes the same ingredients plus the protein of your choice: Birria, Al Pastor, Cochinita Pibil, Beef Fajitas, Chicken Fajitas, Pork Rinds or Tripe.</span>
+                    <span><strong>DORILOCOS CON PROTEÍNA (GRANDE)</strong> Incluye los mismos ingredientes más la proteína de tu elección: Birria, Pastor, Cochinita Pibil, Fajitas de Res, Fajitas de Pollo, Chicharrón o Tripita.</span>
                     <span>$30.000</span>
                 </div>
             </div>
 
             <div class="menu-section">
-                <h2 class="section-title es">COMBOS</h2>
-                <h2 class="section-title en">COMBOS</h2>
+                <h2 class="section-title">COMBOS</h2>
                 <div class="menu-item">
-                    <span class="es"><strong>COMBO CHAVELO</strong> Pensando en los mas peques de la casa, Deliciosos Combos de: Mini burrito de Res o Pollo, Mini quesadilla Solo Queso y Nacho, Taco de res pollo, Mini quesadilla, Solo queso y Nachos</span>
-                    <span class="en"><strong>CHAVELO COMBO</strong> Thinking of the little ones at home, Delicious Combos of: Mini Beef or Chicken burrito, Mini Cheese Only quesadilla and Nacho, Beef or chicken taco, Mini quesadilla, Cheese only and Nachos</span>
+                    <span><strong>COMBO CHAVELO</strong> Pensando en los mas peques de la casa, Deliciosos Combos de: Mini burrito de Res o Pollo, Mini quesadilla Solo Queso y Nacho, Taco de res pollo, Mini quesadilla, Solo queso y Nachos</span>
                     <span>$17.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>VIRUTA</strong> Burro, Quesadilla, Nachos, Delicioso burro mix de res y pollo salteado, acompañado con lechuga, queso, pico de gallo, cebolla bruja y cilantro, Quesadilla Solo, Queso y Porcion de Nachos.</span>
-                    <span class="en"><strong>VIRUTA</strong> Burrito, Quesadilla, Nachos, Delicious burrito mix of sautéed beef and chicken, accompanied with lettuce, cheese, pico de gallo, onion and cilantro, Quesadilla Only, Cheese and Portion of Nachos.</span>
+                    <span><strong>VIRUTA</strong> Burro, Quesadilla, Nachos, Delicioso burro mix de res y pollo salteado, acompañado con lechuga, queso, pico de gallo, cebolla bruja y cilantro, Quesadilla Solo, Queso y Porcion de Nachos.</span>
                     <span>$24.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>CANTINFLAS</strong> Burro, flauta, Nachos, Delicioso burro, mix de res y pollo salteado, acompañado con lechuga, queso, pico de gallo, cebolla bruja y cilantro, flauta de Birria bañada en queso y Mini Quesadilla, Solo Queso.</span>
-                    <span class="en"><strong>CANTINFLAS</strong> Burrito, flauta, Nachos, Delicious burrito, mix of sautéed beef and chicken, accompanied with lettuce, cheese, pico de gallo, onion and cilantro, Birria flauta bathed in cheese and Mini Quesadilla, Cheese Only.</span>
+                    <span><strong>CANTINFLAS</strong> Burro, flauta, Nachos, Delicioso burro, mix de res y pollo salteado, acompañado con lechuga, queso, pico de gallo, cebolla bruja y cilantro, flauta de Birria bañada en queso y Mini Quesadilla, Solo Queso.</span>
                     <span>$26.000</span>
                 </div>
                 <div class="menu-item">
-                    <span class="es"><strong>El SANTO</strong> Burro, flauta, quesadilla, nachos, delicioso burro mix de res y pollo salteado, acompañado con lechuga, queso pico de gallo, cebolla bruja y cilantro, flauta de birria, bañada en queso, mini quesadilla, solo queso y porcion de nachos.</span>
-                    <span class="en"><strong>EL SANTO</strong> Burrito, flauta, quesadilla, nachos, delicious burrito mix of sautéed beef and chicken, accompanied with lettuce, cheese, pico de gallo, onion and cilantro, birria flauta, bathed in cheese, mini quesadilla, cheese only and portion of nachos.</span>
+                    <span><strong>El SANTO</strong> Burro, flauta, quesadilla, nachos, delicioso burro mix de res y pollo salteado, acompañado con lechuga, queso pico de gallo, cebolla bruja y cilantro, flauta de birria, bañada en queso, mini quesadilla, solo queso y porcion de nachos.</span>
                     <span>$29.000</span>
                 </div>
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-
-    </script>
 </body>
 </html>
+
