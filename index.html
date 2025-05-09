@@ -1662,13 +1662,14 @@
   const container = document.querySelector('.tabs-list-container');
   const hint = document.querySelector('.scroll-hint');
 
-  container.addEventListener('scroll', () => {
+  function hideHintOnce() {
     if (container.scrollLeft > 10) {
       hint.style.display = 'none';
-    } else {
-      hint.style.display = 'flex';
+      container.removeEventListener('scroll', hideHintOnce); // quitar el evento después de la primera vez
     }
-  });
+  }
+
+  container.addEventListener('scroll', hideHintOnce);
    </script>
 </body>
 </html>
