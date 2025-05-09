@@ -1,3 +1,32 @@
+"use client"
+
+import { useEffect } from "react"
+
+export default function WarholMenu() {
+  useEffect(() => {
+    // JavaScript para la funcionalidad de las pestañas
+    const tabTriggers = document.querySelectorAll(".tab-trigger")
+    const tabContents = document.querySelectorAll(".tab-content")
+
+    tabTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        // Remove active class from all triggers and contents
+        tabTriggers.forEach((t) => t.classList.remove("active"))
+        tabContents.forEach((c) => c.classList.remove("active"))
+
+        // Add active class to clicked trigger and corresponding content
+        trigger.classList.add("active")
+        const tabId = trigger.getAttribute("data-tab")
+        document.getElementById(tabId)?.classList.add("active")
+      })
+    })
+  }, [])
+
+  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+}
+
+// HTML content con los cambios solicitados
+const htmlContent = `
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -290,21 +319,10 @@
         <div class="tabs">
             <div class="tab-header">
                 <div class="tabs-list-container">
-                    <div class="scroll-hint">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
                     <div class="tabs-list">
-                        <div class="tab-trigger active" data-tab="hot-drinks">
+                        <div class="tab-trigger active" data-tab="drinks">
                             <i class="fas fa-coffee"></i>
-                            <span>Bebidas Calientes</span>
-                        </div>
-                        <div class="tab-trigger" data-tab="cold-drinks">
-                            <i class="fas fa-glass-water"></i>
-                            <span>Bebidas Frías</span>
-                        </div>
-                        <div class="tab-trigger" data-tab="alcoholic-drinks">
-                            <i class="fas fa-wine-bottle"></i>
-                            <span>Cervezas, Licores y Cócteles</span>
+                            <span>Bebidas</span>
                         </div>
                         <div class="tab-trigger" data-tab="desserts">
                             <i class="fas fa-ice-cream"></i>
@@ -324,27 +342,15 @@
                         </div>
                         <div class="tab-trigger" data-tab="mexican">
                             <i class="fas fa-pepper-hot"></i>
-                            <span>Mexicana</span>
-                        </div>
-                        <div class="tab-trigger" data-tab="sharing">
-                            <i class="fas fa-users"></i>
-                            <span>Compartir</span>
-                        </div>
-                        <div class="tab-trigger" data-tab="nachos">
-                            <i class="fas fa-layer-group"></i>
-                            <span>Nachos</span>
-                        </div>
-                        <div class="tab-trigger" data-tab="combos">
-                            <i class="fas fa-box"></i>
-                            <span>Combos</span>
+                            <span>Comida Mexicana</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="tab-content-container">
-                <!-- Hot Drinks Tab -->
-                <div class="tab-content active" id="hot-drinks">
+                <!-- Drinks Tab (Combined Hot and Cold) -->
+                <div class="tab-content active" id="drinks">
                     <div class="menu-section">
                         <h2>Bebidas Calientes</h2>
                         <div class="menu-items two-columns">
@@ -473,10 +479,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Cold Drinks Tab -->
-                <div class="tab-content" id="cold-drinks">
                     <div class="menu-section">
                         <h2>Bebidas Frías</h2>
                         <div class="menu-items two-columns">
@@ -598,10 +601,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Alcoholic Drinks Tab (Combined) -->
-                <div class="tab-content" id="alcoholic-drinks">
+                    
                     <div class="menu-section">
                         <h2>Cervezas</h2>
                         <div class="menu-items two-columns">
@@ -1167,7 +1167,7 @@
                     </div>
                 </div>
 
-                <!-- Mexican Tab -->
+                <!-- Mexican Tab (Combined with Nachos, Sharing, and Combos) -->
                 <div class="tab-content" id="mexican">
                     <div class="menu-section">
                         <h2>Tacos</h2>
@@ -1432,10 +1432,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Sharing Tab -->
-                <div class="tab-content" id="sharing">
+                    
                     <div class="menu-section">
                         <h2>Para Compartir</h2>
                         <div class="menu-items">
@@ -1462,10 +1459,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Nachos Tab -->
-                <div class="tab-content" id="nachos">
+                    
                     <div class="menu-section">
                         <h2>Nachos</h2>
                         <div class="menu-items">
@@ -1562,10 +1556,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Combos Tab -->
-                <div class="tab-content" id="combos">
+                    
                     <div class="menu-section">
                         <h2>Combos</h2>
                         <div class="menu-items">
@@ -1607,37 +1598,7 @@
     <footer>
         <p>© 2025 Warhol Café Bar - Todos los derechos reservados</p>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabTriggers = document.querySelectorAll('.tab-trigger');
-            const tabContents = document.querySelectorAll('.tab-content');
-            
-            tabTriggers.forEach(trigger => {
-                trigger.addEventListener('click', () => {
-                    // Remove active class from all triggers and contents
-                    tabTriggers.forEach(t => t.classList.remove('active'));
-                    tabContents.forEach(c => c.classList.remove('active'));
-                    
-                    // Add active class to clicked trigger and corresponding content
-                    trigger.classList.add('active');
-                    const tabId = trigger.getAttribute('data-tab');
-                    document.getElementById(tabId).classList.add('active');
-                });
-            });
-
-            const container = document.querySelector('.tabs-list-container');
-            const hint = document.querySelector('.scroll-hint');
-
-            function hideHintOnce() {
-                if (container.scrollLeft > 10) {
-                    hint.style.display = 'none';
-                    container.removeEventListener('scroll', hideHintOnce); // quitar el evento después de la primera vez
-                }
-            }
-
-            container.addEventListener('scroll', hideHintOnce);
-        });
-    </script>
 </body>
 </html>
+`
+
