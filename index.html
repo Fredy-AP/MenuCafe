@@ -74,6 +74,35 @@
             color: var(--accent-100);
             opacity: 0.9;
         }
+        .scroll-hint {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  z-index: 40;
+  background: linear-gradient(to left, rgba(44,44,44,0.9), transparent);
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  animation: bounce 1.2s infinite;
+}
+
+.scroll-hint i {
+  font-size: 1rem;
+  color: var(--accent-100);
+  opacity: 0.8;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    transform: translateY(-50%) translateX(5px);
+  }
+}
+
         
         .container {
             max-width: 1200px;
@@ -274,6 +303,9 @@
         <div class="tabs">
             <div class="tab-header">
                 <div class="tabs-list-container">
+                    <div class="scroll-hint">
+                        <i class="fas fa-chevron-right"></i>
+                                          </div>
                     <div class="tabs-list">
                         <div class="tab-trigger active" data-tab="hot-drinks">
                             <i class="fas fa-coffee"></i>
@@ -1627,6 +1659,19 @@
                 });
             });
         });
+        <script>
+  const container = document.querySelector('.tabs-list-container');
+  const hint = document.querySelector('.scroll-hint');
+
+  container.addEventListener('scroll', () => {
+    if (container.scrollLeft > 10) {
+      hint.style.display = 'none';
+    } else {
+      hint.style.display = 'flex';
+    }
+  });
+</script>
+
     </script>
 </body>
 </html>
