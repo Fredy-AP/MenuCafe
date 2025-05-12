@@ -77,6 +77,47 @@
       display: none;
     }
 
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal-content {
+      background-color: #fff8ec;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 90%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      font-size: 1.2rem;
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+    }
+
+    .modal-content button {
+      margin-top: 1rem;
+      background-color: #8b4513;
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .modal-content button:hover {
+      background-color: #6b3611;
+    }
+
     @media (max-width: 600px) {
       .container {
         padding: 1rem;
@@ -89,15 +130,23 @@
   </style>
 </head>
 <body>
+
+  <!-- Ventana modal -->
+  <div class="modal" id="avisoModal">
+    <div class="modal-content">
+      <h2>🎤 No hay eventos programados</h2>
+      <p>¿Quieres proponer uno?</p>
+      <button onclick="cerrarModal()">Aceptar</button>
+    </div>
+  </div>
+
   <header>
     <h1>Solicitud de Eventos</h1>
   </header>
 
   <div class="container">
-    <!-- Imagen de banda o evento -->
     <img class="banner" src="https://wallpapercave.com/wp/LiKrs5R.jpg" alt="Banda en vivo" />
 
-    <!-- Formulario de solicitud -->
     <form action="https://formsubmit.co/84758e6c7b2609bba5a2791f5d9d6da8" method="POST" id="eventoForm">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://warholcafe.bar/gracias.html">
@@ -123,6 +172,17 @@
   </div>
 
   <script>
+    // Mostrar modal al cargar
+    window.onload = () => {
+      document.getElementById('avisoModal').style.display = 'flex';
+    };
+
+    // Cerrar modal
+    function cerrarModal() {
+      document.getElementById('avisoModal').style.display = 'none';
+    }
+
+    // Envío de formulario
     const form = document.getElementById('eventoForm');
     const confirmacion = document.getElementById('confirmacion');
 
