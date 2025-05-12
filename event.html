@@ -77,7 +77,6 @@
       display: none;
     }
 
-    /* Modal */
     .modal {
       position: fixed;
       top: 0; left: 0;
@@ -148,7 +147,6 @@
 
     <form action="https://formsubmit.co/84758e6c7b2609bba5a2791f5d9d6da8" method="POST" id="eventoForm">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://warholcafe.bar/gracias.html">
 
       <label for="espacio">Espacio solicitado:</label>
       <input type="text" id="espacio" name="Espacio solicitado" required>
@@ -181,7 +179,7 @@
       document.getElementById('avisoModal').style.display = 'none';
     }
 
-    // Envío de formulario
+    // Envío de formulario con fetch sin redirección
     const form = document.getElementById('eventoForm');
     const confirmacion = document.getElementById('confirmacion');
 
@@ -189,6 +187,7 @@
       e.preventDefault();
 
       const formData = new FormData(form);
+
       fetch(form.action, {
         method: 'POST',
         body: formData,
@@ -200,9 +199,12 @@
         } else {
           alert('Error al enviar la solicitud. Inténtalo de nuevo.');
         }
+      }).catch(error => {
+        alert('Ocurrió un error: ' + error.message);
       });
     });
   </script>
 </body>
 </html>
+
 
