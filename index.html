@@ -249,6 +249,121 @@
         }
     </style>
 </head>
+    <!-- Agrega esto justo después de la etiqueta <body> en tu archivo de menú -->
+
+<!-- Estilos del anuncio -->
+<style>
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .modal-content {
+        background-color: var(--primary-bg, #f5f0e1);
+        border-radius: 10px;
+        max-width: 90%;
+        width: 500px;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-title {
+        color: var(--accent-color, #8b4513);
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .modal-date {
+        color: var(--accent-dark, #6b3611);
+        font-size: 20px;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .modal-description {
+        color: var(--text-color, #3c2415);
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    .modal-button {
+        background-color: var(--accent-color, #8b4513);
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .modal-button:hover {
+        background-color: var(--accent-dark, #6b3611);
+    }
+
+    .band-image-container {
+        margin-top: 20px;
+        max-width: 100%;
+    }
+
+    .band-image {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<!-- El contenido del anuncio -->
+<div id="concertModal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-title">¡CONCIERTO EN VIVO!</div>
+        <div class="modal-date">15 de Mayo</div>
+        <div class="modal-description">
+            No te pierdas a la increíble banda <strong>ESPECTROS HUMANOS</strong> 
+            en concierto exclusivo en Warhol Café Bar.
+            <br><br>
+            ¡Entrada libre! Reserva tu mesa ahora.
+        </div>
+        <button id="acceptButton" class="modal-button">Aceptar</button>
+        
+        <div class="band-image-container">
+            <img id="bandImage" class="band-image" src="https://tse2.mm.bing.net/th?id=OIP.pzejUUnWFPNWM0R3ElIdXgHaEK&pid=Api&P=0&h=180" alt="Espectros Humanos en concierto">
+        </div>
+    </div>
+</div>
+
+<!-- Script para manejar el anuncio -->
+<script>
+    // Mostrar el anuncio al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('concertModal');
+        const acceptButton = document.getElementById('acceptButton');
+        
+        // Cuando se hace clic en el botón "Aceptar", ocultar el anuncio
+        acceptButton.addEventListener('click', function() {
+            modal.style.display = 'none';
+            
+            // Opcional: guardar en localStorage para no mostrar de nuevo en esta sesión
+            localStorage.setItem('concertAnnouncementSeen', 'true');
+        });
+        
+        // Comprobar si ya se ha visto el anuncio (opcional)
+        if (localStorage.getItem('concertAnnouncementSeen') === 'true') {
+            modal.style.display = 'none';
+        }
+    });
+</script>
 <body>
     <header>
         <div>
