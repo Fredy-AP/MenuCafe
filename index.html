@@ -60,6 +60,10 @@
         
         .nav-buttons {
             margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .nav-button {
@@ -71,11 +75,11 @@
             text-decoration: none;
             border-radius: 0.375rem;
             transition: background-color 0.3s;
-            margin: 0 1rem;
         }
 
         .nav-button:hover {
             background-color: var(--accent-dark);
+            color: var(--white);
         }
 
         .nav-button:active {
@@ -114,6 +118,153 @@
             font-size: 1.2rem;
             color: var(--text-light);
         }
+        
+        /* Nueva sección para la ubicación */
+        .location-section {
+            margin-top: 2rem;
+            padding: 2rem;
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .location-section h2 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .location-image-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            margin-bottom: 1.5rem;
+        }
+        
+        .location-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Mantiene la proporción de la imagen */
+        }
+        
+        .location-details {
+            text-align: center;
+        }
+        
+        .location-details p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+        
+        .location-map {
+            margin-top: 1.5rem;
+            width: 100%;
+            height: 350px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Estilo para dispositivos móviles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .welcome-message h2,
+            .location-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .welcome-message p,
+            .location-details p {
+                font-size: 1rem;
+            }
+            
+            .welcome-message,
+            .location-section {
+                padding: 1.5rem;
+            }
+            
+            .location-image-container {
+                padding-bottom: 75%; /* Relación de aspecto 4:3 para móviles */
+            }
+            
+            .location-map {
+                height: 250px;
+            }
+            
+            .map-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Para pantallas aún más pequeñas */
+        @media (max-width: 480px) {
+            header {
+                padding: 1.5rem 0.5rem;
+            }
+            
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            .nav-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .map-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        /* Para pantallas grandes */
+        @media (min-width: 1200px) {
+            .container {
+                padding: 0 2rem 5rem 2rem;
+            }
+            
+            .welcome-message,
+            .location-section {
+                padding: 3rem;
+            }
+        }
+        
+        /* Botón de Google Maps */
+        .map-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+            font-size: 1rem;
+            background-color: var(--accent-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+        }
+        
+        .map-button:hover {
+            background-color: var(--accent-dark);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-button i {
+            margin-right: 0.5rem;
+        }
     </style>
 </head>
 <body>
@@ -131,7 +282,36 @@
     <section class="container">
         <div class="welcome-message">
             <h2>¡Bienvenido a Warhol Café Bar!</h2>
-            <p>Nos complace recibirte en nuestro espacio único, donde el café, la música y la buena compañía se encuentran. Disfruta de nuestro menú exclusivo y no te pierdas los eventos especiales que tenemos para ti, nos puedes encontrar en la carrera 13 # 10-16 Santa rosa de Cabal- Risaralda- Colombia  ¡Te esperamos!</p>
+            <p>Nos complace recibirte en nuestro espacio único, donde el café, la música y la buena compañía se encuentran. Disfruta de nuestro menú exclusivo y no te pierdas los eventos especiales que tenemos para ti. ¡Te esperamos!</p>
+        </div>
+        
+        <!-- Nueva sección de ubicación -->
+        <div class="location-section">
+            <h2>Nuestra Ubicación</h2>
+            <div class="location-image-container">
+                <img src="/api/placeholder/1200/675" alt="Fachada de Warhol Café Bar" class="location-image">
+            </div>
+            <div class="location-details">
+                <p><strong>Dirección:</strong> Carrera 13 # 10-16</p>
+                <p><strong>Ciudad:</strong> Santa Rosa de Cabal, Risaralda, Colombia</p>
+                <p><strong>Horario:</strong> Lunes a Domingo de 4:00 PM a 12:00 PM</p>
+                
+                <!-- Mapa de Google -->
+                <iframe 
+                    class="location-map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.6878773417895!2d-75.61953822427005!3d4.870387741552088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e388741320dfa1d%3A0xfcbb9b85d2a65ab1!2sWarhol%20coffee%20shop!5e0!3m2!1ses!2sco!4v1715599698024!5m2!1ses!2sco" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                
+                <!-- Enlace directo a Google Maps -->
+                <p class="mt-3">
+                    <a href="https://maps.app.goo.gl/UpGnzK61MddpebKw7" target="_blank" class="map-button">
+                        <i class="fas fa-map-marker-alt me-1"></i> Ver en Google Maps
+                    </a>
+                </p>
+            </div>
         </div>
     </section>
 
