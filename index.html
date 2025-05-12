@@ -135,7 +135,7 @@
             text-align: center;
         }
         
-        .location-image-container {
+        .video-container {
             position: relative;
             width: 100%;
             height: 0;
@@ -146,13 +146,15 @@
             margin-bottom: 1.5rem;
         }
         
-        .location-image {
+        .video-container iframe,
+        .video-container video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Mantiene la proporción de la imagen */
+            object-fit: cover; /* Mantiene la proporción del video */
+            border: none;
         }
         
         .location-details {
@@ -288,13 +290,28 @@
         <!-- Nueva sección de ubicación -->
         <div class="location-section">
             <h2>Nuestra Ubicación</h2>
-            <div class="location-image-container">
-                <img src="/api/placeholder/1200/675" alt="Fachada de Warhol Café Bar" class="location-image">
+            <div class="video-container">
+                <!-- Reemplaza esto con tu video promocional -->
+                <video controls autoplay muted loop poster="/api/placeholder/1200/675">
+                    <source src="tu-video-promocional.mp4" type="video/mp4">
+                    Tu navegador no soporta videos HTML5.
+                </video>
+                
+                <!-- Alternativa: Insertar video de YouTube -->
+                <!-- 
+                <iframe 
+                    src="https://www.youtube.com/embed/TU_ID_DE_VIDEO?autoplay=0&controls=1&rel=0"
+                    title="Video promocional de Warhol Café Bar"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+                -->
             </div>
             <div class="location-details">
                 <p><strong>Dirección:</strong> Carrera 13 # 10-16</p>
                 <p><strong>Ciudad:</strong> Santa Rosa de Cabal, Risaralda, Colombia</p>
-                <p><strong>Horario:</strong> Lunes a Domingo de 4:00 PM a 12:00 PM</p>
+                <p><strong>Horario:</strong> Lunes a Domingo de 2:00 PM a 11:00 PM</p>
                 
                 <!-- Mapa de Google -->
                 <iframe 
