@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,11 +24,29 @@
             --tab-hover: rgba(139, 69, 19, 0.1); /* transparent coffee for hover */
         }
         
+        .dark-theme {
+            --primary-bg: #121212;
+            --secondary-bg: #1e1e1e;
+            --accent-color: #d4a76a;
+            --accent-dark: #b38c5a;
+            --accent-light: #e3c496;
+            --text-color: #e0e0e0;
+            --text-light: #a0a0a0;
+            --white: #1a1a1a;
+            --card-bg: #2a2a2a;
+            --card-hover: #333333;
+            --price-color: #d4a76a;
+            --header-bg: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            --tab-active: #d4a76a;
+            --tab-hover: rgba(212, 167, 106, 0.1);
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
         
         body {
@@ -247,11 +266,41 @@
             font-size: 0.875rem;
             color: var(--white);
         }
+        
+        /* Theme toggle button */
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--white);
+            transition: background-color 0.3s;
+            z-index: 100;
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .theme-toggle i {
+            font-size: 1.25rem;
+        }
     </style>
 </head>
    
 <body>
     <header>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
         <div>
             <h1>Warhol Café Bar</h1>
             <p>Menú</p>
@@ -1163,6 +1212,7 @@
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">ITALIANO</div>
                                     <div class="menu-item-description">Pan artesanal, base de lechuga batavia, salchicha americana, queso fundido, tocineta, salsas premium, papa ripio</div>
+                                </div  queso fundido, tocineta, salsas premium, papa ripio</div>
                                 </div>
                                 <div class="menu-item-price">$16.000</div>
                             </div>
@@ -1633,6 +1683,34 @@
                     const tabId = trigger.getAttribute("data-tab");
                     document.getElementById(tabId)?.classList.add("active");
                 });
+            });
+            
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const htmlElement = document.documentElement;
+            
+            // Check for saved theme preference or use system preference
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // Apply theme based on saved preference or system preference
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                htmlElement.classList.add('dark-theme');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+            
+            // Toggle theme when button is clicked
+            themeToggle.addEventListener('click', () => {
+                htmlElement.classList.toggle('dark-theme');
+                
+                // Update button icon
+                if (htmlElement.classList.contains('dark-theme')) {
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                    localStorage.setItem('theme', 'light');
+                }
             });
         });
     </script>
