@@ -32,7 +32,8 @@
             --accent-light: #e3c496;
             --text-color: #e0e0e0;
             --text-light: #a0a0a0;
-            --white: #1a1a1a;
+            --white: #ffffff;
+            --dark-bg: #1a1a1a;
             --card-bg: #2a2a2a;
             --card-hover: #333333;
             --price-color: #d4a76a;
@@ -162,7 +163,10 @@
             padding: 1rem;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
+        /* Añade esta regla */
+.dark-theme .tab-content-container {
+    background-color: var(--dark-bg);
+}
         @media (min-width: 768px) {
             .tab-content-container {
                 padding: 1.5rem;
