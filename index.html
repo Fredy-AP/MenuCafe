@@ -5,27 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warhol Café Bar - Menú</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         
  :root {
-     
-            --primary-bg:#CD853F; /* beige background */
-            --secondary-bg: #e6dbc9; /* lighter beige */
-            --accent-color: #8b4513; /* coffee brown */
-            --accent-dark: #6b3611; /* darker coffee */
-            --accent-light: #c49a6c; /* lighter coffee */
-            --text-color: #3c2415; /* dark brown text */
-            --text-light: #6b5c4d; /* lighter text */
-            --white: #ffffff;
-            --card-bg: #f9f5ec; /* very light beige for cards */
-            --card-hover: #efe6d5; /* slightly darker beige for hover */
-            --price-color: #8b4513; /* coffee color for prices */
-            --header-bg: linear-gradient(135deg, #8b4513, #6b3611); /* coffee gradient */
-            --tab-active: #8b4513; /* coffee color for active tabs */
-            --tab-hover: rgba(139, 69, 19, 0.1); /* transparent coffee for hover */
+            --primary-bg: #f5ede0;
+            --secondary-bg: #ede0cc;
+            --accent-color: #8b4513;
+            --accent-dark: #6b3611;
+            --accent-light: #c49a6c;
+            --text-color: #3c2415;
+            --text-light: #6b5c4d;
+            --white: #fffdf8;
+            --card-bg: #fdf8f0;
+            --card-hover: #f5eddf;
+            --price-color: #8b4513;
+            --header-bg: linear-gradient(135deg, #8b4513, #6b3611);
+            --tab-active: #8b4513;
+            --tab-hover: rgba(139, 69, 19, 0.1);
+            --brush-color: rgba(139, 69, 19, 0.08);
         }
 
-         .dark-theme {
+        .dark-theme {
             --primary-bg: #0d1117;
             --secondary-bg: #161b22;
             --accent-color: #d4a76a;
@@ -42,45 +43,90 @@
             --tab-hover: rgba(212, 167, 106, 0.1);
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
             --border-color: rgba(212, 167, 106, 0.2);
+            --brush-color: rgba(212, 167, 106, 0.06);
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
-        
+
         body {
             background-color: var(--primary-bg);
             color: var(--text-color);
             min-height: 100vh;
             overflow-x: hidden;
+            font-family: 'Lato', sans-serif;
+            position: relative;
         }
-        
+
+        /* ===== CANVAS DE PINCELADAS EN EL FONDO ===== */
+        #brushCanvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 1;
+        }
+
+        .container, header, footer, .tab-header {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== HEADER ===== */
         header {
             position: relative;
-            padding: 2.5rem 1rem;
+            padding: 3.5rem 1rem 3rem;
             text-align: center;
             background: var(--header-bg);
-            color: var(--white);
+            color: #fff;
+            overflow: hidden;
         }
-        
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='200'%3E%3Cellipse cx='100' cy='60' rx='320' ry='55' fill='rgba(255,255,255,0.04)' transform='rotate(-8,100,60)'/%3E%3Cellipse cx='600' cy='130' rx='260' ry='45' fill='rgba(255,255,255,0.04)' transform='rotate(5,600,130)'/%3E%3Cellipse cx='350' cy='100' rx='400' ry='35' fill='rgba(255,255,255,0.03)' transform='rotate(-3,350,100)'/%3E%3C/svg%3E") center/cover no-repeat;
+            pointer-events: none;
+        }
+
+        /* Pincelada decorativa en el header */
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0; right: 0;
+            height: 28px;
+            background: var(--primary-bg);
+            clip-path: polygon(0 60%, 3% 20%, 7% 70%, 12% 15%, 17% 65%, 22% 10%, 27% 60%, 32% 5%, 37% 55%, 42% 0%, 47% 50%, 52% 5%, 57% 55%, 62% 10%, 67% 60%, 72% 15%, 77% 65%, 82% 20%, 87% 70%, 92% 25%, 97% 75%, 100% 40%, 100% 100%, 0% 100%);
+        }
+
         h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.02em;
+            text-shadow: 2px 4px 12px rgba(0,0,0,0.3);
+            color: #fff !important;
         }
-        
+
         @media (min-width: 768px) {
-            h1 {
-                font-size: 3.75rem;
-            }
+            h1 { font-size: 4.5rem; }
         }
-        
+
         header p {
-            font-size: 1.25rem;
-            opacity: 0.9;
+            font-family: 'Lato', sans-serif;
+            font-size: 1.1rem;
+            opacity: 0.85;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-weight: 300;
         }
         
         .container {
@@ -88,23 +134,24 @@
             margin: 0 auto;
             padding: 0 1rem 5rem 1rem;
         }
-        
+
         .tabs {
             width: 100%;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
-        
+
+        /* ===== TAB HEADER con efecto pincelada inferior ===== */
         .tab-header {
             position: sticky;
             top: 0;
             z-index: 30;
             background-color: var(--secondary-bg);
             padding: 1rem 0.5rem 0.5rem 0.5rem;
-            border-top-left-radius: 0.5rem;
-            border-top-right-radius: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            box-shadow: 0 4px 16px rgba(139, 69, 19, 0.12);
         }
-        
+
         .tabs-list-container {
             overflow-x: auto;
             white-space: nowrap;
@@ -112,112 +159,163 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
-        
-        .tabs-list-container::-webkit-scrollbar {
-            display: none;
-        }
-        
+
+        .tabs-list-container::-webkit-scrollbar { display: none; }
+
         .tabs-list {
             display: inline-flex;
-            height: 2.5rem;
+            height: 2.75rem;
             align-items: center;
             justify-content: center;
             background-color: var(--white);
-            padding: 0.25rem;
-            border-radius: 0.375rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 0.3rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(139, 69, 19, 0.1);
+            gap: 0.15rem;
         }
-        
+
         .tab-trigger {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             white-space: nowrap;
-            border-radius: 0.25rem;
-            padding: 0.375rem 0.75rem;
-            font-size: 0.875rem;
-            font-weight: 500;
+            border-radius: 0.375rem;
+            padding: 0.4rem 0.85rem;
+            font-size: 0.82rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
             color: var(--text-color);
+            font-family: 'Lato', sans-serif;
+            letter-spacing: 0.02em;
         }
-        
+
         .tab-trigger:hover {
             background-color: var(--tab-hover);
+            transform: translateY(-1px);
         }
-        
+
         .tab-trigger.active {
             background-color: var(--tab-active);
-            color: var(--white);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            box-shadow: 0 3px 10px rgba(139, 69, 19, 0.35);
+            transform: translateY(-1px);
         }
-        
+
         .tab-trigger i {
-            margin-right: 0.25rem;
-            font-size: 0.875rem;
+            margin-right: 0.3rem;
+            font-size: 0.8rem;
         }
-        
+
+        /* ===== CONTENT CONTAINER ===== */
         .tab-content-container {
             background-color: var(--white);
-            border-bottom-left-radius: 0.5rem;
-            border-bottom-right-radius: 0.5rem;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px rgba(139, 69, 19, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Pincelada decorativa SVG dentro del contenido */
+        .tab-content-container::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 220px; height: 220px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cellipse cx='160' cy='60' rx='100' ry='30' fill='rgba(139,69,19,0.04)' transform='rotate(-30,160,60)'/%3E%3Cellipse cx='140' cy='100' rx='80' ry='20' fill='rgba(139,69,19,0.03)' transform='rotate(-20,140,100)'/%3E%3Cellipse cx='180' cy='140' rx='60' ry='15' fill='rgba(139,69,19,0.04)' transform='rotate(-40,180,140)'/%3E%3C/svg%3E") no-repeat center/contain;
+            pointer-events: none;
+        }
+
+        .tab-content-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 180px; height: 180px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cellipse cx='40' cy='140' rx='90' ry='25' fill='rgba(196,154,108,0.06)' transform='rotate(25,40,140)'/%3E%3Cellipse cx='60' cy='110' rx='70' ry='18' fill='rgba(196,154,108,0.05)' transform='rotate(15,60,110)'/%3E%3C/svg%3E") no-repeat center/contain;
+            pointer-events: none;
         }
 
         @media (min-width: 768px) {
-            .tab-content-container {
-                padding: 1.5rem;
-            }
+            .tab-content-container { padding: 2rem; }
         }
-        
-        .tab-content {
-            display: none;
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeInTab 0.4s ease; }
+
+        @keyframes fadeInTab {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .menu-section {
-            margin-bottom: 2rem;
-        }
-        
+
+        /* ===== SECTION HEADINGS con pincelada subrayado ===== */
+        .menu-section { margin-bottom: 2.5rem; }
+
         .menu-section h2 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--accent-light);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            font-style: italic;
+            margin-bottom: 1.1rem;
+            padding-bottom: 0.6rem;
             color: var(--accent-color);
+            position: relative;
+            display: inline-block;
         }
-        
+
+        .menu-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%;
+            height: 3px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 6' preserveAspectRatio='none'%3E%3Cpath d='M0 4 Q10 1 20 3 Q30 5 40 2 Q50 0 60 3 Q70 5 80 2 Q90 0 100 3 Q110 5 120 2 Q130 0 140 3 Q150 5 160 2 Q170 0 180 3 Q190 5 200 3' stroke='%238b4513' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/100% 100%;
+        }
+
+        /* ===== MENU ITEMS ===== */
         .menu-items {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 0.75rem;
+            gap: 0.65rem;
         }
-        
+
         @media (min-width: 768px) {
-            .menu-items.two-columns {
-                grid-template-columns: 1fr 1fr;
-            }
+            .menu-items.two-columns { grid-template-columns: 1fr 1fr; }
         }
-        
+
         .menu-item {
             display: flex;
             flex-direction: column;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
+            padding: 0.85rem 1rem;
+            border-radius: 0.75rem;
             background-color: var(--card-bg);
-            transition: background-color 0.2s;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.25s ease;
+            box-shadow: 0 1px 4px rgba(139, 69, 19, 0.06);
+            border-left: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='60'%3E%3Cellipse cx='250' cy='20' rx='120' ry='18' fill='rgba(196,154,108,0.05)' transform='rotate(-5,250,20)'/%3E%3C/svg%3E") no-repeat right center / auto 100%;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
         .menu-item:hover {
             background-color: var(--card-hover);
+            border-left-color: var(--accent-light);
+            transform: translateX(3px);
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.12);
         }
-        
+
+        .menu-item:hover::before { opacity: 1; }
+
         @media (min-width: 640px) {
             .menu-item {
                 flex-direction: row;
@@ -225,83 +323,89 @@
                 justify-content: space-between;
             }
         }
-        
-        .menu-item-content {
-            flex: 1;
-            margin-bottom: 0.25rem;
-        }
-        
-        @media (min-width: 640px) {
-            .menu-item-content {
-                margin-bottom: 0;
-            }
-        }
-        
+
+        .menu-item-content { flex: 1; margin-bottom: 0.25rem; }
+
+        @media (min-width: 640px) { .menu-item-content { margin-bottom: 0; } }
+
         .menu-item-name {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--text-color);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.95rem;
         }
-        
+
         .menu-item-description {
-            font-size: 0.875rem;
+            font-size: 0.82rem;
             color: var(--text-light);
-            margin-top: 0.25rem;
+            margin-top: 0.2rem;
+            font-style: italic;
         }
-        
+
         .menu-item-price {
             font-weight: 700;
             color: var(--price-color);
             white-space: nowrap;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
         }
-        
+
         @media (min-width: 640px) {
-            .menu-item-price {
-                text-align: right;
-                margin-left: 1rem;
-            }
+            .menu-item-price { text-align: right; margin-left: 1rem; }
         }
-        
+
+        /* ===== FOOTER ===== */
         footer {
-            background-color: var(--accent-color);
+            background: var(--header-bg);
             text-align: center;
-            padding: 1rem;
-            font-size: 0.875rem;
-            color: var(--white);
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: #fff;
+            font-family: 'Lato', sans-serif;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
         }
-        
-        /* Theme toggle button */
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: 0; right: 0;
+            height: 20px;
+            background: var(--primary-bg);
+            clip-path: polygon(0 0%, 3% 60%, 7% 10%, 12% 70%, 17% 20%, 22% 75%, 27% 25%, 32% 80%, 37% 30%, 42% 85%, 47% 35%, 52% 90%, 57% 40%, 62% 85%, 67% 30%, 72% 80%, 77% 25%, 82% 75%, 87% 20%, 92% 70%, 97% 15%, 100% 55%, 100% 0%, 0 0%);
+        }
+
+        /* ===== THEME TOGGLE ===== */
         .theme-toggle {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1.5px solid rgba(255,255,255,0.3);
             border-radius: 50%;
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2.6rem;
+            height: 2.6rem;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            color: var(--white);
-            transition: background-color 0.3s;
+            color: #fff;
+            transition: all 0.3s;
             z-index: 100;
-        }
-        
-        .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-        
-        .theme-toggle i {
-            font-size: 1.25rem;
-        }
-        .dark-theme header h1 {
-            color: #ffffff !important;
+            backdrop-filter: blur(6px);
         }
 
-        .dark-theme header p {
-            color: #ffffff !important;
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(20deg) scale(1.1);
         }
+
+        .theme-toggle i { font-size: 1.1rem; }
+
+        .dark-theme header h1 { color: #ffffff !important; }
+        .dark-theme header p  { color: #ffffff !important; }
 
         /* ===== PINTURAS TAB STYLES ===== */
         .pinturas-intro {
@@ -310,37 +414,42 @@
             color: var(--text-light);
             font-style: italic;
             font-size: 0.95rem;
-            border-bottom: 1px dashed var(--accent-light);
+            border-bottom: none;
             margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .pinturas-intro::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 15%; right: 15%;
+            height: 2px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 4' preserveAspectRatio='none'%3E%3Cpath d='M0 2 Q25 0 50 2 Q75 4 100 2 Q125 0 150 2 Q175 4 200 2' stroke='%23c49a6c' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat center/100% 100%;
         }
 
         .pinturas-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.25rem;
+            gap: 1.5rem;
         }
 
-        @media (min-width: 480px) {
-            .pinturas-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (min-width: 900px) {
-            .pinturas-grid { grid-template-columns: repeat(3, 1fr); }
-        }
+        @media (min-width: 480px) { .pinturas-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 900px) { .pinturas-grid { grid-template-columns: repeat(3, 1fr); } }
 
         .pintura-card {
-            border-radius: 0.75rem;
+            border-radius: 1rem;
             background-color: var(--card-bg);
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 4px 16px rgba(139,69,19,0.12), 0 1px 4px rgba(139,69,19,0.06);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
+            border: 1.5px solid rgba(196,154,108,0.2);
         }
 
         .pintura-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+            transform: translateY(-6px) rotate(0.5deg);
+            box-shadow: 0 16px 40px rgba(139,69,19,0.2);
         }
 
         .pintura-img-wrap {
@@ -356,12 +465,10 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.4s ease;
+            transition: transform 0.5s ease;
         }
 
-        .pintura-card:hover .pintura-img-wrap img {
-            transform: scale(1.04);
-        }
+        .pintura-card:hover .pintura-img-wrap img { transform: scale(1.05); }
 
         .pintura-img-placeholder {
             width: 100%;
@@ -375,47 +482,45 @@
             font-size: 0.8rem;
         }
 
-        .pintura-img-placeholder i {
-            font-size: 2rem;
-            opacity: 0.5;
-        }
+        .pintura-img-placeholder i { font-size: 2.5rem; opacity: 0.4; }
 
         .pintura-badge {
             position: absolute;
-            top: 0.6rem;
-            right: 0.6rem;
-            font-size: 0.7rem;
+            top: 0.7rem;
+            right: 0.7rem;
+            font-size: 0.68rem;
             background-color: var(--accent-color);
             color: #fff;
-            padding: 0.2rem 0.55rem;
+            padding: 0.25rem 0.6rem;
             border-radius: 999px;
             font-weight: 700;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.05em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
-        .pintura-badge.vendida {
-            background-color: #888;
-        }
+        .pintura-badge.vendida { background-color: #888; }
 
         .pintura-info {
-            padding: 0.85rem 1rem 1rem 1rem;
+            padding: 1rem 1.1rem 1.1rem;
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 0.3rem;
+            gap: 0.35rem;
         }
 
         .pintura-nombre {
+            font-family: 'Playfair Display', serif;
             font-weight: 700;
-            font-size: 0.97rem;
+            font-style: italic;
+            font-size: 1.05rem;
             color: var(--text-color);
             line-height: 1.3;
         }
 
         .pintura-descripcion {
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: var(--text-light);
-            line-height: 1.5;
+            line-height: 1.55;
             flex: 1;
         }
 
@@ -423,50 +528,49 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 0.6rem;
+            margin-top: 0.7rem;
         }
 
         .pintura-dimensiones {
             display: inline-block;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             background-color: var(--accent-light);
             color: #fff;
-            padding: 0.15rem 0.5rem;
+            padding: 0.18rem 0.55rem;
             border-radius: 999px;
-            font-weight: 600;
+            font-weight: 700;
             opacity: 0.9;
         }
 
-        .dark-theme .pintura-dimensiones {
-            background-color: var(--accent-dark);
-            opacity: 1;
-        }
+        .dark-theme .pintura-dimensiones { background-color: var(--accent-dark); opacity: 1; }
 
         .pintura-precio {
+            font-family: 'Playfair Display', serif;
             font-weight: 700;
             color: var(--price-color);
-            font-size: 1rem;
+            font-size: 1.05rem;
         }
 
         .pinturas-nota {
-            margin-top: 1.75rem;
-            padding: 0.85rem 1rem;
-            border-radius: 0.5rem;
+            margin-top: 2rem;
+            padding: 1rem 1.2rem;
+            border-radius: 0.75rem;
             background-color: var(--card-bg);
             border: 1px dashed var(--accent-light);
             font-size: 0.85rem;
             color: var(--text-light);
             text-align: center;
+            font-style: italic;
         }
 
-        .pinturas-nota i {
-            margin-right: 0.3rem;
-            color: var(--accent-color);
-        }
+        .pinturas-nota i { margin-right: 0.4rem; color: var(--accent-color); }
     </style>
 </head>
    
 <body>
+
+    <!-- Canvas para las pinceladas de fondo -->
+    <canvas id="brushCanvas"></canvas>
 
     <header>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -1964,6 +2068,161 @@
     </footer>
 
     <script>
+        /* =============================================
+           BRUSH STROKE CANVAS BACKGROUND
+        ============================================= */
+        (function() {
+            const canvas = document.getElementById('brushCanvas');
+            const ctx = canvas.getContext('2d');
+            let W, H;
+            let isDark = document.documentElement.classList.contains('dark-theme');
+
+            function resize() {
+                W = canvas.width  = window.innerWidth;
+                H = canvas.height = Math.max(document.body.scrollHeight, window.innerHeight);
+            }
+
+            /* ---- Pincelada individual ---- */
+            function drawBrushStroke(x, y, length, angle, width, color, alpha) {
+                ctx.save();
+                ctx.globalAlpha = alpha;
+                ctx.strokeStyle = color;
+                ctx.lineWidth = width;
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+
+                // Textura rugosa de pincel: múltiples trazos finos
+                const bristles = Math.floor(width / 3) + 3;
+                for (let b = 0; b < bristles; b++) {
+                    const spread = (b / bristles - 0.5) * width * 0.7;
+                    const wobble = (Math.random() - 0.5) * 4;
+                    ctx.beginPath();
+                    ctx.globalAlpha = alpha * (0.4 + Math.random() * 0.6);
+                    ctx.lineWidth = 1 + Math.random() * 2.5;
+
+                    // Punto inicial con variación
+                    const sx = x + Math.cos(angle + Math.PI/2) * spread;
+                    const sy = y + Math.sin(angle + Math.PI/2) * spread;
+
+                    ctx.moveTo(sx, sy);
+
+                    // Curva Bezier con puntos de control orgánicos
+                    const cp1x = sx + Math.cos(angle) * length * 0.33 + (Math.random()-0.5)*20 + wobble;
+                    const cp1y = sy + Math.sin(angle) * length * 0.33 + (Math.random()-0.5)*20 + wobble;
+                    const cp2x = sx + Math.cos(angle) * length * 0.66 + (Math.random()-0.5)*20 - wobble;
+                    const cp2y = sy + Math.sin(angle) * length * 0.66 + (Math.random()-0.5)*20 - wobble;
+                    const ex = sx + Math.cos(angle) * length + Math.cos(angle + Math.PI/2) * spread * 0.3;
+                    const ey = sy + Math.sin(angle) * length + Math.sin(angle + Math.PI/2) * spread * 0.3;
+
+                    ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, ex, ey);
+                    ctx.stroke();
+                }
+                ctx.restore();
+            }
+
+            /* ---- Manchas de acuarela ---- */
+            function drawWatercolor(x, y, r, color, alpha) {
+                ctx.save();
+                const grad = ctx.createRadialGradient(x, y, 0, x, y, r);
+                grad.addColorStop(0,   color.replace(')', `, ${alpha * 0.6})`).replace('rgb', 'rgba'));
+                grad.addColorStop(0.5, color.replace(')', `, ${alpha * 0.3})`).replace('rgb', 'rgba'));
+                grad.addColorStop(1,   color.replace(')', `, 0)`).replace('rgb', 'rgba'));
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                // Forma irregular
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(Math.random() * Math.PI * 2);
+                ctx.scale(1, 0.4 + Math.random() * 0.8);
+                ctx.arc(0, 0, r, 0, Math.PI * 2);
+                ctx.restore();
+                ctx.fill();
+                ctx.restore();
+            }
+
+            function getColors() {
+                isDark = document.documentElement.classList.contains('dark-theme');
+                if (isDark) {
+                    return {
+                        strokes: ['rgb(212,167,106)', 'rgb(179,140,90)', 'rgb(227,196,150)', 'rgb(139,69,19)'],
+                        spots:   ['rgb(212,167,106)', 'rgb(139,69,19)'],
+                        bg: 'rgb(13,17,23)'
+                    };
+                }
+                return {
+                    strokes: ['rgb(139,69,19)', 'rgb(196,154,108)', 'rgb(107,54,17)', 'rgb(205,133,63)'],
+                    spots:   ['rgb(196,154,108)', 'rgb(139,69,19)', 'rgb(205,133,63)'],
+                    bg: 'rgb(245,237,224)'
+                };
+            }
+
+            function render() {
+                resize();
+                ctx.clearRect(0, 0, W, H);
+
+                const { strokes, spots } = getColors();
+
+                // 1) Manchas de acuarela en el fondo (muy sutiles)
+                for (let i = 0; i < 18; i++) {
+                    const x = Math.random() * W;
+                    const y = Math.random() * H;
+                    const r = 80 + Math.random() * 200;
+                    const color = spots[Math.floor(Math.random() * spots.length)];
+                    drawWatercolor(x, y, r, color, 0.03 + Math.random() * 0.04);
+                }
+
+                // 2) Pinceladas grandes diagonales
+                for (let i = 0; i < 14; i++) {
+                    const x = Math.random() * W;
+                    const y = Math.random() * H;
+                    const len = 180 + Math.random() * 350;
+                    const angle = (-0.25 + Math.random() * 0.5) + (Math.random() > 0.5 ? 0 : Math.PI * 0.1);
+                    const w = 18 + Math.random() * 55;
+                    const color = strokes[Math.floor(Math.random() * strokes.length)];
+                    const alpha = 0.025 + Math.random() * 0.055;
+                    drawBrushStroke(x, y, len, angle, w, color, alpha);
+                }
+
+                // 3) Pinceladas medianas
+                for (let i = 0; i < 22; i++) {
+                    const x = Math.random() * W;
+                    const y = Math.random() * H;
+                    const len = 60 + Math.random() * 160;
+                    const angle = Math.random() * Math.PI * 2;
+                    const w = 6 + Math.random() * 22;
+                    const color = strokes[Math.floor(Math.random() * strokes.length)];
+                    const alpha = 0.02 + Math.random() * 0.05;
+                    drawBrushStroke(x, y, len, angle, w, color, alpha);
+                }
+
+                // 4) Detalles finos
+                for (let i = 0; i < 30; i++) {
+                    const x = Math.random() * W;
+                    const y = Math.random() * H;
+                    const len = 20 + Math.random() * 80;
+                    const angle = Math.random() * Math.PI * 2;
+                    const w = 1.5 + Math.random() * 6;
+                    const color = strokes[Math.floor(Math.random() * strokes.length)];
+                    const alpha = 0.03 + Math.random() * 0.07;
+                    drawBrushStroke(x, y, len, angle, w, color, alpha);
+                }
+            }
+
+            // Render inicial y en resize
+            render();
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(render, 200);
+            });
+
+            // Re-render al cambiar de tema
+            window.addEventListener('themeChanged', render);
+        })();
+
+        /* =============================================
+           TABS
+        ============================================= */
         document.addEventListener('DOMContentLoaded', function() {
             const tabTriggers = document.querySelectorAll(".tab-trigger");
             const tabContents = document.querySelectorAll(".tab-content");
@@ -1998,6 +2257,27 @@
                     themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
                     localStorage.setItem('theme', 'light');
                 }
+                window.dispatchEvent(new Event('themeChanged'));
+            });
+
+            /* Animación de entrada en los menu-items */
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, i) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateX(0)';
+                        }, i * 40);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-12px)';
+                item.style.transition = 'opacity 0.4s ease, transform 0.4s ease, background-color 0.25s ease, box-shadow 0.25s ease, border-left-color 0.25s ease';
+                observer.observe(item);
             });
         });
     </script>
