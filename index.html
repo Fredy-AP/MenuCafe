@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Warhol Café Bar - Menú</title>
+    <title>Warhol CafÃ© Bar - MenÃº</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         
@@ -25,10 +24,6 @@
             --tab-active: #8b4513; /* coffee color for active tabs */
             --tab-hover: rgba(139, 69, 19, 0.1); /* transparent coffee for hover */
         }
-
-
-
-
 
          .dark-theme {
             --primary-bg: #0d1117;
@@ -169,7 +164,6 @@
             padding: 1rem;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        /* Añade esta regla */
 
         @media (min-width: 768px) {
             .tab-content-container {
@@ -302,12 +296,173 @@
             font-size: 1.25rem;
         }
         .dark-theme header h1 {
-    color: #ffffff !important; /* Blanco puro para el título */
-}
+            color: #ffffff !important;
+        }
 
-.dark-theme header p {
-    color: #ffffff !important; /* Blanco puro para el subtítulo "Menú" */
-}
+        .dark-theme header p {
+            color: #ffffff !important;
+        }
+
+        /* ===== PINTURAS TAB STYLES ===== */
+        .pinturas-intro {
+            text-align: center;
+            padding: 1rem 0 1.5rem 0;
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 0.95rem;
+            border-bottom: 1px dashed var(--accent-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .pinturas-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 480px) {
+            .pinturas-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 900px) {
+            .pinturas-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .pintura-card {
+            border-radius: 0.75rem;
+            background-color: var(--card-bg);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pintura-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+        }
+
+        .pintura-img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background-color: var(--secondary-bg);
+            overflow: hidden;
+        }
+
+        .pintura-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .pintura-card:hover .pintura-img-wrap img {
+            transform: scale(1.04);
+        }
+
+        .pintura-img-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-light);
+            gap: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .pintura-img-placeholder i {
+            font-size: 2rem;
+            opacity: 0.5;
+        }
+
+        .pintura-badge {
+            position: absolute;
+            top: 0.6rem;
+            right: 0.6rem;
+            font-size: 0.7rem;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .pintura-badge.vendida {
+            background-color: #888;
+        }
+
+        .pintura-info {
+            padding: 0.85rem 1rem 1rem 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .pintura-nombre {
+            font-weight: 700;
+            font-size: 0.97rem;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+
+        .pintura-descripcion {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .pintura-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.6rem;
+        }
+
+        .pintura-dimensiones {
+            display: inline-block;
+            font-size: 0.75rem;
+            background-color: var(--accent-light);
+            color: #fff;
+            padding: 0.15rem 0.5rem;
+            border-radius: 999px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .dark-theme .pintura-dimensiones {
+            background-color: var(--accent-dark);
+            opacity: 1;
+        }
+
+        .pintura-precio {
+            font-weight: 700;
+            color: var(--price-color);
+            font-size: 1rem;
+        }
+
+        .pinturas-nota {
+            margin-top: 1.75rem;
+            padding: 0.85rem 1rem;
+            border-radius: 0.5rem;
+            background-color: var(--card-bg);
+            border: 1px dashed var(--accent-light);
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .pinturas-nota i {
+            margin-right: 0.3rem;
+            color: var(--accent-color);
+        }
     </style>
 </head>
    
@@ -318,8 +473,8 @@
             <i class="fas fa-moon"></i>
         </button>
         <div>
-            <h1>Warhol Café Bar</h1>
-            <p>Menú</p>
+            <h1>Warhol CafÃ© Bar</h1>
+            <p>MenÃº</p>
         </div>
     </header>
 
@@ -360,6 +515,10 @@
                             <i class="fas fa-pepper-hot"></i>
                             <span>Comida Mexicana</span>
                         </div>
+                        <div class="tab-trigger" data-tab="pinturas">
+                            <i class="fas fa-palette"></i>
+                            <span>Pinturas</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -397,7 +556,7 @@
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Café Moca</div>
+                                    <div class="menu-item-name">CafÃ© Moca</div>
                                     <div class="menu-item-description">Expreso, salsa de chocolate y leche espumada</div>
                                 </div>
                                 <div class="menu-item-price">$10.000</div>
@@ -410,25 +569,25 @@
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Aromática con Frutas Rojas</div>
+                                    <div class="menu-item-name">AromÃ¡tica con Frutas Rojas</div>
                                 </div>
                                 <div class="menu-item-price">$11.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Aromática con Frutas Amarillas</div>
+                                    <div class="menu-item-name">AromÃ¡tica con Frutas Amarillas</div>
                                 </div>
                                 <div class="menu-item-price">$10.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Carajillo con Brandy y Limón</div>
+                                    <div class="menu-item-name">Carajillo con Brandy y LimÃ³n</div>
                                 </div>
                                 <div class="menu-item-price">$10.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Café Bombón</div>
+                                    <div class="menu-item-name">CafÃ© BombÃ³n</div>
                                     <div class="menu-item-description">Leche condensada, expreso, leche espumada</div>
                                 </div>
                                 <div class="menu-item-price">$10.000</div>
@@ -448,7 +607,7 @@
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">Canelazo</div>
-                                    <div class="menu-item-description">Café, Maracuyá, Panela, Especias</div>
+                                    <div class="menu-item-description">CafÃ©, MaracuyÃ¡, Panela, Especias</div>
                                 </div>
                                 <div class="menu-item-price">$11.000</div>
                             </div>
@@ -475,14 +634,14 @@
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">Tinto de Verano</div>
-                                    <div class="menu-item-description">Vino tinto, Sprite, Limón</div>
+                                    <div class="menu-item-description">Vino tinto, Sprite, LimÃ³n</div>
                                 </div>
                                 <div class="menu-item-price">$15.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">Vino Caliente</div>
-                                    <div class="menu-item-description">Canela, clavos de olor, anís estrellado, jugo de naranja, azúcar</div>
+                                    <div class="menu-item-description">Canela, clavos de olor, anÃ­s estrellado, jugo de naranja, azÃºcar</div>
                                 </div>
                                 <div class="menu-item-price">$20.000</div>
                             </div>
@@ -497,7 +656,7 @@
                     </div>
 
                     <div class="menu-section">
-                        <h2>Bebidas Frías</h2>
+                        <h2>Bebidas FrÃ­as</h2>
                         <div class="menu-items two-columns">
                             <div class="menu-item">
                                 <div class="menu-item-content">
@@ -509,8 +668,7 @@
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">Botella de Agua con Gas</div>
                                 </div>
-            
-                    <div class="menu-item-price">$5.000</div>
+                                <div class="menu-item-price">$5.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
@@ -538,7 +696,7 @@
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Milo Frío</div>
+                                    <div class="menu-item-name">Milo FrÃ­o</div>
                                 </div>
                                 <div class="menu-item-price">$10.000</div>
                             </div>
@@ -574,11 +732,10 @@
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Granizado de Café</div>
+                                    <div class="menu-item-name">Granizado de CafÃ©</div>
                                 </div>
                                 <div class="menu-item-price">$12.000</div>
                             </div>
-
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">Soda saborizada Blue Berry</div>
@@ -618,7 +775,7 @@
                         <div class="menu-items two-columns">
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Cerveza Águila Light</div>
+                                    <div class="menu-item-name">Cerveza Ãguila Light</div>
                                 </div>
                                 <div class="menu-item-price">$6.000</div>
                             </div>
@@ -630,7 +787,7 @@
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Cerveza Águila Original</div>
+                                    <div class="menu-item-name">Cerveza Ãguila Original</div>
                                 </div>
                                 <div class="menu-item-price">$6.000</div>
                             </div>
@@ -652,7 +809,7 @@
                                 </div>
                                 <div class="menu-item-price">$10.000</div>
                             </div>
-                             <div class="menu-item">
+                            <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">Cerveza Club Colombia ( Negra , Dorada, Roja )</div>
                                 </div>
@@ -678,7 +835,6 @@
                                 <div class="menu-item-price">$28.000</div>
                             </div>
                             <div class="menu-item">
-
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">Jarra De Cerveza Aguila Original</div>
                                 </div>
@@ -716,7 +872,7 @@
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Trago Corto de Jägermeister</div>
+                                    <div class="menu-item-name">Trago Corto de JÃ¤germeister</div>
                                 </div>
                                 <div class="menu-item-price">$10.000</div>
                             </div>
@@ -758,24 +914,17 @@
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Trago Corto de Vodka</div>
-                                </div>
-                                <div class="menu-item-price">$8.000</div>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-content">
                                     <div class="menu-item-name">Trago Corto de Absenta</div>
                                 </div>
                                 <div class="menu-item-price">$9.000</div>
                             </div>
-
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">Aguardiente Amarillo 1/2</div>
                                 </div>
                                 <div class="menu-item-price">$60.000</div>
                             </div>
-                              <div class="menu-item">
+                            <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">Brandi 1/2</div>
                                 </div>
@@ -793,7 +942,7 @@
                                 </div>
                                 <div class="menu-item-price">$65.000</div>
                             </div>
-                             <div class="menu-item">
+                            <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">SMIRNOFF TAMARINDO</div>
                                 </div>
@@ -815,7 +964,7 @@
                     </div>
 
                     <div class="menu-section">
-                        <h2>Cócteles</h2>
+                        <h2>CÃ³cteles</h2>
                         <div class="menu-items">
                             <div class="menu-item">
                                 <div class="menu-item-content">
@@ -827,14 +976,14 @@
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">Mojito</div>
-                                    <div class="menu-item-description">hierbabuena, ron blanco, azúcar, limón</div>
+                                    <div class="menu-item-description">hierbabuena, ron blanco, azÃºcar, limÃ³n</div>
                                 </div>
                                 <div class="menu-item-price">$20.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Vaso de  Tequila Olmeca Reposado</div>
-                                    <div class="menu-item-description">limon, hielo, y michelado con sal tajin </div>
+                                    <div class="menu-item-name">Vaso de Tequila Olmeca Reposado</div>
+                                    <div class="menu-item-description">limon, hielo, y michelado con sal tajin</div>
                                 </div>
                                 <div class="menu-item-price">$25.000</div>
                             </div>
@@ -846,43 +995,42 @@
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Bacardi con Limón</div>
+                                    <div class="menu-item-name">Bacardi con LimÃ³n</div>
                                 </div>
                                 <div class="menu-item-price">$18.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">Whiskey Sour</div>
-                                    <div class="menu-item-description">whiskey, limón, azúcar</div>
+                                    <div class="menu-item-description">whiskey, limÃ³n, azÃºcar</div>
                                 </div>
                                 <div class="menu-item-price">$18.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Cóctel Blue Lady</div>
+                                    <div class="menu-item-name">CÃ³ctel Blue Lady</div>
                                     <div class="menu-item-description">gin tonic, limon, blue curacao, hielo</div>
                                 </div>
                                 <div class="menu-item-price">$20.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Cóctel Bombón</div>
+                                    <div class="menu-item-name">CÃ³ctel BombÃ³n</div>
                                     <div class="menu-item-description">zumo de fresa, leche condensada, ron blanco, Baileys, hielo</div>
-                                </div>
-                                <div class="menu-item-price">$20.000</div>
-             
-               </div>
-                            <div class="menu-item">
-                                <div class="menu-item-content">
-                                    <div class="menu-item-name">Blue Margarita</div>
-                                    <div class="menu-item-description">tequila, curaçao, jugo de limón, azúcar</div>
                                 </div>
                                 <div class="menu-item-price">$20.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Cóctel Orgasmo</div>
-                                    <div class="menu-item-description">licor de café, licor de amaretto, licor de Baileys</div>
+                                    <div class="menu-item-name">Blue Margarita</div>
+                                    <div class="menu-item-description">tequila, curaÃ§ao, jugo de limÃ³n, azÃºcar</div>
+                                </div>
+                                <div class="menu-item-price">$20.000</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-item-content">
+                                    <div class="menu-item-name">CÃ³ctel Orgasmo</div>
+                                    <div class="menu-item-description">licor de cafÃ©, licor de amaretto, licor de Baileys</div>
                                 </div>
                                 <div class="menu-item-price">$20.000</div>
                             </div>
@@ -908,21 +1056,21 @@
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">Gin Tonic Falcony</div>
-                                    <div class="menu-item-description">agua tónica, ginebra</div>
+                                    <div class="menu-item-description">agua tÃ³nica, ginebra</div>
                                 </div>
                                 <div class="menu-item-price">$20.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Cóctel Cielo Azul</div>
-                                    <div class="menu-item-description">gin, vodka, blue curaçao, hielo</div>
+                                    <div class="menu-item-name">CÃ³ctel Cielo Azul</div>
+                                    <div class="menu-item-description">gin, vodka, blue curaÃ§ao, hielo</div>
                                 </div>
                                 <div class="menu-item-price">$22.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Cóctel Destornillador</div>
-                                    <div class="menu-item-description">zumo de naranja y vocka</div>
+                                    <div class="menu-item-name">CÃ³ctel Destornillador</div>
+                                    <div class="menu-item-description">zumo de naranja y vodka</div>
                                 </div>
                                 <div class="menu-item-price">$25.000</div>
                             </div>
@@ -941,15 +1089,15 @@
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Baileys Frío</div>
-                                    <div class="menu-item-description">licor de café, Baileys, café frío, crema de leche</div>
+                                    <div class="menu-item-name">Baileys FrÃ­o</div>
+                                    <div class="menu-item-description">licor de cafÃ©, Baileys, cafÃ© frÃ­o, crema de leche</div>
                                 </div>
                                 <div class="menu-item-price">$25.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">Gin Tonic Premium Pink</div>
-                                    <div class="menu-item-description">agua tónica, fresa</div>
+                                    <div class="menu-item-description">agua tÃ³nica, fresa</div>
                                 </div>
                                 <div class="menu-item-price">$27.000</div>
                             </div>
@@ -960,20 +1108,23 @@
                 <!-- Desserts Tab -->
                 <div class="tab-content" id="desserts">
                     <div class="menu-section">
-                        <h2>Tortas Panaderia </h2>
+                        <h2>Tortas Panaderia</h2>
                         <div class="menu-items">
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">Torta de chocolate </div>
+                                    <div class="menu-item-name">Torta de chocolate</div>
                                 </div>
                                 <div class="menu-item-price">$10.000</div>
                             </div>
                         </div>
                     </div>
-                 </div>
+                </div>
+
+                <!-- Salchipapas Tab -->
                 <div class="tab-content" id="salchipapas">
                     <div class="menu-section">
                         <h2>Salchipapas</h2>
+                        <div class="menu-items">
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">CLASICA DOS PERSONAS</div>
@@ -981,7 +1132,7 @@
                                 </div>
                                 <div class="menu-item-price">$27.000</div>
                             </div>
-                             <div class="menu-item">
+                            <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">SALCHICRIOLLA 2 PERSONAS</div>
                                     <div class="menu-item-description">papa criolla, queso fundido, trozos de pechuga apanados, salchicha ranchera, maiz dulce, y salsas premiun</div>
@@ -990,64 +1141,57 @@
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">GRATINADA  PERSONAl</div>
-                                    <div class="menu-item-description">papa a la francesa, salchicha zenu, baño , tocinetas y salsas premiun</div>
+                                    <div class="menu-item-name">GRATINADA PERSONAL</div>
+                                    <div class="menu-item-description">papa a la francesa, salchicha zenu, baÃ±o, tocinetas y salsas premiun</div>
                                 </div>
                                 <div class="menu-item-price">$21.000</div>
                             </div>
-                             <div class="menu-item">
+                            <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">GRATINADA 2 PERSONAS</div>
-                                    <div class="menu-item-description">papa a la francesa, salchicha zenu, baño , tocinetas y salsas premiun</div>
+                                    <div class="menu-item-description">papa a la francesa, salchicha zenu, baÃ±o, tocinetas y salsas premiun</div>
                                 </div>
                                 <div class="menu-item-price">$37.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">KLISA </div>
-                                    <div class="menu-item-description">papa a la francesa, salchicha zenu, baño de queso fundido, Pollo desmechado en salsa de la casa, chorizo santarosano, tocineta, salsas premiun</div>
+                                    <div class="menu-item-name">KLISA</div>
+                                    <div class="menu-item-description">papa a la francesa, salchicha zenu, baÃ±o de queso fundido, Pollo desmechado en salsa de la casa, chorizo santarosano, tocineta, salsas premiun</div>
                                 </div>
                                 <div class="menu-item-price">$28.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">klISA 2 PERSONAS</div>
-                                    <div class="menu-item-description">papa a la francesa, salchicha zenu, baño de queso fundido, pollo desmechado en salsa de la casa, costilla de cerdo desmechada en salsa bbq, chorizo santa rosano, y salsas premiun</div>
+                                    <div class="menu-item-name">KLISA 2 PERSONAS</div>
+                                    <div class="menu-item-description">papa a la francesa, salchicha zenu, baÃ±o de queso fundido, pollo desmechado en salsa de la casa, costilla de cerdo desmechada en salsa bbq, chorizo santa rosano, y salsas premiun</div>
                                 </div>
                                 <div class="menu-item-price">$48.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">SALCHICRIOLLA 2 PERSONAS</div>
-                                    <div class="menu-item-description">papa criolla, queso fundido, trozos de pechuga apanados, salchicha ranchera, maiz dulce, y salsas premiun</div>
-                                </div>
-                                <div class="menu-item-price">$43.000</div>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-content">
-                                    <div class="menu-item-name">ANTIOQUEÑA  PERSONAL</div>
-                                    <div class="menu-item-description">papa a la francesa, salchicha zenu, baño de queso fundido, guacamole artesanal, chicharron, maduro frito y salsas premium</div>
+                                    <div class="menu-item-name">ANTIOQUEÃ‘A PERSONAL</div>
+                                    <div class="menu-item-description">papa a la francesa, salchicha zenu, baÃ±o de queso fundido, guacamole artesanal, chicharron, maduro frito y salsas premium</div>
                                 </div>
                                 <div class="menu-item-price">$28.000</div>
                             </div>
-                             <div class="menu-item">
-                             <div class="menu-item-content">
-                                    <div class="menu-item-name">ANTIOQUEÑA 2 PERSONAS</div>
-                                    <div class="menu-item-description">papa a la francesa, salchicha zenu, baño de queso fundido, guacamole artesanal, chicharron, maduro frito y salsas premium</div>
+                            <div class="menu-item">
+                                <div class="menu-item-content">
+                                    <div class="menu-item-name">ANTIOQUEÃ‘A 2 PERSONAS</div>
+                                    <div class="menu-item-description">papa a la francesa, salchicha zenu, baÃ±o de queso fundido, guacamole artesanal, chicharron, maduro frito y salsas premium</div>
                                 </div>
                                 <div class="menu-item-price">$43.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">FULL MIXTA </div>
-                                    <div class="menu-item-description">Papa a la francesa, salchicha zenu, baño de queso fundido, pollo desmechado en salsa de la casa, costilla de cerdo desmechado en BBQ, chorizo santa rosano, y salsas premiun</div>
+                                    <div class="menu-item-name">FULL MIXTA</div>
+                                    <div class="menu-item-description">Papa a la francesa, salchicha zenu, baÃ±o de queso fundido, pollo desmechado en salsa de la casa, costilla de cerdo desmechado en BBQ, chorizo santa rosano, y salsas premiun</div>
                                 </div>
                                 <div class="menu-item-price">$30.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">FULL MIXTA 2 PERSONAS </div>
-                                    <div class="menu-item-description">Papa a la francesa, salchicha zenu, baño de queso fundido, pollo desmechado en salsa de la casa, costilla de cerdo desmechado en BBQ, chorizo santa rosano, y salsas premiun</div>
+                                    <div class="menu-item-name">FULL MIXTA 2 PERSONAS</div>
+                                    <div class="menu-item-description">Papa a la francesa, salchicha zenu, baÃ±o de queso fundido, pollo desmechado en salsa de la casa, costilla de cerdo desmechado en BBQ, chorizo santa rosano, y salsas premiun</div>
                                 </div>
                                 <div class="menu-item-price">$52.000</div>
                             </div>
@@ -1077,42 +1221,42 @@
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">PECHUGA PARRILLERA</div>
-                                    <div class="menu-item-description">300 g de pechuga asada a la parrilla, ensalada de la casa, guacamole artesanal y acompañamiento (a elección)</div>
+                                    <div class="menu-item-description">300 g de pechuga asada a la parrilla, ensalada de la casa, guacamole artesanal y acompaÃ±amiento (a elecciÃ³n)</div>
                                 </div>
                                 <div class="menu-item-price">$30.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">COSTILLAS AHUMADAS DE CERDO</div>
-                                    <div class="menu-item-description">400 g de costillas de cerdo ahumada con un baño de salsa BBQ, ensalada de la casa, guacamole artesanal y acompañamiento (a elección)</div>
+                                    <div class="menu-item-description">400 g de costillas de cerdo ahumada con un baÃ±o de salsa BBQ, ensalada de la casa, guacamole artesanal y acompaÃ±amiento (a elecciÃ³n)</div>
                                 </div>
                                 <div class="menu-item-price">$35.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">LOMO DE CERDO</div>
-                                    <div class="menu-item-description">300 g de lomo de cerdo asado a la parrilla, ensalada de la casa, guacamole artesanal y acompañamiento (a elección)</div>
+                                    <div class="menu-item-description">300 g de lomo de cerdo asado a la parrilla, ensalada de la casa, guacamole artesanal y acompaÃ±amiento (a elecciÃ³n)</div>
                                 </div>
                                 <div class="menu-item-price">$30.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">ASADO DE RES</div>
-                                    <div class="menu-item-description">300 g de carne asada a la parrilla, ensalada de la casa, guacamole artesanal y acompañamiento (a elección)</div>
+                                    <div class="menu-item-description">300 g de carne asada a la parrilla, ensalada de la casa, guacamole artesanal y acompaÃ±amiento (a elecciÃ³n)</div>
                                 </div>
                                 <div class="menu-item-price">$32.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">PECHUGA GRATINADA</div>
-                                    <div class="menu-item-description">300 g de pechuga asada a la parrilla con un baño de queso fundido, maiz dulce, ensalada de la casa, guacamole artesanal y acompañamiento (a elección)</div>
+                                    <div class="menu-item-description">300 g de pechuga asada a la parrilla con un baÃ±o de queso fundido, maiz dulce, ensalada de la casa, guacamole artesanal y acompaÃ±amiento (a elecciÃ³n)</div>
                                 </div>
                                 <div class="menu-item-price">$32.000</div>
                             </div>
                         </div>
                     </div>
                     <div class="menu-section">
-                        <h2>Acompañamientos</h2>
+                        <h2>AcompaÃ±amientos</h2>
                         <div class="menu-items two-columns">
                             <div class="menu-item">
                                 <div class="menu-item-content">
@@ -1146,64 +1290,63 @@
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">CLASICA SENCILLA</div>
-                                    <div class="menu-item-description">Pan artesanal, 150 gr carne de res, queso mozzarella, verduras frescas, salsas premium y cebolla caramelizada (a elección)</div>
+                                    <div class="menu-item-description">Pan artesanal, 150 gr carne de res, queso mozzarella, verduras frescas, salsas premium y cebolla caramelizada (a elecciÃ³n)</div>
                                 </div>
                                 <div class="menu-item-price">$19.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">TROPICAL</div>
-                                    <div class="menu-item-description">Pan artesanal, 150 gr carne de res, queso mozzarella fundido, piña calada, maiz dulce, verduras frescas, salsas premium y cebolla caramelizada (a elección)</div>
+                                    <div class="menu-item-description">Pan artesanal, 150 gr carne de res, queso mozzarella fundido, piÃ±a calada, maiz dulce, verduras frescas, salsas premium y cebolla caramelizada (a elecciÃ³n)</div>
                                 </div>
                                 <div class="menu-item-price">$22.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                   
- <div class="menu-item-name">BBQ RIBS</div>
-                                    <div class="menu-item-description">Pan artesanal, 150 gr carne de res, queso mozzarella fundido, costilla de cerdo desmechada en salsa BBQ, maiz dulce, verduras frescas, salsas premium y cebolla caramelizada (a elección)</div>
+                                    <div class="menu-item-name">BBQ RIBS</div>
+                                    <div class="menu-item-description">Pan artesanal, 150 gr carne de res, queso mozzarella fundido, costilla de cerdo desmechada en salsa BBQ, maiz dulce, verduras frescas, salsas premium y cebolla caramelizada (a elecciÃ³n)</div>
                                 </div>
                                 <div class="menu-item-price">$24.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">DOBLE QUESO</div>
-                                    <div class="menu-item-description">Pan artesanal, 150 gr carne de res, queso mozzarella, baño de queso fundido, tocineta, verduras frescas, salsas premium y cebolla caramelizada (a eleccion)</div>
+                                    <div class="menu-item-description">Pan artesanal, 150 gr carne de res, queso mozzarella, baÃ±o de queso fundido, tocineta, verduras frescas, salsas premium y cebolla caramelizada (a eleccion)</div>
                                 </div>
                                 <div class="menu-item-price">$24.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">MEXICANA SENCILLA</div>
-                                    <div class="menu-item-description">Pan artesanal, 150 gr carne de res, queso mozzarella, queso fundido, jalapeños o pepinillos, guacamole, tocineta, verduras frescas, salsas premium y cebolla caramelizada (a elección)</div>
+                                    <div class="menu-item-description">Pan artesanal, 150 gr carne de res, queso mozzarella, queso fundido, jalapeÃ±os o pepinillos, guacamole, tocineta, verduras frescas, salsas premium y cebolla caramelizada (a elecciÃ³n)</div>
                                 </div>
                                 <div class="menu-item-price">$25.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">KLISA</div>
-                                    <div class="menu-item-description">Pan artesanal, 150 gr carne de res, queso mozzarella, pollo desmechado en salsa de la casa, tocineta, aros de cebolla, verduras frescas, salsas premium y cebolla caramelizada (a elección)</div>
+                                    <div class="menu-item-description">Pan artesanal, 150 gr carne de res, queso mozzarella, pollo desmechado en salsa de la casa, tocineta, aros de cebolla, verduras frescas, salsas premium y cebolla caramelizada (a elecciÃ³n)</div>
                                 </div>
                                 <div class="menu-item-price">$26.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">DE MI PUEBLO</div>
-                                    <div class="menu-item-description">Pan artesanal, 150 gr carne de res, queso mozzarella, chorizo santarrosano, verduras frescas, salsas premium y cebolla caramelizada (a elección)</div>
+                                    <div class="menu-item-description">Pan artesanal, 150 gr carne de res, queso mozzarella, chorizo santarrosano, verduras frescas, salsas premium y cebolla caramelizada (a elecciÃ³n)</div>
                                 </div>
                                 <div class="menu-item-price">$28.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">MASTER MIXTA</div>
-                                    <div class="menu-item-description">Pan artesanal, 150 gr carne de res, pechuga apanada, queso mozzarella, baño de queso fundido, tocineta, verduras frescas, salsas premium y cebolla caramelizada</div>
+                                    <div class="menu-item-description">Pan artesanal, 150 gr carne de res, pechuga apanada, queso mozzarella, baÃ±o de queso fundido, tocineta, verduras frescas, salsas premium y cebolla caramelizada</div>
                                 </div>
                                 <div class="menu-item-price">$29.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">MASTER DOBLE CARNE</div>
-                                    <div class="menu-item-description">Pan artesanal, 300 gr doble carne de res, queso mozzarella, baño de queso fundido, tocineta, verduras frescas, salsas premium y cebolla caramelizada (a elección)</div>
+                                    <div class="menu-item-description">Pan artesanal, 300 gr doble carne de res, queso mozzarella, baÃ±o de queso fundido, tocineta, verduras frescas, salsas premium y cebolla caramelizada (a elecciÃ³n)</div>
                                 </div>
                                 <div class="menu-item-price">$30.000</div>
                             </div>
@@ -1211,7 +1354,7 @@
                     </div>
                 </div>
 
-                <!-- Patacones Tab (NEW) -->
+                <!-- Patacones Tab -->
                 <div class="tab-content" id="patacones">
                     <div class="menu-section">
                         <h2>Canastas</h2>
@@ -1219,20 +1362,19 @@
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">CANASTAS</div>
-                                    <div class="menu-item-description">Canastas de plátano verde, base de lechuga Batavia, pollo desmechado en salsa de la casa, queso fundido, maíz dulce, guacamole artesanal, salsas premium</div>
+                                    <div class="menu-item-description">Canastas de plÃ¡tano verde, base de lechuga Batavia, pollo desmechado en salsa de la casa, queso fundido, maÃ­z dulce, guacamole artesanal, salsas premium</div>
                                 </div>
                                 <div class="menu-item-price">$21.000</div>
                             </div>
                         </div>
                     </div>
-
                     <div class="menu-section">
                         <h2>Patacones</h2>
                         <div class="menu-items">
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">PATACÓN</div>
-                                    <div class="menu-item-description">pan artesanal,base de lechuga Batavia, salchicha americana, queso fundido, piña calada, maiz dulce, papa ripido, salsas</div>
+                                    <div class="menu-item-name">PATACÃ“N</div>
+                                    <div class="menu-item-description">pan artesanal, base de lechuga Batavia, salchicha americana, queso fundido, piÃ±a calada, maiz dulce, papa ripido, salsas</div>
                                 </div>
                                 <div class="menu-item-price">$26.000</div>
                             </div>
@@ -1240,7 +1382,7 @@
                     </div>
                 </div>
 
-                <!-- Perros Tab (NEW) -->
+                <!-- Perros Tab -->
                 <div class="tab-content" id="perros">
                     <div class="menu-section">
                         <h2>Perros</h2>
@@ -1248,7 +1390,7 @@
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">HAWAIANO</div>
-                                    <div class="menu-item-description">Pan artesanal, base de lechuga Batavia, salchicha americana, queso fundido, piña calada, maíz dulce, salsas premium, papa ripio</div>
+                                    <div class="menu-item-description">Pan artesanal, base de lechuga Batavia, salchicha americana, queso fundido, piÃ±a calada, maÃ­z dulce, salsas premium, papa ripio</div>
                                 </div>
                                 <div class="menu-item-price">$16.000</div>
                             </div>
@@ -1262,14 +1404,14 @@
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">KLISA</div>
-                                    <div class="menu-item-description">Pan artesanal, base de lechuga Batavia, salchicha americana, queso fundido, costilla de cerdo desmechada en salsa BBQ, maíz dulce, salsas premium, papa ripio</div>
+                                    <div class="menu-item-description">Pan artesanal, base de lechuga Batavia, salchicha americana, queso fundido, costilla de cerdo desmechada en salsa BBQ, maÃ­z dulce, salsas premium, papa ripio</div>
                                 </div>
                                 <div class="menu-item-price">$20.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">MEXICANO</div>
-                                    <div class="menu-item-description">Pan artesanal, base de lechuga Batavia, salchicha americana, queso fundido, costilla de cerdo desmechada en salsa BBQ, guacamole artesanal, jalapeños o pepinillos, salsas premium, papa ripio</div>
+                                    <div class="menu-item-description">Pan artesanal, base de lechuga Batavia, salchicha americana, queso fundido, costilla de cerdo desmechada en salsa BBQ, guacamole artesanal, jalapeÃ±os o pepinillos, salsas premium, papa ripio</div>
                                 </div>
                                 <div class="menu-item-price">$21.000</div>
                             </div>
@@ -1277,7 +1419,7 @@
                     </div>
                 </div>
 
-                <!-- Mexican Tab (Combined with Nachos, Sharing, and Combos) -->
+                <!-- Mexican Tab -->
                 <div class="tab-content" id="mexican">
                     <div class="menu-section">
                         <h2>Tacos</h2>
@@ -1290,8 +1432,8 @@
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">TACOS DE CHICHARRÓN</div>
-                                    <div class="menu-item-description">Trozos de Chicharrón salteados en mantequilla con Pimentón, Cebolla y Cilantro</div>
+                                    <div class="menu-item-name">TACOS DE CHICHARRÃ“N</div>
+                                    <div class="menu-item-description">Trozos de ChicharrÃ³n salteados en mantequilla con PimentÃ³n, Cebolla y Cilantro</div>
                                 </div>
                                 <div class="menu-item-price">$29.000</div>
                             </div>
@@ -1300,7 +1442,6 @@
                                     <div class="menu-item-name">TACOS DE FAJITAS DE RES</div>
                                 </div>
                                 <div class="menu-item-price">$28.000</div>
-
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
@@ -1323,14 +1464,14 @@
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">TACOS DE LENGUA</div>
-                                    <div class="menu-item-description">Trozos de Lengua salteada en mantequilla con Pimentón, Cebolla y Cilantro</div>
+                                    <div class="menu-item-description">Trozos de Lengua salteada en mantequilla con PimentÃ³n, Cebolla y Cilantro</div>
                                 </div>
                                 <div class="menu-item-price">$29.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">TACOS DE TRIPITA</div>
-                                    <div class="menu-item-description">Trozos de Tripita salteadas en mantequilla con Pimentón, Cebolla y Cilantro</div>
+                                    <div class="menu-item-description">Trozos de Tripita salteadas en mantequilla con PimentÃ³n, Cebolla y Cilantro</div>
                                 </div>
                                 <div class="menu-item-price">$27.000</div>
                             </div>
@@ -1344,7 +1485,7 @@
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">TACOS ROSARITO</div>
-                                    <div class="menu-item-description">Deliciosos Camarones salteados en mantequilla con Queso, Pimentón, Cebolla y Cilantro</div>
+                                    <div class="menu-item-description">Deliciosos Camarones salteados en mantequilla con Queso, PimentÃ³n, Cebolla y Cilantro</div>
                                 </div>
                                 <div class="menu-item-price">$30.000</div>
                             </div>
@@ -1432,7 +1573,7 @@
                         <div class="menu-items two-columns">
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">QUESADILLA SÓLO QUESO</div>
+                                    <div class="menu-item-name">QUESADILLA SÃ“LO QUESO</div>
                                 </div>
                                 <div class="menu-item-price">$18.000</div>
                             </div>
@@ -1465,7 +1606,6 @@
                                     <div class="menu-item-name">QUESADILLA DE COCHINITA PIBIL</div>
                                 </div>
                                 <div class="menu-item-price">$30.000</div>
-
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
@@ -1539,137 +1679,133 @@
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">TODAS NUESTRAS TORTAS VIENEN EN PAN BRIOCHE</div>
-                                    <div class="menu-item-description">con frijol refrito, lechuga, guacamole, cebolla bruja, jalapenos, queso cheddar, tocineta, queso mozzarella y sourcream. Acompañada con deliciosos nachos</div>
+                                    <div class="menu-item-description">con frijol refrito, lechuga, guacamole, cebolla bruja, jalapenos, queso cheddar, tocineta, queso mozzarella y sourcream. AcompaÃ±ada con deliciosos nachos</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
                     <div class="menu-section">
                         <h2>Para Compartir</h2>
                         <div class="menu-items">
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">FAJITAS DE RES</div>
-                                    <div class="menu-item-description">Deliciosas Fajitas de Res, salteado en mantequilla con Pimentón, Cebolla y Cilantro. Acompañado de Lechuga, Pico de gallo, Frijol Refrito, Guacamole, Mermelada de Piña - Maracuya y Sour Cream. 8 Tortillas de maíz y deliciosos Nachos (2-3 Personas)</div>
+                                    <div class="menu-item-description">Deliciosas Fajitas de Res, salteado en mantequilla con PimentÃ³n, Cebolla y Cilantro. AcompaÃ±ado de Lechuga, Pico de gallo, Frijol Refrito, Guacamole, Mermelada de PiÃ±a - Maracuya y Sour Cream. 8 Tortillas de maÃ­z y deliciosos Nachos (2-3 Personas)</div>
                                 </div>
                                 <div class="menu-item-price">$59.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">ALAMBRE</div>
-                                    <div class="menu-item-description">Deliciosa mezcla de Fajitas de Res y de Pollo salteadas en mantequilla con Pimentón, Cebolla, Cilantro y Queso, MUUUCHO QUESO! Acompañada de Lechuga, Pico de gallo, Frijol refrito, Guacamole, Mermelada de Piña - Maracuya y Sour Cream. 8 Tortillas de maíz y deliciosos Nachos (2-3 Personas)</div>
+                                    <div class="menu-item-description">Deliciosa mezcla de Fajitas de Res y de Pollo salteadas en mantequilla con PimentÃ³n, Cebolla, Cilantro y Queso, MUUUCHO QUESO! AcompaÃ±ada de Lechuga, Pico de gallo, Frijol refrito, Guacamole, Mermelada de PiÃ±a - Maracuya y Sour Cream. 8 Tortillas de maÃ­z y deliciosos Nachos (2-3 Personas)</div>
                                 </div>
                                 <div class="menu-item-price">$69.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">TACADA</div>
-                                    <div class="menu-item-description">Compuesta por 9 deliciosos tacos: 3 Fajitas de Res, 3 Cochnita Pibil, 3 Fajitas de Pollo. Acompañada de deliciosos Nachos, Pico de Gallo y Guacamole (2-3 Personas)</div>
+                                    <div class="menu-item-description">Compuesta por 9 deliciosos tacos: 3 Fajitas de Res, 3 Cochnita Pibil, 3 Fajitas de Pollo. AcompaÃ±ada de deliciosos Nachos, Pico de Gallo y Guacamole (2-3 Personas)</div>
                                 </div>
                                 <div class="menu-item-price">$79.000</div>
                             </div>
                         </div>
                     </div>
-                    
                     <div class="menu-section">
                         <h2>Nachos</h2>
                         <div class="menu-items">
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">NACHOS CHABELITA</div>
-                                    <div class="menu-item-description">Deliciosos nachos recién hechos, acompañados de salsa puebla (PICANTE) al mejor estilo Ay Chabela.</div>
+                                    <div class="menu-item-description">Deliciosos nachos reciÃ©n hechos, acompaÃ±ados de salsa puebla (PICANTE) al mejor estilo Ay Chabela.</div>
                                 </div>
                                 <div class="menu-item-price">$14.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">NACHOS TRADICIONALES</div>
-                                    <div class="menu-item-description">Cama de nachos con fríjol refrito, pico de gallo, guacamole, sour cream y queso cheddar.</div>
+                                    <div class="menu-item-description">Cama de nachos con frÃ­jol refrito, pico de gallo, guacamole, sour cream y queso cheddar.</div>
                                 </div>
                                 <div class="menu-item-price">$17.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">MEROS NACHOS</div>
-                                    <div class="menu-item-description">Cama de nachos con fríjol refrito, tocineta, pico de gallo, guacamole, sour cream, cheddar y mermelada de piña-maracuyá.</div>
+                                    <div class="menu-item-description">Cama de nachos con frÃ­jol refrito, tocineta, pico de gallo, guacamole, sour cream, cheddar y mermelada de piÃ±a-maracuyÃ¡.</div>
                                 </div>
                                 <div class="menu-item-price">$21.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">NACHOS GUADALUPE</div>
-                                    <div class="menu-item-description">Cama de nachos con fríjol refrito, fajitas de pollo o pastor, pico de gallo, guacamole y sour cream.</div>
+                                    <div class="menu-item-description">Cama de nachos con frÃ­jol refrito, fajitas de pollo o pastor, pico de gallo, guacamole y sour cream.</div>
                                 </div>
                                 <div class="menu-item-price">$25.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">BIRRIA-EMPANADAS (5 EMPANADAS )</div>
-                                    <div class="menu-item-description">Deliciosas empanadas de birria con queso en masita de harina, súper crujientes. Acompañadas de sour cream, guacamole, mermelada de piña-maracuyá y un encurtido picosito.</div>
+                                    <div class="menu-item-name">BIRRIA-EMPANADAS (5 EMPANADAS)</div>
+                                    <div class="menu-item-description">Deliciosas empanadas de birria con queso en masita de harina, sÃºper crujientes. AcompaÃ±adas de sour cream, guacamole, mermelada de piÃ±a-maracuyÃ¡ y un encurtido picosito.</div>
                                 </div>
                                 <div class="menu-item-price">$24.000</div>
                             </div>
-                             <div class="menu-item">
+                            <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">BIRRIA-EMPANADAS (7 EMPANADAS )</div>
-                                    <div class="menu-item-description">Deliciosas empanadas de birria con queso en masita de harina, súper crujientes. Acompañadas de sour cream, guacamole, mermelada de piña-maracuyá y un encurtido picosito.</div>
+                                    <div class="menu-item-name">BIRRIA-EMPANADAS (7 EMPANADAS)</div>
+                                    <div class="menu-item-description">Deliciosas empanadas de birria con queso en masita de harina, sÃºper crujientes. AcompaÃ±adas de sour cream, guacamole, mermelada de piÃ±a-maracuyÃ¡ y un encurtido picosito.</div>
                                 </div>
                                 <div class="menu-item-price">$28.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">CHICHANACHOS</div>
-                                    <div class="menu-item-description">Cama de nachos con fríjol refrito, trozos de chicharrón, queso, pico de gallo, guacamole, sour cream y mermelada de piña-maracuyá.</div>
-   
-                             </div>
+                                    <div class="menu-item-description">Cama de nachos con frÃ­jol refrito, trozos de chicharrÃ³n, queso, pico de gallo, guacamole, sour cream y mermelada de piÃ±a-maracuyÃ¡.</div>
+                                </div>
                                 <div class="menu-item-price">$27.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">NACHOS PANCHO</div>
-                                    <div class="menu-item-description">Cama de nachos con fríjol refrito, fajitas de res, queso, pico de gallo, guacamole, sour cream y jalapeños.</div>
+                                    <div class="menu-item-description">Cama de nachos con frÃ­jol refrito, fajitas de res, queso, pico de gallo, guacamole, sour cream y jalapeÃ±os.</div>
                                 </div>
                                 <div class="menu-item-price">$29.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">BIRRIANACHOS</div>
-                                    <div class="menu-item-description">Cama de nachos con fríjol refrito, extra de birria, queso, pico de gallo, guacamole, sour cream y jalapeños.</div>
+                                    <div class="menu-item-description">Cama de nachos con frÃ­jol refrito, extra de birria, queso, pico de gallo, guacamole, sour cream y jalapeÃ±os.</div>
                                 </div>
                                 <div class="menu-item-price">$29.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">NACHOS VERACRUZ</div>
-                                    <div class="menu-item-description">Cama de nachos con fríjol refrito, camarones salteados, fajitas de pollo, pico de gallo, guacamole y sour cream.</div>
+                                    <div class="menu-item-description">Cama de nachos con frÃ­jol refrito, camarones salteados, fajitas de pollo, pico de gallo, guacamole y sour cream.</div>
                                 </div>
                                 <div class="menu-item-price">$31.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">DORILOCOS PERSONALES (SÓLO MIXTO)</div>
-                                    <div class="menu-item-description">Cama de Doritos, acompañada de fríjol refrito, pico de gallo, cebolla bruja, cheddar, sour cream, cilantro, jalapeños, queso mozzarella, maíz tierno, guacamole, mermelada de piña-maracuyá</div>
+                                    <div class="menu-item-name">DORILOCOS PERSONALES (SÃ“LO MIXTO)</div>
+                                    <div class="menu-item-description">Cama de Doritos, acompaÃ±ada de frÃ­jol refrito, pico de gallo, cebolla bruja, cheddar, sour cream, cilantro, jalapeÃ±os, queso mozzarella, maÃ­z tierno, guacamole, mermelada de piÃ±a-maracuyÃ¡</div>
                                 </div>
                                 <div class="menu-item-price">$18.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">DORILOCOS SENCILLOS (GRANDE)</div>
-                                    <div class="menu-item-description">Incluye los mismos ingredientes en una porción más grande.</div>
+                                    <div class="menu-item-description">Incluye los mismos ingredientes en una porciÃ³n mÃ¡s grande.</div>
                                 </div>
                                 <div class="menu-item-price">$23.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
-                                    <div class="menu-item-name">DORILOCOS CON PROTEÍNA (GRANDE)</div>
-                                    <div class="menu-item-description">Incluye los mismos ingredientes más la proteína de tu elección: Birria, Pastor, Cochinita Pibil, Fajitas de Res, Fajitas de Pollo, Chicharrón o Tripita.</div>
+                                    <div class="menu-item-name">DORILOCOS CON PROTEÃNA (GRANDE)</div>
+                                    <div class="menu-item-description">Incluye los mismos ingredientes mÃ¡s la proteÃ­na de tu elecciÃ³n: Birria, Pastor, Cochinita Pibil, Fajitas de Res, Fajitas de Pollo, ChicharrÃ³n o Tripita.</div>
                                 </div>
                                 <div class="menu-item-price">$31.000</div>
                             </div>
                         </div>
                     </div>
-                    
                     <div class="menu-section">
                         <h2>Combos</h2>
                         <div class="menu-items">
@@ -1683,94 +1819,178 @@
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">VIRUTA</div>
-                                    <div class="menu-item-description">Burro, Quesadilla, Nachos, Delicioso burro mix de res y pollo salteado, acompañado con lechuga, queso, pico de gallo, cebolla bruja y cilantro, Quesadilla Solo, Queso y Porcion de Nachos.</div>
+                                    <div class="menu-item-description">Burro, Quesadilla, Nachos, Delicioso burro mix de res y pollo salteado, acompaÃ±ado con lechuga, queso, pico de gallo, cebolla bruja y cilantro, Quesadilla Solo, Queso y Porcion de Nachos.</div>
                                 </div>
                                 <div class="menu-item-price">$27.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">CANTINFLAS</div>
-                                    <div class="menu-item-description">BURRO, FLAUTA, NACHOS, Delicioso burro mix de res y pollo salteado, acompañado con lechuga, queso, pico de gallo, cebolla bruja y cilantro, Quesadilla Solo, Queso y Porcion de Nachos.</div>
+                                    <div class="menu-item-description">BURRO, FLAUTA, NACHOS, Delicioso burro mix de res y pollo salteado, acompaÃ±ado con lechuga, queso, pico de gallo, cebolla bruja y cilantro, Quesadilla Solo, Queso y Porcion de Nachos.</div>
                                 </div>
                                 <div class="menu-item-price">$28.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">CAPULINA</div>
-                                    <div class="menu-item-description">BURRO,FLAUTA, QUESADILLA, Delicioso burro, mix de res y pollo salteado, acompañado con lechuga, queso, pico de gallo, cebolla bruja y cilantro, flauta de Birria bañada en queso y Mini Quesadilla, Solo Queso.</div>
+                                    <div class="menu-item-description">BURRO, FLAUTA, QUESADILLA, Delicioso burro, mix de res y pollo salteado, acompaÃ±ado con lechuga, queso, pico de gallo, cebolla bruja y cilantro, flauta de Birria baÃ±ada en queso y Mini Quesadilla, Solo Queso.</div>
                                 </div>
                                 <div class="menu-item-price">$29.000</div>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-item-content">
                                     <div class="menu-item-name">El SANTO</div>
-                                    <div class="menu-item-description">Burro, flauta, quesadilla, nachos, delicioso burro mix de res y pollo salteado, acompañado con lechuga, queso pico de gallo, cebolla bruja y cilantro, flauta de birria, bañada en queso, mini quesadilla, solo queso y porcion de nachos.</div>
+                                    <div class="menu-item-description">Burro, flauta, quesadilla, nachos, delicioso burro mix de res y pollo salteado, acompaÃ±ado con lechuga, queso pico de gallo, cebolla bruja y cilantro, flauta de birria, baÃ±ada en queso, mini quesadilla, solo queso y porcion de nachos.</div>
                                 </div>
                                 <div class="menu-item-price">$31.000</div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- ===== PINTURAS TAB (NEW) ===== -->
+                <div class="tab-content" id="pinturas">
+                    <div class="menu-section">
+                        <p class="pinturas-intro">
+                            <i class="fas fa-paint-brush"></i>
+                            Arte original disponible para la venta &mdash; cada pieza es Ãºnica y realizada a mano
+                        </p>
+
+                        <h2>Pinturas Disponibles</h2>
+
+                        <div class="pinturas-grid">
+
+                            <!-- OBRA 1 â€” reemplaza src con la URL de tu imagen -->
+                            <div class="pintura-card">
+                                <div class="pintura-img-wrap">
+                                    <img
+                                        src="../Autovorarefilia.jpeg"
+                                        alt="Pintura 1"
+                                        loading="lazy"
+                                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                                    />
+                                    <div class="pintura-img-placeholder" style="display:none;">
+                                        <i class="fas fa-image"></i>
+                                        <span>Imagen no disponible</span>
+                                    </div>
+                                    <span class="pintura-badge">Disponible</span>
+                                </div>
+                                <div class="pintura-info">
+                                    <div class="pintura-nombre">Autovorarefilia</div>
+                                    <div class="pintura-descripcion">Ã“leo sobre Tela,Deseos insaciables ,fantaseando a cada momento, succionando mis propias tripas, cada dia me alimento con hierbas finas para tener
+                                        el mejor sabor ,un sabor que ni el restaurante mas fino del mundo haz probado, soy un plato exquisito, un plato que ni el mejor chef del mundo podria crear , y esta soy yo excitandome con el sabor 
+                                        de mi propia carne. 2024.</div>
+                                    <div class="pintura-footer">
+                                        <span class="pintura-dimensiones">50.8 Ã— 70.8 cm</span>
+                                        <span class="pintura-precio">$800.000</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- OBRA 2 -->
+                            <div class="pintura-card">
+                                <div class="pintura-img-wrap">
+                                    <img
+                                        src="../Alfonso.jpeg"
+                                        alt="Pintura 2"
+                                        loading="lazy"
+                                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                                    />
+                                    <div class="pintura-img-placeholder" style="display:none;">
+                                        <i class="fas fa-image"></i>
+                                        <span>Imagen no disponible</span>
+                                    </div>
+                                    <span class="pintura-badge">Disponible</span>
+                                </div>
+                                <div class="pintura-info">
+                                    <div class="pintura-nombre">Alfonso</div>
+                                    <div class="pintura-descripcion">Oleo sobre tela,Un sueÃ±o translucido provocado de sus ultimas energias , proposito de querer ofrecer un dulce paraiso
+                                        vestido de telas finas siendo testigo de su victoria dejando al lado el sabor amargo de la heroina y la basura
+                                        esperando entregar chocolates y el boleto dorado. y un asi la tentacion de sus bombones acaramelados, rellenos de heroina
+                                        que no intenta no volverlos a saborear.Dulce tentacion que ha luchado durante un largo tiempo que se siente eteno.
+                                        2023</div>
+                                    <div class="pintura-footer">
+                                        <span class="pintura-dimensiones">79 Ã— 49 cm</span>
+                                        <span class="pintura-precio">$1.000.000</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- OBRA 3 -->
+                            <div class="pintura-card">
+                                <div class="pintura-img-wrap">
+                                    <img
+                                        src="../Parasito.jepg"
+                                        alt="Pintura 3"
+                                        loading="lazy"
+                                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                                    />
+                                    <div class="pintura-img-placeholder" style="display:none;">
+                                        <i class="fas fa-image"></i>
+                                        <span>Imagen no disponible</span>
+                                    </div>
+                                    <span class="pintura-badge">Disponible</span>
+                                </div>
+                                <div class="pintura-info">
+                                    <div class="pintura-nombre">Parasito</div>
+                                    <div class="pintura-descripcion">Acrilico sobre tela ,cuando  el ser humano  aprende que lo mejor para sus vidas
+                                    es no hablar  de lo que siente crece en nuestra garganta  un parasito  que conduce todo  lo que pensamos
+                                    desde la cabeza hasta el cuello con la intension de apoderarse de nuestro ser hasta el punto de no permitir
+                                    el paso de oxigeno matandonos legalmente.
+                                        2023</div>
+                                    <div class="pintura-footer">
+                                        <span class="pintura-dimensiones">25 Ã— 35 cm</span>
+                                        <span class="pintura-precio">$200.000 </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- /pinturas-grid -->
+
+                        <div class="pinturas-nota">
+                            <i class="fas fa-info-circle"></i>
+                            Para mÃ¡s informaciÃ³n sobre las obras, encargos personalizados o pagos, consulte directamente con el establecimiento.
+                        </div>
+                    </div>
+                </div>
+                <!-- ===== FIN PINTURAS TAB ===== -->
+
             </div>
         </div>
     </div>
 
     <footer>
-        <p>Warhol Café Bar </p>
+        <p>Warhol CafÃ© Bar</p>
     </footer>
 
     <script>
-
-        // Mostrar el alert al cargar la página
-window.onload = function() {
-  document.getElementById('promo-alert').style.display = 'block';
-  
-  // Ocultar el alert después de 8 segundos (opcional)
-  setTimeout(() => {
-    document.getElementById('promo-alert').style.display = 'none';
-  }, 12000);
-};
-
-        // JavaScript para la funcionalidad de las pestañas
         document.addEventListener('DOMContentLoaded', function() {
             const tabTriggers = document.querySelectorAll(".tab-trigger");
             const tabContents = document.querySelectorAll(".tab-content");
 
             tabTriggers.forEach((trigger) => {
                 trigger.addEventListener("click", () => {
-                    // Remove active class from all triggers and contents
                     tabTriggers.forEach((t) => t.classList.remove("active"));
                     tabContents.forEach((c) => c.classList.remove("active"));
-
-                    // Add active class to clicked trigger and corresponding content
                     trigger.classList.add("active");
                     const tabId = trigger.getAttribute("data-tab");
                     document.getElementById(tabId)?.classList.add("active");
                 });
             });
             
-            // Theme toggle functionality
             const themeToggle = document.getElementById('themeToggle');
             const htmlElement = document.documentElement;
             
-            // Check for saved theme preference or use system preference
             const savedTheme = localStorage.getItem('theme');
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             
-            // Apply theme based on saved preference or system preference
             if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
                 htmlElement.classList.add('dark-theme');
                 themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
             }
-
-
             
-            
-            // Toggle theme when button is clicked
             themeToggle.addEventListener('click', () => {
                 htmlElement.classList.toggle('dark-theme');
-                
-                // Update button icon
                 if (htmlElement.classList.contains('dark-theme')) {
                     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
                     localStorage.setItem('theme', 'dark');
@@ -1783,46 +2003,3 @@ window.onload = function() {
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
